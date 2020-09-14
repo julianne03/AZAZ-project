@@ -1,16 +1,23 @@
 package kr.hs.emirim.seungmin.javaproject_azaz;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -19,15 +26,27 @@ import com.rd.PageIndicatorView;
 
 public class MainActivity extends AppCompatActivity {
 
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    MyPageAdapter viewPagerAdapter;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firebaseFirestore;
 
     private String current_userId;
 
+    private int[] icon_list = {
+            R.drawable.action_home,
+            R.drawable.action_recommend,
+            R.drawable.action_favorite,
+            R.drawable.action_settings_black
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tab();
 
         androidx.appcompat.app.ActionBar ab = getSupportActionBar();
         ab.show();
@@ -36,10 +55,36 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        PageIndicatorView pageIndicatorView = findViewById(R.id.pageIndicatorView);
-        pageIndicatorView.setCount(4); // specify total count of indicators
-        pageIndicatorView.setSelection(1);
+
+
     }
+    private void tab() {
+        tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
+        viewPager = findViewById(R.id.viewPager);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        viewPagerAdapter = new MyPageAdapter(getSupportFragmentManager());
+        viewPagerAdapter.AddFragment(new HomeFragment(),"HOME");
+        viewPagerAdapter.AddFragment(new RecommendFragment(), "RECOMMEND");
+        viewPagerAdapter.AddFragment(new FavoriteFragment(), "FAVORITE");
+        viewPagerAdapter.AddFragment(new SettingFragment(), "SETTINGS");
+        viewPager.setAdapter(viewPagerAdapter);
+    }
+
+    private void setupTabIcons() {
+        for(int i=0; i<tabLayout.getTabCount(); i++) {
+
+            tabLayout.getTabAt(i).setIcon(icon_list[i]);
+            tabLayout.getTabAt(i).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_UNLABELED);
+        }
+    }
+
 
     @Override
     protected void onStart() {

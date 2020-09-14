@@ -7,4 +7,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="tabCustomStyle" parent="Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabIconTint">@color/colorPrimaryDark</item>
+        <item name="tabIndicatorColor">#ffffff</item>
+        <item name="tabIndicatorGravity">bottom</item>
+    </style>
+
 </resources>
