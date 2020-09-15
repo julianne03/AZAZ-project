@@ -15,7 +15,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0" >
+
+    </androidx.viewpager.widget.ViewPager>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -32,7 +34,6 @@
         app:tabIconTint="@color/colorPrimaryDark"
         app:tabIndicatorGravity="bottom"
         app:tabPaddingStart="0dp"></com.google.android.material.tabs.TabLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
