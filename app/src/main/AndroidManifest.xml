@@ -13,6 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".category.ElseThingActivity"></activity>
+        <activity android:name=".category.LanguageActivity" />
+        <activity android:name=".category.FocusActivity" />
+        <activity android:name=".category.HeadActivity" />
+        <activity android:name=".category.ExerciseActivity" />
+        <activity android:name=".category.ImagineActivity" />
+        <activity android:name=".category.TouchActivity" />
+        <activity android:name=".category.HearActivity" />
+        <activity android:name=".category.SightActivity" />
         <activity android:name=".SetupActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
