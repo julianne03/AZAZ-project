@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class FavoriteFragment extends Fragment {
+public class InventoryFragment extends Fragment {
 
-    public FavoriteFragment() {
+    public InventoryFragment() {
         // Required empty public constructor
     }
 
@@ -19,6 +19,6 @@ public class FavoriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        return inflater.inflate(R.layout.fragment_inventory, container, false);
     }
 }
