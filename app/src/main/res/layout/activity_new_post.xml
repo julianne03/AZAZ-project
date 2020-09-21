@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewPostActivity"
-    android:orientation="horizontal">
-
-
+    >
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -22,27 +19,27 @@
         app:layout_constraintVertical_bias="0.32" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/item_image1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.071"
+        app:layout_constraintVertical_bias="0.069"
         app:srcCompat="@drawable/add_image" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/item_image2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.071"
+        app:layout_constraintVertical_bias="0.069"
         app:srcCompat="@drawable/add_image" />
 
     <View
@@ -51,7 +48,7 @@
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintTop_toBottomOf="@+id/item_brand"
         app:layout_constraintVertical_bias="0.051"
         tools:layout_editor_absoluteX="1dp" />
 
@@ -61,7 +58,7 @@
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/item_image2"
         app:layout_constraintVertical_bias="0.067"
         tools:layout_editor_absoluteX="1dp" />
 
@@ -76,6 +73,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.045" />
+
+    <EditText
+        android:id="@+id/item_name"
+        android:layout_width="202dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
@@ -102,33 +112,20 @@
         app:layout_constraintVertical_bias="0.193" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="202dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#000000"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/item_price"
         android:layout_width="202dp"
         android:layout_height="37dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="72dp"
         android:backgroundTint="#000000"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/item_brand"
         android:layout_width="202dp"
         android:layout_height="37dp"
         android:layout_marginStart="12dp"
@@ -148,12 +145,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/item_image1"
         app:layout_constraintVertical_bias="0.193"
         app:srcCompat="@drawable/mood_good" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/item_good"
         android:layout_width="240dp"
         android:layout_height="38dp"
         android:ems="10"
@@ -164,7 +161,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.374"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/item_image2"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <EditText
+        android:id="@+id/item_recommend"
+        android:layout_width="240dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint="추천 아기 개월 수"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_bad"
         app:layout_constraintVertical_bias="0.192" />
 
     <ImageView
@@ -179,8 +191,19 @@
         app:layout_constraintVertical_bias="0.101"
         app:srcCompat="@drawable/mood_bad" />
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.101"
+        app:srcCompat="@drawable/recommend_child" />
+
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/item_bad"
         android:layout_width="239dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
@@ -191,6 +214,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/item_good" />
+
+    <ImageButton
+        android:id="@+id/new_post_next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        app:srcCompat="@drawable/next_btn"
+        tools:srcCompat="@drawable/next_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
