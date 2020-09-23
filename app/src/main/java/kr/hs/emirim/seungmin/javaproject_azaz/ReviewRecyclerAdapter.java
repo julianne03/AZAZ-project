@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class ReviewRecyclerAdapter extends RecyclerView.Adapter {
+public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAdapter.ViewHolder> {
 
     public List<Review> review_list;
     public List<User> user_list;
@@ -29,19 +30,29 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        //View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.)
-        return null;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.review_list_item,parent,false);
+        context = parent.getContext();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
     }
 
     @Override
     public int getItemCount() {
         return 0;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
 }
