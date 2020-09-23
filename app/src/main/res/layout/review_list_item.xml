@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/user_image"
+                android:id="@+id/review_user_image"
                 android:layout_width="58dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="16dp"
@@ -41,33 +41,33 @@
                 tools:ignore="MissingClass,MissingConstraints" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/review_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="UserName"
-                app:layout_constraintStart_toEndOf="@+id/user_image"
+                app:layout_constraintStart_toEndOf="@+id/review_user_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/review_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="category"
-                app:layout_constraintStart_toEndOf="@+id/user_image"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintStart_toEndOf="@+id/review_user_image"
+                app:layout_constraintTop_toBottomOf="@+id/review_user_name" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/review_image1"
                 android:layout_width="92dp"
                 android:layout_height="87dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_image"
+                app:layout_constraintTop_toBottomOf="@+id/review_user_image"
                 app:srcCompat="@drawable/add_image" />
 
             <ImageView
@@ -76,8 +76,8 @@
                 android:layout_height="87dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/user_image"
+                app:layout_constraintStart_toEndOf="@+id/review_image1"
+                app:layout_constraintTop_toBottomOf="@+id/review_user_image"
                 app:srcCompat="@drawable/add_image" />
 
             <ImageView
@@ -87,7 +87,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:layout_constraintTop_toBottomOf="@+id/review_item_price"
                 app:srcCompat="@drawable/mood_good" />
 
             <ImageView
@@ -101,27 +101,27 @@
                 app:srcCompat="@drawable/mood_bad" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/review_item_good"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="TextView"
+                android:text="Good"
                 app:layout_constraintStart_toEndOf="@+id/imageView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/review_item_price" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/review_item_bad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TextView"
+                android:text="Bad"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/review_item_good" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/review_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -129,27 +129,27 @@
                 android:text="item_name"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/review_image1" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/review_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="item_price"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/review_item_brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="item_brand"
-                app:layout_constraintStart_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintStart_toEndOf="@+id/review_item_price"
+                app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
             <ImageView
                 android:id="@+id/imageView16"
@@ -162,14 +162,14 @@
                 app:srcCompat="@drawable/recommend_child" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/review_item_reccomand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TextView"
+                android:text="Reccomand"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/review_item_bad" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
