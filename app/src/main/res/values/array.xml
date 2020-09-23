@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="category">
+        <item>시각</item>
+        <item>청각</item>
+        <item>촉각</item>
+        <item>상상력</item>
+        <item>운동기관</item>
+        <item>지능</item>
+        <item>집중력</item>
+        <item>언어</item>
+        <item>기타</item>
+
+    </string-array>
+
+</resources>

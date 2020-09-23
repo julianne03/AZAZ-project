@@ -10,10 +10,14 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -56,6 +60,8 @@ public class NewPostActivity extends AppCompatActivity {
     private Uri item_image1_Uri = null;
     private Uri item_image2_Uri = null;
 
+    private Spinner category;
+    private String category_text;
 
     private StorageReference storageReference;
     private FirebaseFirestore firebaseFirestore;
@@ -90,6 +96,26 @@ public class NewPostActivity extends AppCompatActivity {
         item_good = findViewById(R.id.item_good);
         item_bad = findViewById(R.id.item_bad);
         item_recommend = findViewById(R.id.item_recommend);
+
+        category = findViewById(R.id.spinner);
+
+        ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_dropdown_item);
+
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        category.setAdapter(categoryAdapter);
+
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                category_text = parent.getItemAtPosition(position).toString();
+                Log.e("test",category_text);
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
+
 
         new_post_next_btn = findViewById(R.id.new_post_next_btn);
 
@@ -133,7 +159,7 @@ public class NewPostActivity extends AppCompatActivity {
 
 
 
-                if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand)
+                if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category != null
                         && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend)
 //                        && item_image1_Uri!=null && item_image2_Uri!=null
                         ) {
@@ -183,6 +209,7 @@ public class NewPostActivity extends AppCompatActivity {
                                         itemMap.put("item_name", name);
                                         itemMap.put("item_price",price);
                                         itemMap.put("item_brand",brand);
+                                        itemMap.put("item_category",category_text);
                                         itemMap.put("item_image1",downloadUri1);
                                         itemMap.put("user_id", current_user_id);
                                         itemMap.put("timestamp", FieldValue.serverTimestamp());
