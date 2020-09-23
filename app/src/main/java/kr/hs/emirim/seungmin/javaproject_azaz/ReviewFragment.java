@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 public class ReviewFragment extends Fragment {
@@ -16,6 +18,8 @@ public class ReviewFragment extends Fragment {
     private RecyclerView review_list_view;
     private List<Review> review_list;
     private List<User> user_list;
+
+    private FirebaseFirestore firebaseFirestore;
 
     public ReviewFragment() {
         // Required empty public constructor
