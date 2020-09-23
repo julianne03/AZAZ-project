@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tab();
-
         androidx.appcompat.app.ActionBar ab = getSupportActionBar();
         ab.show();
         ab.setTitle("아장아장");
@@ -52,33 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    private void tab() {
-        tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
-        viewPager = findViewById(R.id.viewPager);
-        setupViewPager(viewPager);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        viewPagerAdapter = new MyPageAdapter(getSupportFragmentManager());
-        viewPagerAdapter.AddFragment(new HomeFragment(),"HOME");
-        viewPagerAdapter.AddFragment(new RecommendFragment(), "RECOMMEND");
-        viewPagerAdapter.AddFragment(new InventoryFragment(), "FAVORITE");
-        viewPagerAdapter.AddFragment(new SettingFragment(), "SETTINGS");
-        viewPager.setAdapter(viewPagerAdapter);
-    }
-
-    private void setupTabIcons() {
-        for(int i=0; i<tabLayout.getTabCount(); i++) {
-
-            tabLayout.getTabAt(i).setIcon(icon_list[i]);
-            tabLayout.getTabAt(i).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_UNLABELED);
-        }
-    }
-
 
     @Override
     protected void onStart() {
