@@ -1,10 +1,14 @@
 package kr.hs.emirim.seungmin.javaproject_azaz;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,6 +50,30 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
+        holder.setIsRecyclable(false);
+
+        final String ReviewId = review_list.get(position).ReviewId;
+        final String currentUserId = firebaseAuth.getCurrentUser().getUid();
+
+        String itemName = review_list.get(position).getItem_name();
+        String itemPrice = review_list.get(position).getItem_price();
+        String itemBrand = review_list.get(position).getItem_brand();
+        String itemCategory = review_list.get(position).getItem_category();
+        String user_id = review_list.get(position).getUser_id();
+
+        String itemImage1 = review_list.get(position).getItem_image1();
+        holder.setItemImage1(itemImage1);
+
+        String itemGood = review_list.get(position).getItem_good();
+        String itemBad = review_list.get(position).getItem_bad();
+        String itemRecommend = review_list.get(position).getItem_recommend();
+
+
+        String userName = user_list.get(position).getName();
+        String userImage = user_list.get(position).getImage();
+
+        holder.setUserData(userName,userImage);
+        holder.setItemData(itemName, itemPrice, itemBrand, itemCategory, itemGood, itemBad, itemRecommend);
     }
 
     @Override
@@ -65,6 +93,8 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         private TextView itemPrice;
         private TextView itemBrand;
 
+        private TextView itemCategory;
+
         private TextView itemGood;
         private TextView itemBad;
         private TextView itemRecommend;
@@ -74,11 +104,12 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             mView = itemView;
         }
 
-        public void setItemData(String name, String price, String brand, String good, String bad, String recommend) {
+        public void setItemData(String name, String price, String brand, String category, String good, String bad, String recommend) {
 
             itemName = mView.findViewById(R.id.review_item_name);
             itemPrice = mView.findViewById(R.id.review_item_price);
             itemBrand = mView.findViewById(R.id.review_item_brand);
+            itemCategory = mView.findViewById(R.id.review_category);
 
             itemGood = mView.findViewById(R.id.review_item_good);
             itemBad = mView.findViewById(R.id.review_item_bad);
@@ -87,6 +118,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             itemName.setText(name);
             itemPrice.setText(price);
             itemBrand.setText(brand);
+            itemCategory.setText(category);
 
             itemGood.setText(good);
             itemBad.setText(bad);
