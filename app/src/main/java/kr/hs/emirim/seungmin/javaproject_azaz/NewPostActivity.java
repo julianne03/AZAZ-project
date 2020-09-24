@@ -213,6 +213,9 @@ public class NewPostActivity extends AppCompatActivity {
                                         itemMap.put("item_image1",downloadUri1);
                                         itemMap.put("user_id", current_user_id);
                                         itemMap.put("timestamp", FieldValue.serverTimestamp());
+                                        itemMap.put("item_good", good);
+                                        itemMap.put("item_bad", bad);
+                                        itemMap.put("item_recommend", recommend);
 
                                         firebaseFirestore.collection("Reviews").add(itemMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                             @Override
