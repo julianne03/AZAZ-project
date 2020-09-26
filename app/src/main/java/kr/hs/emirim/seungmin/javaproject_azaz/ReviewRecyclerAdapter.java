@@ -14,16 +14,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAdapter.ViewHolder> {
 
@@ -87,6 +97,41 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+        firebaseFirestore.collection("Reviews/"+ ReviewId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (value.exists()) {
+                    holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image_accent));
+                } else {
+                    holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image));
+                }
+            }
+        });
+
+        holder.likeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                        .document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (!task.getResult().exists()) {
+                            Map<String, Object> likesMap = new HashMap<>();
+                            likesMap.put("timestamp", FieldValue.serverTimestamp());
+
+                            firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                                    .document(currentUserId).set(likesMap);
+                        } else {
+                            firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                                    .document(currentUserId).delete();
+                        }
+                    }
+                });
+
+            }
+        });
+
     }
 
     @Override
@@ -113,9 +158,13 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         private TextView itemBad;
         private TextView itemRecommend;
 
+        private ImageView likeBtn;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
+
+            likeBtn = mView.findViewById(R.id.like_btn);
         }
 
         public void setItemData(String name, String price, String brand, String category, String good, String bad, String recommend) {
