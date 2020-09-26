@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="450dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -37,13 +37,15 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingClass,MissingConstraints" />
 
-            <TextView
+            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
                 android:id="@+id/review_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="UserName"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/review_user_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,11 +53,12 @@
                 android:id="@+id/review_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="category"
-                app:layout_constraintStart_toEndOf="@+id/review_user_image"
-                app:layout_constraintTop_toBottomOf="@+id/review_user_name" />
+                android:textColor="#D500F9"
+                app:layout_constraintStart_toEndOf="@+id/review_item_brand"
+                app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
             <ImageView
                 android:id="@+id/review_image1"
@@ -117,7 +120,7 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_good" />
 
-            <TextView
+            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
                 android:id="@+id/review_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,6 +128,7 @@
                 android:layout_marginTop="16dp"
                 android:text="item_name"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/review_image1" />
 
@@ -135,6 +139,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="item_price"
+                android:textColor="#D500F9"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
@@ -145,6 +150,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="item_brand"
+                android:textColor="#D500F9"
                 app:layout_constraintStart_toEndOf="@+id/review_item_price"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
@@ -167,6 +173,16 @@
                 android:text="Recommend"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_bad" />
+
+            <TextView
+                android:id="@+id/item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="2020.09.26"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@+id/review_user_image"
+                app:layout_constraintTop_toBottomOf="@+id/review_user_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

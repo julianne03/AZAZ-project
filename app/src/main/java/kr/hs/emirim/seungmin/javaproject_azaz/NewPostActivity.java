@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -55,6 +56,7 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText item_bad;
     private EditText item_recommend;
 
+    private FloatingActionButton back_btn;
     private ImageButton new_post_next_btn;
 
     private Uri item_image1_Uri = null;
@@ -84,9 +86,7 @@ public class NewPostActivity extends AppCompatActivity {
         current_user_id = firebaseAuth.getCurrentUser().getUid();
 
         final androidx.appcompat.app.ActionBar ab = getSupportActionBar();
-        ab.show();
-        ab.setTitle("리뷰 쓰기");
-        ab.setDisplayHomeAsUpEnabled(true);
+        ab.hide();
 
         item_name = findViewById(R.id.item_name);
         item_price = findViewById(R.id.item_price);
@@ -97,6 +97,7 @@ public class NewPostActivity extends AppCompatActivity {
         item_bad = findViewById(R.id.item_bad);
         item_recommend = findViewById(R.id.item_recommend);
 
+        back_btn = findViewById(R.id.back_btn);
         category = findViewById(R.id.spinner);
 
         ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_dropdown_item);
@@ -120,6 +121,13 @@ public class NewPostActivity extends AppCompatActivity {
         new_post_next_btn = findViewById(R.id.new_post_next_btn);
 
         final String randomName = UUID.randomUUID().toString();
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         item_image1.setOnClickListener(new View.OnClickListener() {
             @Override

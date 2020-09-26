@@ -37,6 +37,8 @@ public class ReviewFragment extends Fragment {
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
 
+    private Boolean isFirstPageFirstLoad = true;
+
 
     public ReviewFragment() {
     }
@@ -65,12 +67,18 @@ public class ReviewFragment extends Fragment {
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
-                    loadMoreReview();
+                    Boolean reachedBottom = !recyclerView.canScrollVertically(1);
+
+                    if(reachedBottom) {
+                        loadMoreReview();
+                    }
+
+
                 }
             });
 
             Query firstQuery = firebaseFirestore.collection("Reviews")
-                    .orderBy("timestamp",Query.Direction.DESCENDING);
+                    .orderBy("timestamp",Query.Direction.DESCENDING).limit(3);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
@@ -78,8 +86,11 @@ public class ReviewFragment extends Fragment {
 
                     if(!value.isEmpty()) {
 
-//                        review_list.clear();
-//                        user_list.clear();
+                        if(isFirstPageFirstLoad) {
+                            review_list.clear();
+                            user_list.clear();
+                        }
+
                     }
                     if (error != null) {
                         System.err.println(error);
@@ -101,8 +112,13 @@ public class ReviewFragment extends Fragment {
                                         Log.e("test","firebasfirestore 동작 good");
                                         User user = task.getResult().toObject(User.class);
 
-                                        user_list.add(user);
-                                        review_list.add(review);
+                                        if(isFirstPageFirstLoad) {
+                                            user_list.add(user);
+                                            review_list.add(review);
+                                        } else {
+                                            user_list.add(0,user);
+                                            review_list.add(0,review);
+                                        }
 
                                         Log.e("test","firebase add good");
 

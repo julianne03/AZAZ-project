@@ -1,6 +1,7 @@
 package kr.hs.emirim.seungmin.javaproject_azaz;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
+import java.util.Date;
 import java.util.List;
 
 public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAdapter.ViewHolder> {
@@ -74,6 +77,16 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
 
         holder.setUserData(userName,userImage);
         holder.setItemData(itemName, itemPrice, itemBrand, itemCategory, itemGood, itemBad, itemRecommend);
+
+        try {
+            long milliseconds = review_list.get(position).getTimestamp().getTime();
+            String dateString = DateFormat.format("yyyy.MM.dd", new Date(milliseconds)).toString();
+
+            holder.setTime(dateString);
+        } catch (Exception e) {
+            Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
     }
 
     @Override
@@ -91,6 +104,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         private ImageView itemImage1;
         private TextView itemName;
         private TextView itemPrice;
+        private TextView itemDate;
         private TextView itemBrand;
 
         private TextView itemCategory;
@@ -146,6 +160,13 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             requestOptions.placeholder(R.drawable.add_image);
 
             Glide.with(context).applyDefaultRequestOptions(requestOptions).load(downloadUri).thumbnail().into(itemImage1);
+        }
+
+        public void setTime(String date) {
+
+            itemDate = mView.findViewById(R.id.item_date);
+            itemDate.setText(date);
+
         }
     }
 }
