@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +70,7 @@ public class ReviewFragment extends Fragment {
             });
 
             Query firstQuery = firebaseFirestore.collection("Reviews")
-                    .orderBy("timestamp",Query.Direction.DESCENDING).limit(3);
+                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
@@ -92,23 +93,27 @@ public class ReviewFragment extends Fragment {
                             final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
 
                             String reviewUserId = doc.getDocument().getString("user_id");
-                            firebaseFirestore.collection("Reviews").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                                     if(task.isSuccessful()) {
+                                        Log.e("test","firebasfirestore 동작 good");
                                         User user = task.getResult().toObject(User.class);
 
                                         user_list.add(user);
                                         review_list.add(review);
 
+                                        Log.e("test","firebase add good");
+
                                     }
+                                    reviewRecyclerAdapter.notifyDataSetChanged();
                                 }
 
                             });
                         }
                     }
-                    reviewRecyclerAdapter.notifyDataSetChanged();
+
                 }
             });
         }
@@ -117,5 +122,53 @@ public class ReviewFragment extends Fragment {
     }
 
     private void loadMoreReview() {
+
+        if(firebaseAuth.getCurrentUser() != null) {
+
+            Query nextQuery = firebaseFirestore.collection("Reviews")
+                    .orderBy("timestamp", Query.Direction.DESCENDING)
+                    .limit(3);
+
+            nextQuery.addSnapshotListener(getActivity(), new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                    if(!value.isEmpty()) {
+
+                        if (error != null) {
+                            System.err.println(error);
+                        }
+
+                        for (DocumentChange doc : value.getDocumentChanges()) {
+                            if (doc.getType() == DocumentChange.Type.ADDED) {
+
+                                String reviewId = doc.getDocument().getId();
+                                final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
+
+                                String reviewUserId = doc.getDocument().getString("user_id");
+                                firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                        if (task.isSuccessful()) {
+                                            Log.e("test", "firebasfirestore 동작 good2");
+                                            User user = task.getResult().toObject(User.class);
+
+                                            user_list.add(user);
+                                            review_list.add(review);
+
+                                        }
+                                        reviewRecyclerAdapter.notifyDataSetChanged();
+                                    }
+
+                                });
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
     }
 }

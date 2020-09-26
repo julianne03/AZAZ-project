@@ -78,7 +78,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
 
     @Override
     public int getItemCount() {
-        return 0;
+        return review_list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -127,8 +127,8 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         }
 
         public void setUserData(String name, String image) {
-            userName = mView.findViewById(R.id.review_user_image);
-            userImage = mView.findViewById(R.id.review_user_name);
+            userName = mView.findViewById(R.id.review_user_name);
+            userImage = mView.findViewById(R.id.review_user_image);
 
             userName.setText(name);
 
