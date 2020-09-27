@@ -70,7 +70,7 @@ public class ReviewFragment extends Fragment {
                     Boolean reachedBottom = !recyclerView.canScrollVertically(1);
 
                     if(reachedBottom) {
-                        loadMoreReview();
+                        //loadMoreReview();
                     }
 
 

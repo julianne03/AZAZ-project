@@ -97,9 +97,9 @@
     <EditText
         android:id="@+id/item_price"
         android:layout_width="195dp"
-        android:layout_height="34dp"
+        android:layout_height="36dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="number"

@@ -110,9 +110,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_setup :
                 settings();
                 return true;
+            case R.id.action_inventory :
+                Inventory();
             default:
                 return false;
         }
+    }
+
+    private void Inventory() {
+        Intent InventoryIntent = new Intent(MainActivity.this, InventoryActivity.class);
+        startActivity(InventoryIntent);
     }
 
     private void settings() {

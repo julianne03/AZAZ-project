@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_inventory"
+        android:icon="@drawable/action_favorite"
+        android:title="Inventory"
+        app:showAsAction="collapseActionView" />
+    <item
         android:id="@+id/action_search"
         android:icon="@drawable/action_search"
         app:showAsAction="always"
@@ -9,8 +14,8 @@
     <item
         android:id="@+id/action_setup"
         android:icon="@drawable/action_settings"
-        app:showAsAction="always"
-        android:title="Settings" />
+        android:title="Settings"
+        app:showAsAction="collapseActionView" />
     <item
         android:id="@+id/action_logout"
         android:icon="@drawable/baseline_login_white_18dp"
