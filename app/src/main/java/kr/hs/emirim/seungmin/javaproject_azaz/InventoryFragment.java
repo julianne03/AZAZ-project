@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +39,7 @@ public class InventoryFragment extends Fragment {
     private LikeReviewRecyclerAdapter likeReviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
 
+    private TextView review_count;
     private Boolean isFirstPageFirstLoad = true;
 
     public InventoryFragment() {
@@ -47,7 +49,7 @@ public class InventoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_inventory, container, false);
+        final View view = inflater.inflate(R.layout.fragment_inventory, container, false);
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
@@ -66,6 +68,19 @@ public class InventoryFragment extends Fragment {
             firebaseFirestore = FirebaseFirestore.getInstance();
 
         }
+
+        firebaseFirestore.collection("Users/"+ currentUserId + "/reviews").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                if(!value.isEmpty()) {
+                    int count = value.size();
+                    review_count = view.findViewById(R.id.user_review_count);
+                    review_count.setText(count + "개");
+
+                }
+            }
+        });
 
 
         Query firstQuery = firebaseFirestore.collection("Reviews")
