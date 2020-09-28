@@ -67,6 +67,7 @@ public class InventoryFragment extends Fragment {
 
         }
 
+
         Query firstQuery = firebaseFirestore.collection("Reviews")
                 .orderBy("timestamp",Query.Direction.DESCENDING).limit(3);
 

@@ -57,7 +57,7 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText item_recommend;
 
     private FloatingActionButton back_btn;
-    private ImageButton new_post_next_btn;
+    private FloatingActionButton new_post_next_btn;
 
     private Uri item_image1_Uri = null;
     private Uri item_image2_Uri = null;

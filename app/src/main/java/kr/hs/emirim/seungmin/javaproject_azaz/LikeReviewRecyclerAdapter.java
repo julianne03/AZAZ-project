@@ -162,6 +162,7 @@ public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRe
 
         private ImageView likeBtn;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;

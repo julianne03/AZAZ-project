@@ -97,6 +97,23 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+        firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                if (!value.isEmpty()) {
+
+                    int count = value.size();
+
+                    holder.updateLikesCount(count);
+
+                } else {
+                    holder.updateLikesCount(0);
+                }
+            }
+        });
+
+
         firebaseFirestore.collection("Reviews/"+ ReviewId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -167,6 +184,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         private TextView itemRecommend;
 
         private ImageView likeBtn;
+        private TextView likeCount;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -223,6 +241,12 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
 
             itemDate = mView.findViewById(R.id.item_date);
             itemDate.setText(date);
+
+        }
+
+        public void updateLikesCount(int count) {
+            likeCount = mView.findViewById(R.id.item_like_count);
+            likeCount.setText(count + " Likes");
 
         }
     }
