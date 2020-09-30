@@ -99,33 +99,36 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+        if(currentUserId != null) {
+            firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                if (!value.isEmpty()) {
+                    if (!value.isEmpty()) {
 
-                    int count = value.size();
+                        int count = value.size();
 
-                    holder.updateLikesCount(count);
+                        holder.updateLikesCount(count);
 
-                } else {
-                    holder.updateLikesCount(0);
+                    } else {
+                        holder.updateLikesCount(0);
+                    }
                 }
-            }
-        });
+            });
 
 
-        firebaseFirestore.collection("Reviews/"+ ReviewId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (value.exists()) {
-                    holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image_accent));
-                } else {
-                    holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image));
+            firebaseFirestore.collection("Reviews/"+ ReviewId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if (value.exists()) {
+                        holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image_accent));
+                    } else {
+                        holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image));
+                    }
                 }
-            }
-        });
+            });
+        }
+
 
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override

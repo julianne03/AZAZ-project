@@ -188,9 +188,9 @@
                 android:id="@+id/like_btn"
                 android:layout_width="35dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="110dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@+id/review_user_name"
+                app:layout_constraintStart_toEndOf="@+id/item_date"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/like_btn_image" />
 
