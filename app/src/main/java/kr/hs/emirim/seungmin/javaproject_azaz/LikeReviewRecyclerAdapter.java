@@ -2,6 +2,7 @@ package kr.hs.emirim.seungmin.javaproject_azaz;
 
 import android.content.Context;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +73,7 @@ public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRe
         holder.setItemImage1(itemImage1);
 
         String itemGood = review_list.get(position).getItem_good();
-        String itemBad = review_list.get(position).getItem_bad();
+        final String itemBad = review_list.get(position).getItem_bad();
         String itemRecommend = review_list.get(position).getItem_recommend();
 
 
@@ -111,18 +112,41 @@ public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRe
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (!task.getResult().exists()) {
-                            Map<String, Object> likesMap = new HashMap<>();
-                            likesMap.put("timestamp", FieldValue.serverTimestamp());
 
-                            Map<String, Object> userLikesMap = new HashMap<>();
-                            userLikesMap.put("timestamp", FieldValue.serverTimestamp());
+                            firebaseFirestore.collection("Reviews")
+                                    .document(ReviewId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.getResult().exists()) {
 
-                            firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
-                                    .document(currentUserId).set(likesMap);
+                                        Review review = task.getResult().toObject(Review.class);
 
-                            firebaseFirestore.collection("Users/"+currentUserId+"/Likes")
-                                    .document(ReviewId).set(userLikesMap);
-                        } else {
+                                        Map<String, Object> likesMap = new HashMap<>();
+                                        likesMap.put("timestamp", FieldValue.serverTimestamp());
+
+                                        Map<String, Object> itemMap = new HashMap<>();
+                                        itemMap.put("item_name", review.getItem_name());
+                                        Log.e("test", "review item name : " + review.getItem_name());
+                                        itemMap.put("item_price", review.getItem_price());
+                                        itemMap.put("item_brand", review.getItem_brand());
+                                        itemMap.put("item_category", review.getItem_category());
+                                        itemMap.put("item_image1", review.getItem_image1());
+                                        itemMap.put("user_id", review.getUser_id());
+                                        itemMap.put("item_good", review.getItem_good());
+                                        itemMap.put("item_bad", review.getItem_bad());
+                                        itemMap.put("item_recommend", review.getItem_recommend());
+                                        itemMap.put("timestamp", FieldValue.serverTimestamp());
+
+                                        firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                                                .document(currentUserId).set(likesMap);
+
+                                        firebaseFirestore.collection("Users/" + currentUserId + "/Likes")
+                                                .document(ReviewId).set(itemMap);
+                                    }
+                                }
+                            });
+                        }
+                        else {
                             firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
                                     .document(currentUserId).delete();
                             firebaseFirestore.collection("Users/"+currentUserId+"/Likes")

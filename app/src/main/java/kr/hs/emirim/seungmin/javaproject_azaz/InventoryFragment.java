@@ -83,8 +83,7 @@ public class InventoryFragment extends Fragment {
         });
 
 
-        Query firstQuery = firebaseFirestore.collection("Reviews")
-                .orderBy("timestamp",Query.Direction.DESCENDING).limit(3);
+        Query firstQuery = firebaseFirestore.collection("Users/"+currentUserId+"/Likes");
 
         firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -135,6 +134,8 @@ public class InventoryFragment extends Fragment {
                             }
 
                         });
+
+
                     }
                 }
 
