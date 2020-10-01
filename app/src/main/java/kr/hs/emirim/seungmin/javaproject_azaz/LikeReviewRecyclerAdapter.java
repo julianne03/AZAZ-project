@@ -24,6 +24,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.Date;
@@ -99,6 +100,22 @@ public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRe
                     holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image_accent));
                 } else {
                     holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image));
+                }
+            }
+        });
+
+        firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                if (!value.isEmpty()) {
+
+                    int count = value.size();
+
+                    holder.updateLikesCount(count);
+
+                } else {
+                    holder.updateLikesCount(0);
                 }
             }
         });
@@ -185,6 +202,7 @@ public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRe
         private TextView itemRecommend;
 
         private ImageView likeBtn;
+        private TextView likeCount;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -242,6 +260,12 @@ public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRe
 
             itemDate = mView.findViewById(R.id.item_date);
             itemDate.setText(date);
+
+        }
+
+        public void updateLikesCount(int count) {
+            likeCount = mView.findViewById(R.id.item_like_count);
+            likeCount.setText(count + " Likes");
 
         }
     }
