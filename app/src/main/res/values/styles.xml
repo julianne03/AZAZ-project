@@ -7,6 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="tabCustomStyle" parent="Widget.Design.TabLayout">
         <item name="tabGravity">fill</item>
         <item name="tabMaxWidth">0dp</item>
