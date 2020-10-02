@@ -1,8 +1,8 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Model;
 
 import java.util.Date;
 
-public class Review extends ReviewId {
+public class Review extends kr.hs.emirim.seungmin.javaproject_azaz.Model.ReviewId {
 
     public String item_name, item_price, item_brand, item_category, item_image1, user_id, item_good, item_bad, item_recommend;
     public Date timestamp;

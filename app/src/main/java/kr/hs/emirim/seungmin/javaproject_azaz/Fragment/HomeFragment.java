@@ -1,4 +1,4 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
 import android.os.Bundle;
 
@@ -15,6 +15,8 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 public class HomeFragment extends Fragment {
 

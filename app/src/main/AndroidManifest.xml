@@ -13,8 +13,9 @@
         android:roundIcon="@drawable/azangazang_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InventoryActivity"></activity>
-        <activity android:name=".NewPostActivity"></activity>
+        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".InventoryActivity" />
+        <activity android:name=".NewPostActivity" />
         <activity android:name=".category.ElseThingActivity" />
         <activity android:name=".category.LanguageActivity" />
         <activity android:name=".category.FocusActivity" />

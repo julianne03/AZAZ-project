@@ -1,15 +1,13 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +20,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
@@ -36,6 +32,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import kr.hs.emirim.seungmin.javaproject_azaz.CommentsActivity;
+import kr.hs.emirim.seungmin.javaproject_azaz.R;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 
 public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAdapter.ViewHolder> {
 
@@ -185,6 +186,15 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             }
         });
 
+        holder.commentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent comments = new Intent(context, CommentsActivity.class);
+                comments.putExtra("review_id",ReviewId);
+                context.startActivity(comments);
+            }
+        });
+
     }
 
     @Override
@@ -214,11 +224,26 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         private ImageView likeBtn;
         private TextView likeCount;
 
+        private ImageView commentBtn;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
 
+//            mView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent comments = new Intent(context,CommentsActivity.class);
+//
+//                    context.startActivity(comments);
+//
+//                }
+//            });
+
             likeBtn = mView.findViewById(R.id.like_btn);
+            commentBtn = mView.findViewById(R.id.comment_btn);
+
+
         }
 
         public void setItemData(String name, String price, String brand, String category, String good, String bad, String recommend) {

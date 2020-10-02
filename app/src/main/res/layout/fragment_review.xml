@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReviewFragment">
+    tools:context=".Fragment.ReviewFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/review_list_view"

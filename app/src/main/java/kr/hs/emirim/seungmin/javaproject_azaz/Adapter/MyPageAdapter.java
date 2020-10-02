@@ -1,4 +1,4 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

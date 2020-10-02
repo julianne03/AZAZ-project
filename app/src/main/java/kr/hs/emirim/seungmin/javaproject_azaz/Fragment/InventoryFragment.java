@@ -1,4 +1,4 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
 import android.os.Bundle;
 
@@ -27,6 +27,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.LikeReviewRecyclerAdapter;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
+import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 
 public class InventoryFragment extends Fragment {

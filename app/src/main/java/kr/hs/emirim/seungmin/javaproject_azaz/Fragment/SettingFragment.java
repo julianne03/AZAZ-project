@@ -1,4 +1,4 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -48,6 +48,8 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 import static android.app.Activity.RESULT_OK;
 

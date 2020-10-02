@@ -1,8 +1,10 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Model;
 
 import androidx.annotation.NonNull;
 
 import com.google.firebase.firestore.Exclude;
+
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 
 public class ReviewId {
 

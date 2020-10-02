@@ -1,4 +1,4 @@
-package kr.hs.emirim.seungmin.javaproject_azaz;
+package kr.hs.emirim.seungmin.javaproject_azaz.Adapter;
 
 import android.content.Context;
 import android.text.format.DateFormat;
@@ -31,6 +31,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import kr.hs.emirim.seungmin.javaproject_azaz.R;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 
 public class LikeReviewRecyclerAdapter extends RecyclerView.Adapter<LikeReviewRecyclerAdapter.ViewHolder>{
     public List<Review> review_list;
