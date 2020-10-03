@@ -13,7 +13,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.SearchView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,6 +31,9 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
@@ -41,6 +48,9 @@ public class ReviewFragment extends Fragment {
     private RecyclerView review_list_view;
     private List<Review> review_list;
     private List<User> user_list;
+
+    private EditText SearchField;
+    private ImageButton SearchBtn;
 
     private FirebaseFirestore firebaseFirestore;
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
@@ -79,6 +89,21 @@ public class ReviewFragment extends Fragment {
                 startActivity(add_review_intent);
             }
         });
+
+        SearchField = view.findViewById(R.id.search_field);
+        SearchBtn = view.findViewById(R.id.search_btn);
+
+
+
+        SearchBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
 
         if (firebaseAuth.getCurrentUser() != null) {
 
@@ -161,6 +186,8 @@ public class ReviewFragment extends Fragment {
 
         return view;
     }
+
+
 
     private void loadMoreReview() {
 
