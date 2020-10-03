@@ -118,8 +118,6 @@ public class SettingFragment extends Fragment {
 
                         user_intro.setText(intro);
 
-                        Toast.makeText(mcontext, "데이터 다 불러와짐.", Toast.LENGTH_LONG).show();
-
                         RequestOptions placeholderRequest = new RequestOptions();
                         placeholderRequest.placeholder(R.drawable.profile);
 
