@@ -3,6 +3,7 @@ package kr.hs.emirim.seungmin.javaproject_azaz;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationMenu;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,25 +33,59 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.InventoryFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.RecommendFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.ReviewFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.SettingFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore firebaseFirestore;
-    private FloatingActionButton addReview;
+
+    Fragment ReviewFragment;
+    Fragment InventoryFragment;
+    Fragment RecommendFragment;
+    Fragment SettingsFragment;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.action_home :
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ReviewFragment).commit();
+                    return true;
+                case R.id.action_inventory :
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,InventoryFragment).commit();
+                    return true;
+                case R.id.action_recommend :
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,RecommendFragment).commit();
+                    return true;
+                case R.id.action_settings :
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,SettingsFragment).commit();
+                    return true;
+            }
+            return false;
+        }
+    };
 
     private String current_userId;
-
-    private int[] icon_list = {
-            R.drawable.action_home,
-            R.drawable.action_recommend,
-            R.drawable.action_favorite,
-            R.drawable.action_settings_black
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BottomNavigationView navigationView = findViewById(R.id.bottomNavigationView);
+        navigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+
+        ReviewFragment = new ReviewFragment();
+        InventoryFragment = new InventoryFragment();
+        RecommendFragment = new RecommendFragment();
+        SettingsFragment = new SettingFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ReviewFragment).commit();
 
         androidx.appcompat.app.ActionBar ab = getSupportActionBar();
         ab.show();
@@ -56,15 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        addReview = findViewById(R.id.add_review);
 
-        addReview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent add_review_intent = new Intent(MainActivity.this, NewPostActivity.class);
-                startActivity(add_review_intent);
-            }
-        });
+
 
     }
 

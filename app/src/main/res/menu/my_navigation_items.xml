@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/action_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/action_inventory"
+        android:icon="@drawable/action_favorite"
+        android:title="Inventory"
+        />
+
+    <item
+        android:id="@+id/action_recommend"
+        android:icon="@drawable/action_recommend"
+        android:title="Recommend"
+        />
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/action_settings_black"
+        android:title="Settings"
+        />
+
+</menu>

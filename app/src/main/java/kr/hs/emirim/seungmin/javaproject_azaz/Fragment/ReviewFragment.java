@@ -1,5 +1,6 @@
 package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,8 +30,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
+import kr.hs.emirim.seungmin.javaproject_azaz.MainActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
+import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 public class ReviewFragment extends Fragment {
@@ -41,6 +45,8 @@ public class ReviewFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
+
+    private FloatingActionButton add_review;
 
     private Boolean isFirstPageFirstLoad = true;
 
@@ -58,11 +64,22 @@ public class ReviewFragment extends Fragment {
         user_list = new ArrayList<>();
         review_list_view = view.findViewById(R.id.review_list_view);
 
+        add_review = view.findViewById(R.id.add_review);
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
         review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
         review_list_view.setAdapter(reviewRecyclerAdapter);
+
+        add_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add_review_intent = new Intent(getContext(), NewPostActivity.class);
+                startActivity(add_review_intent);
+            }
+        });
+
         if (firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
