@@ -4,100 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".MainActivity">
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
-        android:id="@+id/login_text"
-        android:layout_width="257dp"
-        android:layout_height="72dp"
-        android:text="로그인"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_email"
+    //android:background="#C5E5F1"
+
+    <ImageView
+        android:layout_width="435dp"
+        android:layout_height="729dp"
+        android:src="@drawable/splash_image_2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/login_email"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/edit_round"
-        android:ems="10"
-        android:hint="Your Email.."
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColor="#000000"
-        android:textCursorDrawable="@drawable/progress_cursor_design"
-        android:textSize="20sp"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:hint="ID"
+        android:inputType="textWebEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintVertical_bias="0.613"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/login_password"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/edit_round"
-        android:ems="10"
-        android:hint="Password.."
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="#000000"
-        android:textCursorDrawable="@drawable/progress_cursor_design"
-        android:textSize="20sp"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:hint="PASSWORD"
+        android:inputType="textWebPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.315" />
+        app:layout_constraintVertical_bias="0.714"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_background"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="LOGIN TO ACCOUNT"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
+        android:layout_width="70dp"
+        android:layout_height="38dp"
+        android:background="@drawable/btn_shape"
+        android:text="로그인"
+        android:textColor="#FFC978"
+        android:textSize="15sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintVertical_bias="0.816"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_login_reg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_background"
-        android:backgroundTint="#FFD740"
-        android:text="NEED A NEW ACCOUNT?"
-        android:textColor="#FF0000"
-        android:textSize="20sp"
+        android:layout_width="70dp"
+        android:layout_height="38dp"
+        android:background="@drawable/btn_shape"
+        android:text="회원가입"
+        android:textColor="#FFC978"
+        android:textSize="15sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintVertical_bias="0.816"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="147dp"
+        android:layout_height="213dp"
+        android:src="@drawable/azangazang_logo_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306"
+        tools:ignore="MissingConstraints" />
 
     <ProgressBar
         android:id="@+id/login_progress"
@@ -113,8 +106,9 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.354" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

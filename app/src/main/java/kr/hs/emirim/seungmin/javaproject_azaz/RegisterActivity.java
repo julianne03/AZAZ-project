@@ -23,7 +23,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText reg_password;
     private EditText reg_confirm_password;
     private Button next_btn;
-    private Button reg_login_btn;
     private ProgressBar reg_progress;
 
     private FirebaseAuth mAuth;
@@ -39,11 +38,8 @@ public class RegisterActivity extends AppCompatActivity {
         reg_password = (EditText) findViewById(R.id.reg_password);
         reg_confirm_password = (EditText) findViewById(R.id.reg_confirm_password);
         next_btn = (Button) findViewById(R.id.next_btn);
-        reg_login_btn = (Button) findViewById(R.id.reg_login);
         reg_progress = (ProgressBar) findViewById(R.id.reg_progress);
 
-        androidx.appcompat.app.ActionBar ab = getSupportActionBar();
-        ab.hide();
 
         next_btn.setEnabled(true);
 
@@ -83,13 +79,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
-        reg_login_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendToLogin();
-            }
-        });
     }
 
     private void sendToLogin() {

@@ -62,9 +62,6 @@ public class SetupActivity extends AppCompatActivity {
         user_id = firebaseAuth.getCurrentUser().getUid();
 
 
-        androidx.appcompat.app.ActionBar ab = getSupportActionBar();
-        ab.hide();
-
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -83,10 +80,6 @@ public class SetupActivity extends AppCompatActivity {
 
                     if (task.getResult().exists()) {
 
-                        androidx.appcompat.app.ActionBar ab = getSupportActionBar();
-                        ab.show();
-                        ab.setTitle("계정 설정");
-                        ab.setDisplayHomeAsUpEnabled(true);
 
                         String name = task.getResult().getString("name");
                         String intro = task.getResult().getString("intro");

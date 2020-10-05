@@ -17,11 +17,13 @@
             android:name=".SplashActivity"
             android:theme="@style/FullScreenTheme"
             android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
         <activity android:name=".CommentsActivity">
             <meta-data
@@ -39,13 +41,20 @@
         <activity android:name=".category.TouchActivity" />
         <activity android:name=".category.HearActivity" />
         <activity android:name=".category.SightActivity" />
-        <activity android:name=".SetupActivity">
+        <activity android:name=".SetupActivity"
+            android:theme="@style/FullScreenTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+
+
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity"
+            android:theme="@style/FullScreenTheme"/>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/FullScreenTheme">
+
+        </activity>
         <activity android:name=".MainActivity">
 
         </activity>

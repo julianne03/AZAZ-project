@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         RecommendFragment = new RecommendFragment();
         SettingsFragment = new SettingFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ReviewFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,RecommendFragment).commit();
 
         androidx.appcompat.app.ActionBar ab = getSupportActionBar();
         ab.hide();

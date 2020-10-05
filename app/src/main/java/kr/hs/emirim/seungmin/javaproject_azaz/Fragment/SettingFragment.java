@@ -1,6 +1,7 @@
 package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -41,6 +42,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 import java.util.HashMap;
 import java.util.Map;
 
+import kr.hs.emirim.seungmin.javaproject_azaz.LoginActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 public class SettingFragment extends Fragment {
@@ -54,6 +56,7 @@ public class SettingFragment extends Fragment {
     private EditText user_intro;
     private Button complete_btn;
     private ProgressBar setup_progress;
+    private Button logout_btn;
 
     private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
@@ -85,6 +88,7 @@ public class SettingFragment extends Fragment {
         user_intro = v.findViewById(R.id.set_user_intro);
         complete_btn = v.findViewById(R.id.fr_complete_btn);
         setup_progress = v.findViewById(R.id.fr_setup_progress);
+        logout_btn = v.findViewById(R.id.logout_btn);
 
         complete_btn.setEnabled(false);
 
@@ -178,6 +182,14 @@ public class SettingFragment extends Fragment {
                         storeFireStore(null, user_name, user_introduce);
                     }
                 }
+            }
+        });
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent loginIntent = new Intent(getContext(), LoginActivity.class);
+                startActivity(loginIntent);
             }
         });
         user_image.setOnClickListener(new View.OnClickListener() {

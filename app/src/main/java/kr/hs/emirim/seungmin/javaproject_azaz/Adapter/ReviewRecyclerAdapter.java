@@ -117,18 +117,20 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
                 }
             });
 
-
-            firebaseFirestore.collection("Reviews/"+ ReviewId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                @Override
-                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                    if (value.exists()) {
-                        holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image_accent));
-                    } else {
-                        holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image));
+            if(firebaseAuth.getCurrentUser() != null) {
+                firebaseFirestore.collection("Reviews/"+ ReviewId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (value.exists()) {
+                            holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image_accent));
+                        } else {
+                            holder.likeBtn.setImageDrawable(context.getDrawable(R.drawable.like_btn_image));
+                        }
                     }
-                }
-            });
+                });
+            }
         }
+
 
 
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {

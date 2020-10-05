@@ -35,8 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        androidx.appcompat.app.ActionBar ab = getSupportActionBar();
-        ab.hide();
 
         login_email = (EditText)findViewById(R.id.login_email);
         login_password = (EditText) findViewById(R.id.login_password);
