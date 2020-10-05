@@ -14,7 +14,7 @@
         android:background="#CFCFCF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myFontTextViewRegular"
+        app:layout_constraintTop_toBottomOf="@+id/review_count"
         tools:ignore="MissingConstraints" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
@@ -47,7 +47,7 @@
         tools:ignore="MissingConstraints" />
 
     <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
-        android:id="@+id/myFontTextViewRegular"
+        android:id="@+id/review_count"
         android:layout_width="328dp"
         android:layout_height="68dp"
         android:layout_marginTop="200dp"

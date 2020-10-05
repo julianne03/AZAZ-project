@@ -81,11 +81,11 @@ public class InventoryFragment extends Fragment {
                 if(!value.isEmpty()) {
                     int count = value.size();
                     review_count = view.findViewById(R.id.user_review_count);
-                    review_count.setText(count + "개");
+                    review_count.setText(count+ " 개");
 
                 } else {
                     review_count = view.findViewById(R.id.user_review_count);
-                    review_count.setText(0 + "개");
+                    review_count.setText("0 개");
                 }
             }
         });
