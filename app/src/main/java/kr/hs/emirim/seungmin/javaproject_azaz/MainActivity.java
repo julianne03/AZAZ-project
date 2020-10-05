@@ -22,6 +22,7 @@ import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.InventoryFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.RecommendFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.ReviewFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.SettingFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.SettingPageFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment ReviewFragment;
     Fragment InventoryFragment;
     Fragment RecommendFragment;
-    Fragment SettingsFragment;
+    Fragment SettingPageFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,RecommendFragment).commit();
                     return true;
                 case R.id.action_settings :
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,SettingsFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,SettingPageFragment).commit();
                     return true;
             }
             return false;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         ReviewFragment = new ReviewFragment();
         InventoryFragment = new InventoryFragment();
         RecommendFragment = new RecommendFragment();
-        SettingsFragment = new SettingFragment();
+        SettingPageFragment = new SettingPageFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,RecommendFragment).commit();
 
