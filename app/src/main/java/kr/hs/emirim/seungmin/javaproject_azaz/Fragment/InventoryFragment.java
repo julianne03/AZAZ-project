@@ -44,7 +44,6 @@ public class InventoryFragment extends Fragment {
     private LikeReviewRecyclerAdapter likeReviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
 
-    private TextView review_count;
     private Boolean isFirstPageFirstLoad = true;
 
     public InventoryFragment() {
@@ -73,22 +72,6 @@ public class InventoryFragment extends Fragment {
             firebaseFirestore = FirebaseFirestore.getInstance();
 
         }
-
-        firebaseFirestore.collection("Users/"+ currentUserId + "/reviews").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                if(!value.isEmpty()) {
-                    int count = value.size();
-                    review_count = view.findViewById(R.id.user_review_count);
-                    review_count.setText(count+ " 개");
-
-                } else {
-                    review_count = view.findViewById(R.id.user_review_count);
-                    review_count.setText("0 개");
-                }
-            }
-        });
 
 
         Query firstQuery = firebaseFirestore.collection("Users/"+currentUserId+"/Likes");

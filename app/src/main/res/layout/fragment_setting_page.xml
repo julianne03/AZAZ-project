@@ -18,31 +18,28 @@
         tools:ignore="MissingConstraints" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/circularImageView"
-        android:layout_width="153dp"
-        android:layout_height="141dp"
+        android:id="@+id/user_profile_image"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/profile"
-        app:civ_border_color="#FFFE9F"
+        app:civ_border_color="#FFFFFF"
         app:civ_border_width="4dp"
-        app:civ_shadow="true"
-        app:civ_shadow_color="#FFFE9F"
-        app:civ_shadow_radius="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
-        android:id="@+id/name"
-        android:layout_width="146dp"
+        android:id="@+id/user_profile_name"
+        android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="76dp"
         android:gravity="left|center_vertical"
         android:text="김회원님"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/circularImageView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -62,7 +59,7 @@
         tools:ignore="MissingConstraints" />
 
     <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
-        android:id="@+id/setting"
+        android:id="@+id/app_setting"
         android:layout_width="65dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
@@ -87,7 +84,7 @@
         tools:ignore="MissingConstraints" />
 
     <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
-        android:id="@+id/help"
+        android:id="@+id/help_btn"
         android:layout_width="81dp"
         android:layout_height="41dp"
         android:layout_marginStart="24dp"
@@ -97,7 +94,7 @@
         android:text="도움말"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/imageView19"
-        app:layout_constraintTop_toBottomOf="@+id/change"
+        app:layout_constraintTop_toBottomOf="@+id/update_user"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -112,7 +109,7 @@
         tools:ignore="MissingConstraints" />
 
     <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
-        android:id="@+id/change"
+        android:id="@+id/update_user"
         android:layout_width="124dp"
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
@@ -122,7 +119,7 @@
         android:text="정보수정"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/imageView20"
-        app:layout_constraintTop_toBottomOf="@+id/setting"
+        app:layout_constraintTop_toBottomOf="@+id/app_setting"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -148,17 +145,17 @@
         tools:ignore="MissingConstraints" />
 
     <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
-        android:id="@+id/logout"
+        android:id="@+id/set_logout_btn"
         android:layout_width="105dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:clickable="true"
         android:gravity="left|center_vertical"
         android:text="로그아웃"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/help"
+        app:layout_constraintTop_toBottomOf="@+id/help_btn"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +18,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        login_email = (EditText)findViewById(R.id.login_email);
-        login_password = (EditText) findViewById(R.id.login_password);
+        login_email = (EditText)findViewById(R.id.login_user_email);
+        login_password = (EditText) findViewById(R.id.login_user_password);
         login_btn = (Button) findViewById(R.id.btn_login);
         login_reg_btn = (Button) findViewById(R.id.btn_login_reg);
         login_progress = (ProgressBar) findViewById(R.id.login_progress);
@@ -57,6 +56,8 @@ public class LoginActivity extends AppCompatActivity {
                 String loginEmail = login_email.getText().toString();
                 String loginPassword = login_password.getText().toString();
 
+                Log.d("test",loginEmail + loginPassword);
+
                 if(!TextUtils.isEmpty(loginEmail) && !TextUtils.isEmpty(loginPassword)) {
                     login_progress.setVisibility(View.VISIBLE);
 
@@ -64,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                    Log.d("test","로그인 성공");
 
                                     if(task.isSuccessful()) {
                                         sendToMain();

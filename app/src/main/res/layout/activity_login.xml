@@ -19,7 +19,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/login_email"
+        android:id="@+id/login_user_email"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:hint="ID"
@@ -33,7 +33,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/login_password"
+        android:id="@+id/login_user_password"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:hint="PASSWORD"
