@@ -78,7 +78,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/add_image"
+        android:src="@drawable/setting_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bar2"
         tools:ignore="MissingConstraints" />
@@ -103,7 +103,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/add_image"
+        android:src="@drawable/help_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView20"
         tools:ignore="MissingConstraints" />
@@ -128,7 +128,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/add_image"
+        android:src="@drawable/update_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView17"
         tools:ignore="MissingConstraints" />
@@ -139,7 +139,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/add_image"
+        android:src="@drawable/logout_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView19"
         tools:ignore="MissingConstraints" />
