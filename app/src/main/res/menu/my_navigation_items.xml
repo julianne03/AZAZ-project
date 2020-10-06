@@ -17,7 +17,7 @@
     <item
         android:id="@+id/action_inventory"
         android:icon="@drawable/action_favorite"
-        android:title="보관함"
+        android:title="찜"
         />
 
     <item
