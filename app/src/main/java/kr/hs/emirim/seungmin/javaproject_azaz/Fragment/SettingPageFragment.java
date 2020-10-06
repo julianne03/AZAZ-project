@@ -41,6 +41,8 @@ public class SettingPageFragment extends Fragment {
     private TextView action_logout;
     private TextView review_count;
 
+    private Fragment SettingFragment;
+
 
     public SettingPageFragment() {
         // Required empty public constructor
@@ -101,7 +103,7 @@ public class SettingPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_setting_page, container, false);
-
+        SettingFragment = new SettingFragment();
         initial();
 
 
@@ -124,8 +126,7 @@ public class SettingPageFragment extends Fragment {
         update_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent setupActivity = new Intent(getContext(), SetupActivity.class);
-                startActivity(setupActivity);
+                getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,SettingFragment).commit();
             }
         });
 

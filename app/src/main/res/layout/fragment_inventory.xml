@@ -2,18 +2,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inventory_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:backgroundTint="@color/colorPrimaryDark"
-    tools:context=".Fragment.InventoryFragment">
+    android:background="#FFF2DF">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/like_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+        android:id="@+id/plus"
+        android:layout_width="81dp"
+        android:layout_height="42dp"
+        android:background="@drawable/txt_shape"
+        android:gravity="center"
+        android:text="서랍 추가"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129"
+        tools:ignore="MissingConstraints" />
+
+    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+        android:id="@+id/favorite_drawer"
+        android:layout_width="134dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/drawer_shape"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="좋아요 누른 리뷰"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints" />
+
+    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="보관함"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

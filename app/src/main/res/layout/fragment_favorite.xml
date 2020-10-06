@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".InventoryActivity">
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/colorPrimaryDark"
+    tools:context=".Fragment.FavoriteFragment">
 
-    <fragment
-        android:id="@+id/fragment3"
-        android:name="kr.hs.emirim.seungmin.javaproject_azaz.Fragment.FavoriteFragment"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/like_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

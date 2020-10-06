@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/set_page_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark"
     tools:context=".Fragment.SettingPageFragment">
 
     <View
@@ -24,13 +26,13 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/profile"
-        app:civ_border_color="#FFFFFF"
+        app:civ_border_color="#00FFFFFF"
         app:civ_border_width="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
         android:id="@+id/user_profile_name"
         android:layout_width="170dp"
         android:layout_height="50dp"
@@ -38,7 +40,7 @@
         android:layout_marginTop="76dp"
         android:gravity="left|center_vertical"
         android:text="김회원님"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/user_profile_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -48,7 +50,7 @@
         android:layout_width="328dp"
         android:layout_height="68dp"
         android:layout_marginTop="200dp"
-        android:background="@drawable/btn_shape"
+        android:background="@drawable/txt_shape"
         android:clickable="true"
         android:gravity="center"
         android:text="작성한 리뷰"

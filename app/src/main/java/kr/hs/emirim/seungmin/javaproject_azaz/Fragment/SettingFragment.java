@@ -56,7 +56,6 @@ public class SettingFragment extends Fragment {
     private EditText user_intro;
     private Button complete_btn;
     private ProgressBar setup_progress;
-    private Button logout_btn;
 
     private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
@@ -88,7 +87,6 @@ public class SettingFragment extends Fragment {
         user_intro = v.findViewById(R.id.set_user_intro);
         complete_btn = v.findViewById(R.id.fr_complete_btn);
         setup_progress = v.findViewById(R.id.fr_setup_progress);
-        logout_btn = v.findViewById(R.id.logout_btn);
 
         complete_btn.setEnabled(false);
 
@@ -184,14 +182,7 @@ public class SettingFragment extends Fragment {
                 }
             }
         });
-        logout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                Intent loginIntent = new Intent(getContext(), LoginActivity.class);
-                startActivity(loginIntent);
-            }
-        });
+
         user_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

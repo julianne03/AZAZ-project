@@ -18,10 +18,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.FavoriteFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.InventoryFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.RecommendFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.ReviewFragment;
-import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.SettingFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.SettingPageFragment;
 
 public class MainActivity extends AppCompatActivity {
