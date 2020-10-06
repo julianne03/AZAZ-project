@@ -301,7 +301,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
 
         public void updateLikesCount(int count) {
             likeCount = mView.findViewById(R.id.item_like_count);
-            likeCount.setText(count + " Likes");
+            likeCount.setText("찜 "+count);
 
         }
     }
