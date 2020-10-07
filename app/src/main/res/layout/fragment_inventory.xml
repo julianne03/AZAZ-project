@@ -32,7 +32,7 @@
         android:background="@drawable/drawer_shape"
         android:clickable="true"
         android:gravity="center"
-        android:text="좋아요 누른 리뷰"
+        android:text="기본 서랍"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
