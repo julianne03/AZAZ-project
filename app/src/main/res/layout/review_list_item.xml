@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="450dp">
+    android:layout_height="530dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="25dp"
+        app:cardElevation="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -62,10 +62,10 @@
 
             <ImageView
                 android:id="@+id/review_image1"
-                android:layout_width="92dp"
-                android:layout_height="87dp"
+                android:layout_width="136dp"
+                android:layout_height="129dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/review_user_image"
                 app:srcCompat="@drawable/add_image" />
@@ -74,8 +74,8 @@
                 android:id="@+id/imageView2"
                 android:layout_width="87dp"
                 android:layout_height="87dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintStart_toEndOf="@+id/review_image1"
                 app:layout_constraintTop_toBottomOf="@+id/review_user_image"
                 app:srcCompat="@drawable/add_image" />
@@ -85,7 +85,7 @@
                 android:layout_width="26dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_price"
                 app:srcCompat="@drawable/mood_good" />
@@ -95,28 +95,33 @@
                 android:layout_width="26dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView14"
                 app:srcCompat="@drawable/mood_bad" />
 
             <TextView
                 android:id="@+id/review_item_good"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="304dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="Good"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView14"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_price" />
 
             <TextView
                 android:id="@+id/review_item_bad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_width="296dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="Bad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.058"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_good" />
 
@@ -159,16 +164,16 @@
                 android:layout_width="26dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="44dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView15"
                 app:srcCompat="@drawable/recommend_child" />
 
             <TextView
                 android:id="@+id/review_item_recommend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_width="257dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Recommend"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
@@ -194,7 +199,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/like_btn_image" />
 
-            <TextView
+            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
                 android:id="@+id/item_like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -214,7 +219,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/comment_gray" />
 
-            <TextView
+            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
                 android:id="@+id/comment_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
