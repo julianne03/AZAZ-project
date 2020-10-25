@@ -36,7 +36,6 @@
         <activity android:name=".category.LanguageActivity" />
         <activity android:name=".category.FocusActivity" />
         <activity android:name=".category.HeadActivity" />
-        <activity android:name=".category.ExerciseActivity" />
         <activity android:name=".category.ImagineActivity" />
         <activity android:name=".category.TouchActivity" />
         <activity android:name=".category.HearActivity" />

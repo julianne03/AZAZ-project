@@ -23,7 +23,7 @@
         android:id="@+id/review_list_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,31 +43,275 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/search_field"
+    <HorizontalScrollView
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="8dp"
-        android:background="#61B4F7FF"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toTopOf="@+id/review_list_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="2dp">
 
-    <ImageButton
-        android:id="@+id/search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:src="@drawable/action_search"
-        app:layout_constraintBottom_toTopOf="@+id/review_list_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/search_field" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/sight_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="시각"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/sight"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/eye" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/hear_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="청각"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/hear"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/hearing" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/touch_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="촉각"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/touch"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/hand" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/imagine_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="상상력"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/imagine"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/head" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/exercise_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="운동기관"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/exercise"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/health" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/head_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="지능"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/head"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/head" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/focus_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="집중력"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/focus"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/touch" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/lang_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="언어"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/lang"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/language" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/elseth_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="기타"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/elseth"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/elseth" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

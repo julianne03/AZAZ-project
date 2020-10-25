@@ -1,4 +1,4 @@
-package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
+package kr.hs.emirim.seungmin.javaproject_azaz.category;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,9 +43,9 @@ import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
-public class ReviewFragment extends Fragment {
+public class ExerciseFragment extends Fragment {
 
-    private RecyclerView review_list_view;
+    private RecyclerView review_list_exercise;
     private List<Review> review_list;
     private List<User> user_list;
 
@@ -58,7 +58,7 @@ public class ReviewFragment extends Fragment {
     private Boolean isFirstPageFirstLoad = true;
 
 
-    public ReviewFragment() {
+    public ExerciseFragment() {
     }
 
     @Override
@@ -69,15 +69,15 @@ public class ReviewFragment extends Fragment {
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_view = view.findViewById(R.id.review_list_view);
+        review_list_exercise = view.findViewById(R.id.review_list_exercise);
 
-        add_review = view.findViewById(R.id.add_review);
+        add_review = view.findViewById(R.id.add_review_exercise);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
-        review_list_view.setAdapter(reviewRecyclerAdapter);
+        review_list_exercise.setLayoutManager(new LinearLayoutManager(getActivity()));
+        review_list_exercise.setAdapter(reviewRecyclerAdapter);
 
         add_review.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class ReviewFragment extends Fragment {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
 
-            review_list_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            review_list_exercise.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
