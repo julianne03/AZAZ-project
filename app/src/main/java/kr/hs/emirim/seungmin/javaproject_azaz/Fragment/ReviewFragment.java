@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,8 +58,18 @@ public class ReviewFragment extends Fragment {
 
     private Boolean isFirstPageFirstLoad = true;
 
+    private CardView category_sight;
+    private CardView category_hearing;
+    private CardView category_touch;
+    private CardView category_imagine;
+    private CardView category_exercise;
+    private CardView category_head;
+    private CardView category_focus;
+    private CardView category_language;
+    private CardView category_elsething;
 
-    public ReviewFragment() {
+
+   public ReviewFragment() {
     }
 
     @Override
@@ -74,6 +85,18 @@ public class ReviewFragment extends Fragment {
         add_review = view.findViewById(R.id.add_review);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        //category intial
+        category_sight = view.findViewById(R.id.category_sight);
+        category_hearing = view.findViewById(R.id.category_hearing);
+        category_touch = view.findViewById(R.id.category_touch);
+        category_imagine = view.findViewById(R.id.category_imagine);
+        category_exercise = view.findViewById(R.id.category_exercise);
+        category_head = view.findViewById(R.id.category_head);
+        category_focus = view.findViewById(R.id.category_focus);
+        category_language = view.findViewById(R.id.category_language);
+        category_elsething = view.findViewById(R.id.category_elseth);
+
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
         review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -106,6 +129,10 @@ public class ReviewFragment extends Fragment {
 
                 }
             });
+
+            //category filtering
+
+
 
             Query firstQuery = firebaseFirestore.collection("Reviews")
                     .orderBy("timestamp",Query.Direction.DESCENDING).limit(3);
