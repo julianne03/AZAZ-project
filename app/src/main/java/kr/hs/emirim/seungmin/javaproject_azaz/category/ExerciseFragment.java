@@ -65,7 +65,7 @@ public class ExerciseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_review, container, false);
+        View view = inflater.inflate(R.layout.fragment_exercise, container, false);
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
@@ -107,8 +107,8 @@ public class ExerciseFragment extends Fragment {
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Reviews")
-                    .orderBy("timestamp",Query.Direction.DESCENDING).limit(3);
+            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","운동기관");
+//                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override

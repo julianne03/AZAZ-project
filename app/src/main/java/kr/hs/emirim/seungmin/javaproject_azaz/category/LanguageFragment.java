@@ -1,25 +1,18 @@
-package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
+package kr.hs.emirim.seungmin.javaproject_azaz.category;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.SearchView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,22 +26,17 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
-import kr.hs.emirim.seungmin.javaproject_azaz.MainActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
-import kr.hs.emirim.seungmin.javaproject_azaz.category.ExerciseFragment;
 
-public class ReviewFragment extends Fragment {
+public class LanguageFragment extends Fragment {
 
-    private RecyclerView review_list_view;
+    private RecyclerView review_list_exercise;
     private List<Review> review_list;
     private List<User> user_list;
 
@@ -60,52 +48,27 @@ public class ReviewFragment extends Fragment {
 
     private Boolean isFirstPageFirstLoad = true;
 
-    private CardView category_sight;
-    private CardView category_hearing;
-    private CardView category_touch;
-    private CardView category_imagine;
-    private CardView category_exercise;
-    private CardView category_head;
-    private CardView category_focus;
-    private CardView category_language;
-    private CardView category_elsething;
 
-    private Fragment exerciseFragment;
-
-
-   public ReviewFragment() {
+    public LanguageFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_review, container, false);
+        View view = inflater.inflate(R.layout.fragment_language, container, false);
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_view = view.findViewById(R.id.review_list_view);
+        review_list_exercise = view.findViewById(R.id.review_list_exercise);
 
-        add_review = view.findViewById(R.id.add_review);
+        add_review = view.findViewById(R.id.add_review_exercise);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //category intial
-        category_sight = view.findViewById(R.id.category_sight);
-        category_hearing = view.findViewById(R.id.category_hearing);
-        category_touch = view.findViewById(R.id.category_touch);
-        category_imagine = view.findViewById(R.id.category_imagine);
-        category_exercise = view.findViewById(R.id.category_exercise);
-        category_head = view.findViewById(R.id.category_head);
-        category_focus = view.findViewById(R.id.category_focus);
-        category_language = view.findViewById(R.id.category_language);
-        category_elsething = view.findViewById(R.id.category_elseth);
-
-        exerciseFragment = new ExerciseFragment();
-
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
-        review_list_view.setAdapter(reviewRecyclerAdapter);
+        review_list_exercise.setLayoutManager(new LinearLayoutManager(getActivity()));
+        review_list_exercise.setAdapter(reviewRecyclerAdapter);
 
         add_review.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +83,7 @@ public class ReviewFragment extends Fragment {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
 
-            review_list_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            review_list_exercise.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
@@ -135,17 +98,8 @@ public class ReviewFragment extends Fragment {
                 }
             });
 
-            category_exercise.setOnClickListener(new View.OnClickListener() {
-                //@SuppressLint("ResourceAsColor")
-                @Override
-                public void onClick(View v) {
-                    //category_exercise.setCardBackgroundColor(R.color.category_click_color);
-                    getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
-                }
-            });
-
-            Query firstQuery = firebaseFirestore.collection("Reviews")
-                    .orderBy("timestamp",Query.Direction.DESCENDING);
+            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","운동기관");
+//                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
@@ -209,7 +163,6 @@ public class ReviewFragment extends Fragment {
 
 
 
-
     private void loadMoreReview() {
 
         if(firebaseAuth.getCurrentUser() != null) {
@@ -260,5 +213,4 @@ public class ReviewFragment extends Fragment {
 
 
     }
-
 }
