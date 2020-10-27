@@ -46,7 +46,7 @@ import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 import kr.hs.emirim.seungmin.javaproject_azaz.category.ExerciseFragment;
 
-public class ReviewFragment extends Fragment {
+public class ReviewFragment extends Fragment implements View.OnClickListener {
 
     private RecyclerView review_list_view;
     private List<Review> review_list;
@@ -135,14 +135,15 @@ public class ReviewFragment extends Fragment {
                 }
             });
 
-            category_exercise.setOnClickListener(new View.OnClickListener() {
-                //@SuppressLint("ResourceAsColor")
-                @Override
-                public void onClick(View v) {
-                    //category_exercise.setCardBackgroundColor(R.color.category_click_color);
-                    getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
-                }
-            });
+            category_sight.setOnClickListener(this);
+            category_hearing.setOnClickListener(this);
+            category_touch.setOnClickListener(this);
+            category_imagine.setOnClickListener(this);
+            category_exercise.setOnClickListener(this);
+            category_head.setOnClickListener(this);
+            category_focus.setOnClickListener(this);
+            category_language.setOnClickListener(this);
+            category_elsething.setOnClickListener(this);
 
             Query firstQuery = firebaseFirestore.collection("Reviews")
                     .orderBy("timestamp",Query.Direction.DESCENDING);
@@ -261,4 +262,15 @@ public class ReviewFragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.category_exercise :
+                //category_exercise.setCardBackgroundColor(R.color.category_click_color);
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
+            case R.id.category_sight :
+                //getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
+
+        }
+    }
 }
