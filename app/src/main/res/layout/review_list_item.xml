@@ -192,7 +192,7 @@
             <ImageView
                 android:id="@+id/like_btn"
                 android:layout_width="35dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toEndOf="@+id/item_date"
@@ -203,8 +203,8 @@
                 android:id="@+id/item_like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:text="0 Like"
+                android:layout_marginStart="104dp"
+                android:text="찜 1"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/item_date"
                 app:layout_constraintTop_toBottomOf="@+id/like_btn" />
@@ -214,7 +214,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toEndOf="@+id/like_btn"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/comment_gray" />
@@ -223,8 +223,7 @@
                 android:id="@+id/comment_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginStart="26dp"
                 android:text="댓글"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/item_like_count"
