@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,8 @@ public class FavoriteFragment extends Fragment {
     private List<Review> review_list;
     private List<User> user_list;
 
+    private GridLayoutManager mGridLayoutManager;
+
     private FirebaseFirestore firebaseFirestore;
     private LikeReviewRecyclerAdapter likeReviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
@@ -63,8 +66,11 @@ public class FavoriteFragment extends Fragment {
 
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
+        int numberofColumns = 3;
+        mGridLayoutManager = new GridLayoutManager(getContext(),numberofColumns);
+
         likeReviewRecyclerAdapter = new LikeReviewRecyclerAdapter(review_list, user_list);
-        like_review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
+        like_review_list_view.setLayoutManager(mGridLayoutManager);
         like_review_list_view.setAdapter(likeReviewRecyclerAdapter);
         if (firebaseAuth.getCurrentUser() != null) {
 
