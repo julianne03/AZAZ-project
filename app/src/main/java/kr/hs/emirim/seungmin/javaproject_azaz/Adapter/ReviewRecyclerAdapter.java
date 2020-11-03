@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -99,6 +100,8 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         } catch (Exception e) {
             Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+        holder.findId();
 
         if(currentUserId != null) {
             firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -188,7 +191,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             }
         });
 
-        holder.commentBtn.setOnClickListener(new View.OnClickListener() {
+        holder.item_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent comments = new Intent(context, CommentsActivity.class);
@@ -210,6 +213,8 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
 
         private CircularImageView userImage;
         private TextView userName;
+
+        private CardView item_view;
 
         private ImageView itemImage1;
         private TextView itemName;
@@ -303,6 +308,10 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             likeCount = mView.findViewById(R.id.item_like_count);
             likeCount.setText("찜 "+count);
 
+        }
+
+        public void findId() {
+            item_view = mView.findViewById(R.id.item_view);
         }
     }
 }

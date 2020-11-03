@@ -54,9 +54,7 @@ public class CommentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_comments);
 
         androidx.appcompat.app.ActionBar ab = getSupportActionBar();
-        ab.show();
-        ab.setTitle("Comments");
-        ab.setDisplayHomeAsUpEnabled(true);
+        ab.hide();
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
