@@ -60,9 +60,9 @@ public class HearingFragment extends Fragment {
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_exercise = view.findViewById(R.id.review_list_exercise);
+        review_list_exercise = view.findViewById(R.id.review_list_hear);
 
-        add_review = view.findViewById(R.id.add_review_exercise);
+        add_review = view.findViewById(R.id.add_review_hear);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -98,7 +98,7 @@ public class HearingFragment extends Fragment {
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","운동기관");
+            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","청각");
 //                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {

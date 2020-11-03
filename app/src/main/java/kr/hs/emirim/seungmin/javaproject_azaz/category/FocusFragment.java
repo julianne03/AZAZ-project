@@ -60,9 +60,9 @@ public class FocusFragment extends Fragment {
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_exercise = view.findViewById(R.id.review_list_exercise);
+        review_list_exercise = view.findViewById(R.id.review_list_focus);
 
-        add_review = view.findViewById(R.id.add_review_exercise);
+        add_review = view.findViewById(R.id.add_review_focus);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -98,7 +98,7 @@ public class FocusFragment extends Fragment {
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","운동기관");
+            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","집중력");
 //                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {

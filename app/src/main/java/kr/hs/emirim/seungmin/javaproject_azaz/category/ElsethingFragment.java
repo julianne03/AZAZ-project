@@ -36,7 +36,7 @@ import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 public class ElsethingFragment extends Fragment {
 
-    private RecyclerView review_list_exercise;
+    private RecyclerView review_list_view;
     private List<Review> review_list;
     private List<User> user_list;
 
@@ -60,15 +60,15 @@ public class ElsethingFragment extends Fragment {
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_exercise = view.findViewById(R.id.review_list_exercise);
+        review_list_view = view.findViewById(R.id.review_list_elseth);
 
-        add_review = view.findViewById(R.id.add_review_exercise);
+        add_review = view.findViewById(R.id.add_review_elseth);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_exercise.setLayoutManager(new LinearLayoutManager(getActivity()));
-        review_list_exercise.setAdapter(reviewRecyclerAdapter);
+        review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
+        review_list_view.setAdapter(reviewRecyclerAdapter);
 
         add_review.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,7 @@ public class ElsethingFragment extends Fragment {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
 
-            review_list_exercise.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            review_list_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
@@ -98,7 +98,7 @@ public class ElsethingFragment extends Fragment {
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","운동기관");
+            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","기타");
 //                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {

@@ -44,7 +44,15 @@ import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.ElsethingFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.category.ExerciseFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.FocusFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.HeadFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.HearingFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.ImagineFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.LanguageFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.SightFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.TouchFragment;
 
 public class ReviewFragment extends Fragment implements View.OnClickListener {
 
@@ -70,6 +78,15 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
     private CardView category_language;
     private CardView category_elsething;
 
+    //fragment initial
+    private Fragment sightFragment;
+    private Fragment touchFragment;
+    private Fragment languageFragment;
+    private Fragment focusFragment;
+    private Fragment headFragment;
+    private Fragment hearingFragment;
+    private Fragment imagineFragment;
+    private Fragment elsethFragment;
     private Fragment exerciseFragment;
 
 
@@ -101,7 +118,7 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
         category_language = view.findViewById(R.id.category_language);
         category_elsething = view.findViewById(R.id.category_elseth);
 
-        exerciseFragment = new ExerciseFragment();
+        fragment_find();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
         review_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -208,7 +225,18 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    private void fragment_find() {
+        exerciseFragment = new ExerciseFragment();
+        elsethFragment = new ElsethingFragment();
+        focusFragment = new FocusFragment();
+        headFragment = new HeadFragment();
+        hearingFragment = new HearingFragment();
+        imagineFragment = new ImagineFragment();
+        languageFragment = new LanguageFragment();
+        sightFragment = new SightFragment();
+        touchFragment = new TouchFragment();
 
+    }
 
 
     private void loadMoreReview() {
@@ -266,10 +294,35 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.category_exercise :
-                //category_exercise.setCardBackgroundColor(R.color.category_click_color);
+                category_exercise.getResources().getColor(R.color.category_click_color);
                 getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
+                break;
             case R.id.category_sight :
-                //getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, sightFragment).commit();
+                break;
+            case R.id.category_elseth :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, elsethFragment).commit();
+                break;
+            case R.id.category_focus :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, focusFragment).commit();
+                break;
+            case R.id.category_head :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, headFragment).commit();
+                break;
+            case R.id.category_hearing :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, hearingFragment).commit();
+                break;
+            case R.id.category_imagine :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, imagineFragment).commit();
+                break;
+            case R.id.category_language :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, languageFragment).commit();
+                break;
+            case R.id.category_touch :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container, touchFragment).commit();
+                break;
+            default:
+                return;
 
         }
     }
