@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
 
     Fragment ReviewFragment;
-    Fragment InventoryFragment;
+    Fragment FavoriteFragment;
     Fragment RecommendFragment;
     Fragment SettingPageFragment;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ReviewFragment).commit();
                     return true;
                 case R.id.action_inventory :
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,InventoryFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,FavoriteFragment).commit();
                     return true;
                 case R.id.action_recommend :
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,RecommendFragment).commit();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
         ReviewFragment = new ReviewFragment();
-        InventoryFragment = new InventoryFragment();
+        FavoriteFragment = new FavoriteFragment();
         RecommendFragment = new RecommendFragment();
         SettingPageFragment = new SettingPageFragment();
 
