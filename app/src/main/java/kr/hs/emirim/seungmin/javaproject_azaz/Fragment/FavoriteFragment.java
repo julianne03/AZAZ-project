@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -29,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.LikeReviewRecyclerAdapter;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.ItemDecoration;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
@@ -71,6 +71,7 @@ public class FavoriteFragment extends Fragment {
 
         likeReviewRecyclerAdapter = new LikeReviewRecyclerAdapter(review_list, user_list);
         like_review_list_view.setLayoutManager(mGridLayoutManager);
+        like_review_list_view.addItemDecoration(new ItemDecoration(getActivity()));
         like_review_list_view.setAdapter(likeReviewRecyclerAdapter);
         if (firebaseAuth.getCurrentUser() != null) {
 
