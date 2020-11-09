@@ -9,17 +9,47 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.PagerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.ElsethingFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.ExerciseFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.FocusFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.HeadFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.HearingFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.ImagineFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.LanguageFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.SightFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.TouchFragment;
 import me.relex.circleindicator.CircleIndicator3;
 
-public class RecommendFragment extends Fragment {
+public class RecommendFragment extends Fragment implements View.OnClickListener {
 
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
     private int num_page = 3;
     private CircleIndicator3 mIndicator;
+
+    private ImageView re_sight;
+    private ImageView re_touch;
+    private ImageView re_language;
+    private ImageView re_focus;
+    private ImageView re_head;
+    private ImageView re_hear;
+    private ImageView re_imagine;
+    private ImageView re_etc;
+    private ImageView re_exercise;
+
+    private Fragment sightFragment;
+    private Fragment touchFragment;
+    private Fragment languageFragment;
+    private Fragment focusFragment;
+    private Fragment headFragment;
+    private Fragment hearingFragment;
+    private Fragment imagineFragment;
+    private Fragment elsethFragment;
+    private Fragment exerciseFragment;
 
     public RecommendFragment() {
 
@@ -44,7 +74,77 @@ public class RecommendFragment extends Fragment {
         mPager.setCurrentItem(1500);
         mPager.setOffscreenPageLimit(3);
 
+        //category initial
+        re_etc = v.findViewById(R.id.re_etc);
+        re_exercise = v.findViewById(R.id.re_exercise);
+        re_focus = v.findViewById(R.id.re_focus);
+        re_head = v.findViewById(R.id.re_head);
+        re_hear = v.findViewById(R.id.re_hear);
+        re_imagine = v.findViewById(R.id.re_imagine);
+        re_language = v.findViewById(R.id.re_language);
+        re_sight = v.findViewById(R.id.re_sight);
+        re_touch = v.findViewById(R.id.re_touch);
+        category_init();
+
+        re_sight.setOnClickListener(this);
+        re_touch.setOnClickListener(this);
+        re_language.setOnClickListener(this);
+        re_imagine.setOnClickListener(this);
+        re_hear.setOnClickListener(this);
+        re_head.setOnClickListener(this);
+        re_focus.setOnClickListener(this);
+        re_etc.setOnClickListener(this);
+        re_exercise.setOnClickListener(this);
+
 
         return v;
+    }
+
+    private void category_init() {
+        exerciseFragment = new ExerciseFragment();
+        elsethFragment = new ElsethingFragment();
+        focusFragment = new FocusFragment();
+        headFragment = new HeadFragment();
+        hearingFragment = new HearingFragment();
+        imagineFragment = new ImagineFragment();
+        languageFragment = new LanguageFragment();
+        sightFragment = new SightFragment();
+        touchFragment = new TouchFragment();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.re_exercise :
+                getFragmentManager().beginTransaction().replace(R.id.category_container,exerciseFragment).commit();
+                break;
+            case R.id.re_sight :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, sightFragment).commit();
+                break;
+            case R.id.re_etc :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, elsethFragment).commit();
+                break;
+            case R.id.re_focus :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, focusFragment).commit();
+                break;
+            case R.id.re_head :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, headFragment).commit();
+                break;
+            case R.id.re_hear :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, hearingFragment).commit();
+                break;
+            case R.id.re_imagine :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, imagineFragment).commit();
+                break;
+            case R.id.re_language :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, languageFragment).commit();
+                break;
+            case R.id.re_touch :
+                getFragmentManager().beginTransaction().replace(R.id.category_container, touchFragment).commit();
+                break;
+            default:
+                return;
+
+        }
     }
 }
