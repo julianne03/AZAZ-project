@@ -9,79 +9,143 @@
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="250dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="340dp"
         android:src="@drawable/category_sight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView22"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
-        android:layout_marginTop="250dp"
-        android:src="@drawable/category_hearing"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="340dp"
+        android:src="@drawable/category_hear"
         app:layout_constraintStart_toEndOf="@+id/imageView21"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView23"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
-        android:layout_marginTop="250dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="340dp"
         android:src="@drawable/category_touch"
         app:layout_constraintStart_toEndOf="@+id/imageView22"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView24"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="20dp"
         android:src="@drawable/category_imagine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView21" />
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
         android:src="@drawable/category_exercise"
         app:layout_constraintStart_toEndOf="@+id/imageView24"
         app:layout_constraintTop_toBottomOf="@+id/imageView22" />
 
     <ImageView
         android:id="@+id/imageView26"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="6dp"
         android:src="@drawable/category_head"
         app:layout_constraintStart_toEndOf="@+id/imageView25"
         app:layout_constraintTop_toBottomOf="@+id/imageView23" />
 
     <ImageView
         android:id="@+id/imageView27"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="20dp"
         android:src="@drawable/category_focus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView24" />
 
     <ImageView
         android:id="@+id/imageView28"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
         android:src="@drawable/category_language"
         app:layout_constraintStart_toEndOf="@+id/imageView27"
         app:layout_constraintTop_toBottomOf="@+id/imageView25" />
 
     <ImageView
         android:id="@+id/imageView29"
-        android:layout_width="133dp"
-        android:layout_height="103dp"
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
         android:src="@drawable/category_etc"
         app:layout_constraintStart_toEndOf="@+id/imageView28"
         app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="아장아장"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="발달단계별로 보는 장난감 리뷰!"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
