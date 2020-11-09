@@ -19,6 +19,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -42,7 +43,6 @@ public class SettingPageFragment extends Fragment {
     private TextView review_count;
 
     private Fragment SettingFragment;
-
 
     public SettingPageFragment() {
         // Required empty public constructor
@@ -127,6 +127,13 @@ public class SettingPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,SettingFragment).commit();
+            }
+        });
+
+        review_count.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,new MyReviewFragment()).commit();
             }
         });
 
