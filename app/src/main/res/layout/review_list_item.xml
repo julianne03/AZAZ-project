@@ -3,39 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="530dp">
+    android:layout_height="350dp"
+    android:background="#00FBD6D6">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item_view"
         android:layout_width="0dp"
-        android:layout_height="500dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:backgroundTint="#F4F4F2"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/review_user_image"
-                android:layout_width="58dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="37dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:src="@drawable/profile"
                 app:civ_border_width="4dp"
                 app:civ_shadow_radius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.049"
+                app:layout_constraintBottom_toBottomOf="@+id/like_btn"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/review_item_price"
                 tools:ignore="MissingClass,MissingConstraints" />
 
             <TextView
@@ -45,10 +49,10 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="UserName"
-                android:textSize="18sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/review_user_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/review_item_price" />
 
             <TextView
                 android:id="@+id/review_category"
@@ -58,73 +62,20 @@
                 android:layout_marginTop="8dp"
                 android:text="category"
                 android:textColor="#D500F9"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/review_item_brand"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
             <ImageView
                 android:id="@+id/review_image1"
-                android:layout_width="136dp"
-                android:layout_height="129dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/review_user_image"
-                app:srcCompat="@drawable/add_image" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="87dp"
-                android:layout_height="87dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="40dp"
-                app:layout_constraintStart_toEndOf="@+id/review_image1"
-                app:layout_constraintTop_toBottomOf="@+id/review_user_image"
-                app:srcCompat="@drawable/add_image" />
-
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="26dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_price"
-                app:srcCompat="@drawable/mood_good" />
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="26dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="48dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView14"
-                app:srcCompat="@drawable/mood_bad" />
-
-            <TextView
-                android:id="@+id/review_item_good"
-                android:layout_width="304dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:text="Good"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView14"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_price" />
-
-            <TextView
-                android:id="@+id/review_item_bad"
-                android:layout_width="296dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:text="Bad"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
-                app:layout_constraintStart_toEndOf="@+id/imageView15"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_good" />
+                app:srcCompat="@drawable/default_image" />
 
             <TextView
                 android:id="@+id/review_item_name"
@@ -133,10 +84,11 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="item_name"
-                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/review_image1" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/review_item_price"
@@ -146,6 +98,7 @@
                 android:layout_marginTop="8dp"
                 android:text="item_price"
                 android:textColor="#D500F9"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
@@ -157,78 +110,30 @@
                 android:layout_marginTop="8dp"
                 android:text="item_brand"
                 android:textColor="#D500F9"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/review_item_price"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
             <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="26dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="44dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView15"
-                app:srcCompat="@drawable/recommend_child" />
-
-            <TextView
-                android:id="@+id/review_item_recommend"
-                android:layout_width="257dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Recommend"
-                app:layout_constraintStart_toEndOf="@+id/imageView16"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_bad" />
-
-            <TextView
-                android:id="@+id/item_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="2020.09.26"
-                android:textStyle="italic"
-                app:layout_constraintStart_toEndOf="@+id/review_user_image"
-                app:layout_constraintTop_toBottomOf="@+id/review_user_name" />
-
-            <ImageView
                 android:id="@+id/like_btn"
-                android:layout_width="35dp"
+                android:layout_width="25dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@+id/item_date"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/like_btn_image" />
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/review_user_name"
+                app:layout_constraintTop_toBottomOf="@+id/review_category"
+                app:srcCompat="@drawable/like_btn_image_accent" />
 
             <TextView
                 android:id="@+id/item_like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="104dp"
-                android:text="찜 1"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/item_date"
-                app:layout_constraintTop_toBottomOf="@+id/like_btn" />
-
-            <ImageView
-                android:id="@+id/comment_btn"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:text="45"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/like_btn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/comment_gray" />
-
-            <TextView
-                android:id="@+id/comment_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:text="댓글"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/item_like_count"
-                app:layout_constraintTop_toBottomOf="@+id/comment_btn" />
+                app:layout_constraintTop_toTopOf="@+id/like_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
