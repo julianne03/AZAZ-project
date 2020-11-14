@@ -32,7 +32,7 @@ import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.CommentsRecyclerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Comments;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 
-public class CommentsActivity extends AppCompatActivity {
+public class DetailPageActivity extends AppCompatActivity {
 
     private RecyclerView comment_list_view;
     private CommentsRecyclerAdapter commentsRecyclerAdapter;
@@ -51,7 +51,7 @@ public class CommentsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comments);
+        setContentView(R.layout.activity_detail_page);
 
         androidx.appcompat.app.ActionBar ab = getSupportActionBar();
         ab.hide();
@@ -110,7 +110,7 @@ public class CommentsActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(CommentsActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                         } else {
                             comment_field.setText("");

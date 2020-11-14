@@ -55,10 +55,11 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         holder.setIsRecyclable(false);
 
         String commentMessage = commentsList.get(position).getMessage();
+        final String comment_user_id = commentsList.get(position).getUser_id();
         holder.setComment_message(commentMessage);
 
         final String current_user_id = firebaseAuth.getCurrentUser().getUid();
-        firebaseFirestore.collection("Users").document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        firebaseFirestore.collection("Users").document(comment_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()) {
