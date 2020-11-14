@@ -96,16 +96,18 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(error==null) {
+                        if (!value.isEmpty()) {
 
-                    if (!value.isEmpty()) {
+                            int count = value.size();
 
-                        int count = value.size();
+                            holder.updateLikesCount(count);
 
-                        holder.updateLikesCount(count);
-
-                    } else {
-                        holder.updateLikesCount(0);
+                        } else {
+                            holder.updateLikesCount(0);
+                        }
                     }
+
                 }
             });
 

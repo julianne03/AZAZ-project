@@ -58,14 +58,16 @@ public class SettingPageFragment extends Fragment {
             firebaseFirestore.collection("Users/"+ currentUserId + "/reviews").addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(error==null) {
+                        if(!value.isEmpty()) {
+                            int count = value.size();
+                            review_count.setText("작성한 리뷰 ("+count+")");
 
-                    if(!value.isEmpty()) {
-                        int count = value.size();
-                        review_count.setText("작성한 리뷰 ("+count+")");
-
-                    } else {
-                        review_count.setText("작성한 리뷰 (0)");
+                        } else {
+                            review_count.setText("작성한 리뷰 (0)");
+                        }
                     }
+
                 }
             });
 
