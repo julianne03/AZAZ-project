@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText login_email;
     private EditText login_password;
     private Button login_btn;
-    private Button login_reg_btn;
+    private TextView login_reg_btn;
 
     private ProgressBar login_progress;
     private FirebaseAuth mAuth;
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         login_email = (EditText)findViewById(R.id.login_user_email);
         login_password = (EditText) findViewById(R.id.login_user_password);
         login_btn = (Button) findViewById(R.id.btn_login);
-        login_reg_btn = (Button) findViewById(R.id.btn_login_reg);
+        login_reg_btn = findViewById(R.id.btn_login_reg);
         login_progress = (ProgressBar) findViewById(R.id.login_progress);
 
         mAuth = FirebaseAuth.getInstance();

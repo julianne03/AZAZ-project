@@ -8,7 +8,7 @@
     android:backgroundTint="@color/colorPrimaryDark"
     tools:context=".Fragment.ReviewFragment">
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
+    <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

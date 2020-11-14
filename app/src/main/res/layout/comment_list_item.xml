@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
+            <TextView
                 android:id="@+id/comment_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingClass,MissingConstraints" />
 
-            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+            <TextView
                 android:id="@+id/comment_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

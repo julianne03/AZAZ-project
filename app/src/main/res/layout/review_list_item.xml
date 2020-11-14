@@ -38,7 +38,7 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingClass,MissingConstraints" />
 
-            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
+            <TextView
                 android:id="@+id/review_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toBottomOf="@+id/review_item_good" />
 
-            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
+            <TextView
                 android:id="@+id/review_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/like_btn_image" />
 
-            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+            <TextView
                 android:id="@+id/item_like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/comment_gray" />
 
-            <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+            <TextView
                 android:id="@+id/comment_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

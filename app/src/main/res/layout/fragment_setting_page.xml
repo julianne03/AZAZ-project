@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewBold
+    <TextView
         android:id="@+id/user_profile_name"
         android:layout_width="170dp"
         android:layout_height="50dp"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+    <TextView
         android:id="@+id/review_count"
         android:layout_width="328dp"
         android:layout_height="68dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+    <TextView
         android:id="@+id/app_setting"
         android:layout_width="65dp"
         android:layout_height="42dp"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bar2"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+    <TextView
         android:id="@+id/help_btn"
         android:layout_width="81dp"
         android:layout_height="41dp"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView20"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+    <TextView
         android:id="@+id/update_user"
         android:layout_width="124dp"
         android:layout_height="43dp"
@@ -151,7 +151,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView19"
         tools:ignore="MissingConstraints" />
 
-    <kr.hs.emirim.seungmin.javaproject_azaz.MyFontTextViewRegular
+    <TextView
         android:id="@+id/set_logout_btn"
         android:layout_width="105dp"
         android:layout_height="42dp"

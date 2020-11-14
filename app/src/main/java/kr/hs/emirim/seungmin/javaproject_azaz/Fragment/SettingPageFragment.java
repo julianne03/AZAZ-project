@@ -52,50 +52,53 @@ public class SettingPageFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        final String currentUserId = firebaseAuth.getCurrentUser().getUid();
+        if(firebaseAuth.getCurrentUser() != null) {
+            final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
-        firebaseFirestore.collection("Users/"+ currentUserId + "/reviews").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+            firebaseFirestore.collection("Users/"+ currentUserId + "/reviews").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                if(!value.isEmpty()) {
-                    int count = value.size();
-                    review_count.setText("작성한 리뷰 ("+count+")");
+                    if(!value.isEmpty()) {
+                        int count = value.size();
+                        review_count.setText("작성한 리뷰 ("+count+")");
 
-                } else {
-                    review_count.setText("작성한 리뷰 (0)");
-                }
-            }
-        });
-
-        firebaseFirestore.collection("Users").document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-
-                    if (task.getResult().exists()) {
-
-                        String name = task.getResult().getString("name");
-                        String image = task.getResult().getString("image");
-
-                        assert name != null;
-                        Log.e("시험", name);
-                        assert image != null;
-                        Log.e("시험", image);
-
-                        user_name.setText(name+" 님");
-
-                        RequestOptions placeholderRequest = new RequestOptions();
-                        placeholderRequest.placeholder(R.drawable.profile);
-
-                        Glide.with(getContext()).setDefaultRequestOptions(placeholderRequest).load(image).into(user_image);
-                        Log.e("시험", "ㅎㅎㅎㅎㅎㅎㅎㅎ");
-
-
+                    } else {
+                        review_count.setText("작성한 리뷰 (0)");
                     }
                 }
-            }
-        });
+            });
+
+            firebaseFirestore.collection("Users").document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+
+                        if (task.getResult().exists()) {
+
+                            String name = task.getResult().getString("name");
+                            String image = task.getResult().getString("image");
+
+                            assert name != null;
+                            Log.e("시험", name);
+                            assert image != null;
+                            Log.e("시험", image);
+
+                            user_name.setText(name+" 님");
+
+                            RequestOptions placeholderRequest = new RequestOptions();
+                            placeholderRequest.placeholder(R.drawable.profile);
+
+                            Glide.with(getContext()).setDefaultRequestOptions(placeholderRequest).load(image).into(user_image);
+                            Log.e("시험", "ㅎㅎㅎㅎㅎㅎㅎㅎ");
+
+
+                        }
+                    }
+                }
+            });
+        }
+
     }
 
     @Override
