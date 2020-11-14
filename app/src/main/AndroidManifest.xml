@@ -30,7 +30,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".InventoryActivity" />
         <activity android:name=".NewPostActivity" />
         <activity android:name=".SetupActivity"
             android:theme="@style/FullScreenTheme">

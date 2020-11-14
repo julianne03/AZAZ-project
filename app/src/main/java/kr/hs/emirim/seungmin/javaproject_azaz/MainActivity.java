@@ -19,7 +19,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.FavoriteFragment;
-import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.InventoryFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.RecommendFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.ReviewFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.SettingPageFragment;
@@ -112,47 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main_top_menu, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.action_logout :
-                logout();
-                return true;
-            case R.id.action_setup :
-                settings();
-                return true;
-            case R.id.action_inventory :
-                Inventory();
-            default:
-                return false;
-        }
-    }
-
-    private void Inventory() {
-        Intent InventoryIntent = new Intent(MainActivity.this, InventoryActivity.class);
-        startActivity(InventoryIntent);
-    }
-
-    private void settings() {
-        Intent setIntent = new Intent(MainActivity.this, SetupActivity.class);
-        startActivity(setIntent);
-    }
-
-    private void logout() {
-
-        mAuth.signOut();
-        sendToLogin();
     }
 
     private void sendToLogin() {

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.LikeReviewRecyclerAdapter;
+import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.ItemDecoration;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
@@ -40,10 +41,8 @@ public class FavoriteFragment extends Fragment {
     private List<Review> review_list;
     private List<User> user_list;
 
-    private GridLayoutManager mGridLayoutManager;
-
     private FirebaseFirestore firebaseFirestore;
-    private LikeReviewRecyclerAdapter likeReviewRecyclerAdapter;
+    private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
 
     private Boolean isFirstPageFirstLoad = true;
@@ -66,13 +65,11 @@ public class FavoriteFragment extends Fragment {
 
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
-        int numberofColumns = 3;
-        mGridLayoutManager = new GridLayoutManager(getContext(),numberofColumns);
 
-        likeReviewRecyclerAdapter = new LikeReviewRecyclerAdapter(review_list, user_list);
-        like_review_list_view.setLayoutManager(mGridLayoutManager);
-        like_review_list_view.addItemDecoration(new ItemDecoration(getActivity()));
-        like_review_list_view.setAdapter(likeReviewRecyclerAdapter);
+        reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
+        like_review_list_view.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        like_review_list_view.setAdapter(reviewRecyclerAdapter);
+
         if (firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
@@ -127,7 +124,7 @@ public class FavoriteFragment extends Fragment {
                                     Log.e("test","firebase add good");
 
                                 }
-                                likeReviewRecyclerAdapter.notifyDataSetChanged();
+                                reviewRecyclerAdapter.notifyDataSetChanged();
                             }
 
                         });
