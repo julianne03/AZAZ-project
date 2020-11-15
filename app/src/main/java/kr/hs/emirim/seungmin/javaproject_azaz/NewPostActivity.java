@@ -98,7 +98,7 @@ public class NewPostActivity extends AppCompatActivity {
         item_price = findViewById(R.id.item_price);
         item_brand = findViewById(R.id.item_brand);
         item_image1 = findViewById(R.id.item_image1);
-        item_image2 = findViewById(R.id.item_image2);
+        //item_image2 = findViewById(R.id.item_image2);
         item_good = findViewById(R.id.item_good);
         item_bad = findViewById(R.id.item_bad);
         item_recommend = findViewById(R.id.item_recommend);
@@ -148,22 +148,20 @@ public class NewPostActivity extends AppCompatActivity {
             }
         });
 
-        item_image2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CropImage.activity()
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .setMinCropResultSize(500, 500)
-                        .setAspectRatio(1, 1)
-                        .start(NewPostActivity.this);
-            }
-        });
+//        item_image2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                CropImage.activity()
+//                        .setGuidelines(CropImageView.Guidelines.ON)
+//                        .setMinCropResultSize(500, 500)
+//                        .setAspectRatio(1, 1)
+//                        .start(NewPostActivity.this);
+//            }
+//        });
 
         new_post_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                findViewById(R.id.new_review_progress).setVisibility(View.VISIBLE);
 
                 final String name = item_name.getText().toString();
                 final String price = item_price.getText().toString();
@@ -173,13 +171,19 @@ public class NewPostActivity extends AppCompatActivity {
                 final String bad = item_bad.getText().toString();
                 final String recommend = item_recommend.getText().toString();
 
-
+                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(price) || TextUtils.isEmpty(brand) || category == null
+                        || TextUtils.isEmpty(good) || TextUtils.isEmpty(bad) || TextUtils.isEmpty(recommend)
+//                        && item_image1_Uri!=null && item_image2_Uri!=null
+                ) {
+                    Toast.makeText(NewPostActivity.this,"빈 칸을 채워주세요!",Toast.LENGTH_LONG).show();
+                }
 
                 if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category != null
                         && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend)
 //                        && item_image1_Uri!=null && item_image2_Uri!=null
                         ) {
 
+                    findViewById(R.id.new_review_progress).setVisibility(View.VISIBLE);
                     final String randomName = UUID.randomUUID().toString();
 
                     final StorageReference filepath = storageReference.child("item_images").child(randomName + ".jpg");

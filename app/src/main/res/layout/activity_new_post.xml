@@ -22,24 +22,28 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1000dp">
+                android:layout_height="1200dp">
 
                 <EditText
                     android:id="@+id/item_good"
-                    android:layout_width="242dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/item_edit_background_long"
                     android:ems="10"
-                    android:hint="좋았던 점"
+                    android:hint="제품을 사용하면서 좋았던 점을 말해주세요"
                     android:inputType="textMultiLine"
                     android:lines="3"
                     android:maxLines="3"
+                    android:paddingStart="10dp"
                     android:scrollbars="vertical"
                     android:singleLine="false"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
-                    app:layout_constraintTop_toBottomOf="@+id/item_image1" />
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
                 <EditText
                     android:id="@+id/item_price"
@@ -51,7 +55,7 @@
                     android:ems="10"
                     android:hint="제품을 구매했을 때 가격을 입력하세요"
                     android:inputType="number"
-                    android:paddingStart="10dp"
+                    android:paddingStart="15dp"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -59,39 +63,45 @@
 
                 <EditText
                     android:id="@+id/item_recommend"
-                    android:layout_width="244dp"
-                    android:layout_height="43dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/item_edit_background_long"
                     android:ems="10"
-                    android:hint="추천 아기 개월 수"
+                    android:hint="이 제품을 추천하고 싶은 아기 개월 수를 말해주세요"
                     android:inputType="textMultiLine"
                     android:lines="3"
                     android:maxLines="3"
+                    android:paddingStart="10dp"
                     android:scrollbars="vertical"
                     android:singleLine="false"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/item_bad"
-                    app:layout_constraintVertical_bias="0.0" />
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                 <EditText
                     android:id="@+id/item_bad"
-                    android:layout_width="240dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/item_edit_background_long"
                     android:ems="10"
-                    android:hint="아쉬운 점"
+                    android:hint="제품을 사용하면서 아쉬웠던 점을 말해주세요"
                     android:inputType="textMultiLine"
                     android:lines="3"
                     android:maxLines="3"
+                    android:paddingStart="10dp"
                     android:scrollbars="vertical"
                     android:singleLine="false"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView4"
-                    app:layout_constraintTop_toBottomOf="@+id/item_good" />
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -127,7 +137,7 @@
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/item_edit_background"
                     android:dropDownWidth="200dp"
-                    android:paddingStart="10dp"
+                    android:paddingStart="15dp"
                     android:spinnerMode="dropdown"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -150,25 +160,16 @@
                     android:id="@+id/imageView4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/item_good"
                     app:srcCompat="@drawable/mood_bad" />
-
-                <ImageView
-                    android:id="@+id/item_image2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/item_image1"
-                    app:layout_constraintTop_toTopOf="@+id/item_image1"
-                    app:srcCompat="@drawable/add_image" />
 
                 <EditText
                     android:id="@+id/item_name"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/item_edit_background"
@@ -186,30 +187,30 @@
                     android:id="@+id/item_image1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView"
-                    app:srcCompat="@drawable/add_image" />
+                    app:layout_constraintTop_toBottomOf="@+id/divider4"
+                    app:srcCompat="@drawable/add_item_image" />
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                    app:layout_constraintTop_toBottomOf="@+id/item_bad"
                     app:srcCompat="@drawable/recommend_child" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/item_image1"
+                    app:layout_constraintTop_toBottomOf="@+id/divider5"
                     app:srcCompat="@drawable/mood_good" />
 
                 <EditText
@@ -222,7 +223,7 @@
                     android:ems="10"
                     android:hint="제품의 브랜드를 입력하세요"
                     android:inputType="textPersonName"
-                    android:padding="10dp"
+                    android:paddingStart="15dp"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -241,28 +242,30 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="사진 첨부"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
-                <ProgressBar
-                    android:id="@+id/new_review_progress"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:indeterminateTint="#FF5252"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="@+id/item_recommend"
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_image1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -311,6 +314,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <ProgressBar
+            android:id="@+id/new_review_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="#FF5252"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/textView19"
+            app:layout_constraintEnd_toEndOf="@+id/textView19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView19" />
 
         <TextView
             android:id="@+id/textView19"
