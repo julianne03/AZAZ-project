@@ -22,10 +22,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1300dp">
+                android:layout_height="1200dp">
 
                 <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/review_user_image"
+                    android:id="@+id/detail_user_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="24dp"
@@ -39,50 +39,52 @@
                     tools:ignore="MissingClass,MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/detail_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="78dp"
                     android:fontFamily="@font/notosans_bold"
-                    android:text="TextView"
+                    android:text="회원 닉네임"
                     android:textColor="#000000"
-                    app:layout_constraintStart_toEndOf="@+id/review_user_image"
+                    app:layout_constraintStart_toEndOf="@+id/detail_user_image"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/like_btn"
+                    android:id="@+id/detail_like_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="76dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/like_btn_image" />
 
                 <TextView
-                    android:id="@+id/item_like_count"
+                    android:id="@+id/detail_like_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="45"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@+id/like_btn"
-                    app:layout_constraintTop_toBottomOf="@+id/like_btn" />
+                    app:layout_constraintStart_toStartOf="@+id/detail_like_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_like_btn" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/comment_list"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/detail_item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -92,10 +94,10 @@
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/review_user_image" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_user_image" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/detail_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -103,29 +105,29 @@
                     android:text="상품 가격"
                     android:textColor="#DDAA01"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/detail_item_brand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 브랜드"
                     android:textColor="#DDAA01"
-                    app:layout_constraintStart_toEndOf="@+id/textView20"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintStart_toEndOf="@+id/detail_item_price"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/detail_item_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 카테고리"
                     android:textColor="#DDAA01"
-                    app:layout_constraintStart_toEndOf="@+id/textView21"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintStart_toEndOf="@+id/detail_item_brand"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
                 <View
                     android:id="@+id/divider"
@@ -137,7 +139,20 @@
                     android:background="#CCCCCC"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_price" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="#CCCCCC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
                 <TextView
                     android:id="@+id/textView23"
@@ -163,7 +178,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/detail_item_good"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosans_bold"
@@ -183,23 +198,23 @@
                     android:layout_marginTop="24dp"
                     android:src="@drawable/mood_bad"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_good" />
 
                 <TextView
                     android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="아쉬운 점"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView22"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_good" />
 
                 <TextView
-                    android:id="@+id/textView26"
+                    android:id="@+id/detail_item_bad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosans_bold"
@@ -210,7 +225,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView22" />
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/detail_item_recommend"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosans_bold"
@@ -228,20 +243,20 @@
                     android:layout_marginTop="24dp"
                     android:src="@drawable/recommend_child"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_bad" />
 
                 <TextView
                     android:id="@+id/textView27"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="추천 아기 개월 수"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView23"
-                    app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_bad" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -254,7 +269,7 @@
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_recommend" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -269,7 +284,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/detail_back_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -288,7 +303,7 @@
             android:text="장난감 리뷰"
             android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/detail_back_btn"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -62,18 +62,21 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         final String ReviewId = review_list.get(position).ReviewId;
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
-        String itemName = review_list.get(position).getItem_name();
-        String itemPrice = review_list.get(position).getItem_price();
-        String itemBrand = review_list.get(position).getItem_brand();
-        String itemCategory = review_list.get(position).getItem_category();
-        String user_id = review_list.get(position).getUser_id();
+        final String itemName = review_list.get(position).getItem_name();
+        final String itemPrice = review_list.get(position).getItem_price();
+        final String itemBrand = review_list.get(position).getItem_brand();
+        final String itemCategory = review_list.get(position).getItem_category();
+        final String user_id = review_list.get(position).getUser_id();
 
         String itemImage1 = review_list.get(position).getItem_image1();
         holder.setItemImage1(itemImage1);
 
+        final String itemGood = review_list.get(position).getItem_good();
+        final String itemBad = review_list.get(position).getItem_bad();
+        final String itemRecommend = review_list.get(position).getItem_recommend();
 
-        String userName = user_list.get(position).getName();
-        String userImage = user_list.get(position).getImage();
+        final String userName = user_list.get(position).getName();
+        final String userImage = user_list.get(position).getImage();
 
         holder.setUserData(userName,userImage);
         holder.setItemData(itemName, itemPrice, itemBrand, itemCategory);
@@ -162,9 +165,19 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         holder.item_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent comments = new Intent(context, DetailPageActivity.class);
-                comments.putExtra("review_id",ReviewId);
-                context.startActivity(comments);
+                Intent detail = new Intent(context, DetailPageActivity.class);
+                detail.putExtra("review_id",ReviewId);
+                detail.putExtra("user_image",userImage);
+                detail.putExtra("user_name",userName);
+                detail.putExtra("item_name",itemName);
+                detail.putExtra("item_price",itemPrice);
+                detail.putExtra("item_brand",itemBrand);
+                detail.putExtra("item_category",itemCategory);
+                detail.putExtra("item_user_id",user_id);
+                detail.putExtra("item_good",itemGood);
+                detail.putExtra("item_bad",itemBad);
+                detail.putExtra("item_recommend",itemRecommend);
+                context.startActivity(detail);
             }
         });
 

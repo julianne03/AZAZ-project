@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".Fragment.ReviewFragment">
 
     <TextView
@@ -21,6 +22,7 @@
         android:id="@+id/category_review_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +72,7 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_margin="7dp"
-                android:background="#FFFFFF"
+                android:background="@color/colorAccent"
                 android:backgroundTint="@color/colorAccent"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp">
@@ -80,9 +82,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="시각"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/sight"
@@ -109,9 +113,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="청각"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/hear"
@@ -138,9 +144,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="촉각"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/touch"
@@ -167,9 +175,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="상상력"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/imagine"
@@ -196,9 +206,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="7dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="운동기관"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/exercise"
@@ -225,9 +237,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="지능"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/head"
@@ -254,9 +268,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="집중력"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/focus"
@@ -283,9 +299,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="언어"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/lang"
@@ -312,9 +330,11 @@
                     android:layout_width="57dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:gravity="start|center_horizontal|center_vertical"
                     android:text="기타"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:id="@+id/elseth"
