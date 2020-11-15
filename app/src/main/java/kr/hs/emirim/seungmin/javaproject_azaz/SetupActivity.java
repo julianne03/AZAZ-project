@@ -68,7 +68,7 @@ public class SetupActivity extends AppCompatActivity {
         user_image = findViewById(R.id.user_image);
         user_nickname = findViewById(R.id.user_nickname);
         user_intro = findViewById(R.id.user_intro);
-        complete_btn = findViewById(R.id.complete_btn);
+        complete_btn = findViewById(R.id.new_post_next_btn);
         setup_progress = findViewById(R.id.setup_progress);
 
         complete_btn.setEnabled(false);

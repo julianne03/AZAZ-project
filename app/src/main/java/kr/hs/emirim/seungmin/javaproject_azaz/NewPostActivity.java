@@ -3,6 +3,7 @@ package kr.hs.emirim.seungmin.javaproject_azaz;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ClipData;
 import android.content.Intent;
@@ -61,8 +62,8 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText item_bad;
     private EditText item_recommend;
 
-    private FloatingActionButton back_btn;
-    private FloatingActionButton new_post_next_btn;
+    private ImageView back_btn;
+    private ConstraintLayout new_post_next_btn;
 
     private Uri item_image1_Uri = null;
     private Uri item_image2_Uri = null;
@@ -161,6 +162,8 @@ public class NewPostActivity extends AppCompatActivity {
         new_post_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                findViewById(R.id.new_review_progress).setVisibility(View.VISIBLE);
 
                 final String name = item_name.getText().toString();
                 final String price = item_price.getText().toString();

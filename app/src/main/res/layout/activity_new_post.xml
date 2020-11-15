@@ -7,17 +7,22 @@
     >
 
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="730dp">
+                android:layout_height="1000dp">
 
                 <EditText
                     android:id="@+id/item_good"
@@ -38,16 +43,19 @@
 
                 <EditText
                     android:id="@+id/item_price"
-                    android:layout_width="195dp"
-                    android:layout_height="36dp"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="#000000"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/item_edit_background"
                     android:ems="10"
+                    android:hint="제품을 구매했을 때 가격을 입력하세요"
                     android:inputType="number"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/textView7"
-                    app:layout_constraintTop_toBottomOf="@+id/item_name" />
+                    android:paddingStart="10dp"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
                 <EditText
                     android:id="@+id/item_recommend"
@@ -89,57 +97,53 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="27dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:text="브랜드"
-                    android:textSize="20sp"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_price" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="64dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:text="제품명"
-                    android:textSize="20sp"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:layout_width="179dp"
-                    android:layout_height="33dp"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/item_edit_background"
                     android:dropDownWidth="200dp"
                     android:spinnerMode="dropdown"
-                    app:layout_constraintStart_toEndOf="@+id/textView6"
-                    app:layout_constraintTop_toBottomOf="@+id/item_brand" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/back_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:clickable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/back_btn_image" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="20dp"
-                    android:text="카테고리"
-                    android:textSize="20sp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="카테고리(발달기관)"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_brand" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -162,16 +166,20 @@
 
                 <EditText
                     android:id="@+id/item_name"
-                    android:layout_width="211dp"
-                    android:layout_height="38dp"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="112dp"
-                    android:backgroundTint="#000000"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/item_edit_background"
                     android:ems="10"
+                    android:hint="리뷰할 제품을 입력하세요"
                     android:inputType="textPersonName"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/textView4"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:paddingStart="15dp"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
                 <ImageView
                     android:id="@+id/item_image1"
@@ -205,53 +213,118 @@
 
                 <EditText
                     android:id="@+id/item_brand"
-                    android:layout_width="196dp"
-                    android:layout_height="36dp"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="#000000"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/item_edit_background"
                     android:ems="10"
+                    android:hint="제품의 브랜드를 입력하세요"
                     android:inputType="textPersonName"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toEndOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/item_price" />
+                    android:padding="10dp"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="27dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
                     android:text="가격"
-                    android:textSize="20sp"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="40dp"
                     android:text="사진 첨부"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/new_post_next_btn"
+                <ProgressBar
+                    android:id="@+id/new_review_progress"
+                    style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:clickable="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:indeterminateTint="#FF5252"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/item_recommend"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/review_finish_icon" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_btn_image" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:fontFamily="@font/notosans_bold"
+            android:text="리뷰 작성하기"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/back_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/new_post_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFC400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="center"
+            android:text="등록 완료"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
