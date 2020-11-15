@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -199,22 +200,28 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
                 String comment_message = comment_field.getText().toString();
 
-                Map<String,Object> commentsMap = new HashMap<>();
-                commentsMap.put("message",comment_message);
-                commentsMap.put("user_id",current_user_id);
-                commentsMap.put("timestamp", FieldValue.serverTimestamp());
+                if(!TextUtils.isEmpty(comment_message)) {
+                    Map<String,Object> commentsMap = new HashMap<>();
+                    commentsMap.put("message",comment_message);
+                    commentsMap.put("user_id",current_user_id);
+                    commentsMap.put("timestamp", FieldValue.serverTimestamp());
 
-                firebaseFirestore.collection("Reviews/" + review_id + "/Comments").add(commentsMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    firebaseFirestore.collection("Reviews/" + review_id + "/Comments").add(commentsMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
-                        } else {
-                            comment_field.setText("");
+                            } else {
+                                comment_field.setText("");
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    Toast.makeText(DetailPageActivity.this, "댓글을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
     }

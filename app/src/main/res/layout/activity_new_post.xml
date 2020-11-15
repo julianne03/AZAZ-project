@@ -127,6 +127,7 @@
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/item_edit_background"
                     android:dropDownWidth="200dp"
+                    android:paddingStart="10dp"
                     android:spinnerMode="dropdown"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
