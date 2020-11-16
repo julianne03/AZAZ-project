@@ -124,7 +124,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
         //item 정보 가져오기
         detail_item_name.setText(item_name);
-        detail_item_price.setText(item_price);
+        detail_item_price.setText(item_price+"원");
         detail_item_brand.setText(item_brand);
         detail_item_category.setText(item_category);
         detail_item_good.setText(item_good);
@@ -136,23 +136,26 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (!value.isEmpty()) {
+                        if(error == null) {
+                            if (!value.isEmpty()) {
 
-                            if (error != null) {
-                                System.err.println(error);
-                            }
+                                if (error != null) {
+                                    System.err.println(error);
+                                }
 
-                            for (DocumentChange doc : value.getDocumentChanges()) {
-                                if (doc.getType() == DocumentChange.Type.ADDED) {
+                                for (DocumentChange doc : value.getDocumentChanges()) {
+                                    if (doc.getType() == DocumentChange.Type.ADDED) {
 
-                                    String commentId = doc.getDocument().getId();
-                                    Comments comments = doc.getDocument().toObject(Comments.class);
-                                    commentsList.add(comments);
-                                    commentsRecyclerAdapter.notifyDataSetChanged();
+                                        String commentId = doc.getDocument().getId();
+                                        Comments comments = doc.getDocument().toObject(Comments.class);
+                                        commentsList.add(comments);
+                                        commentsRecyclerAdapter.notifyDataSetChanged();
 
+                                    }
                                 }
                             }
                         }
+
                     }
                 });
 

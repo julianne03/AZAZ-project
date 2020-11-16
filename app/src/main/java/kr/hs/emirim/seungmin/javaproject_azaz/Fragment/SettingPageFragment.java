@@ -25,6 +25,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.rpc.Help;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.LoginActivity;
@@ -39,10 +40,12 @@ public class SettingPageFragment extends Fragment {
     private CircularImageView user_image;
     private TextView user_name;
     private TextView update_user;
+    private TextView help_btn;
     private TextView action_logout;
     private TextView review_count;
 
     private Fragment SettingFragment;
+    private Fragment HelpFragment;
 
     public SettingPageFragment() {
         // Required empty public constructor
@@ -109,6 +112,7 @@ public class SettingPageFragment extends Fragment {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_setting_page, container, false);
         SettingFragment = new SettingFragment();
+        HelpFragment = new HelpFragment();
         initial();
 
 
@@ -117,6 +121,7 @@ public class SettingPageFragment extends Fragment {
         user_image = mView.findViewById(R.id.user_profile_image);
         user_name = mView.findViewById(R.id.user_profile_name);
         update_user = mView.findViewById(R.id.update_user);
+        help_btn = mView.findViewById(R.id.help_btn);
 
         action_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +137,13 @@ public class SettingPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,SettingFragment).commit();
+            }
+        });
+
+        help_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,HelpFragment).commit();
             }
         });
 
