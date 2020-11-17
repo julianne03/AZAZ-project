@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Review extends kr.hs.emirim.seungmin.javaproject_azaz.Model.ReviewId {
 
-    public String item_name, item_price, item_brand, item_category, item_image1, user_id, item_good, item_bad, item_recommend;
+    public String item_name, item_price, item_brand, item_category, item_image1, user_id, item_good, item_bad, item_recommend, item_etc;
     public Date timestamp;
 
     public Review() {}
 
     public Review(Date timestamp) {this.timestamp = timestamp;}
 
-    public Review(String item_name, String item_price, String item_brand, String item_category, String item_image1, String user_id, String item_good, String item_bad, String item_recommend, Date timestamp) {
+    public Review(String item_name, String item_price, String item_brand, String item_category, String item_image1, String user_id, String item_good, String item_bad, String item_recommend, String item_etc, Date timestamp) {
         this.item_name = item_name;
         this.item_price = item_price;
         this.item_brand = item_brand;
@@ -21,7 +21,7 @@ public class Review extends kr.hs.emirim.seungmin.javaproject_azaz.Model.ReviewI
         this.item_good = item_good;
         this.item_bad = item_bad;
         this.item_recommend = item_recommend;
-
+        this.item_etc = item_etc;
         this.timestamp = timestamp;
     }
 
@@ -95,6 +95,14 @@ public class Review extends kr.hs.emirim.seungmin.javaproject_azaz.Model.ReviewI
 
     public void setItem_recommend(String item_recommend) {
         this.item_recommend = item_recommend;
+    }
+
+    public String getItem_etc() {
+        return item_etc;
+    }
+
+    public void setItem_etc(String item_etc) {
+        this.item_etc = item_etc;
     }
 
     public Date getTimestamp() {

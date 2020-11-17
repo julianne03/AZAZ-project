@@ -64,9 +64,10 @@
                     android:id="@+id/detail_like_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/notosans_bold"
-                    android:text="45"
+                    android:layout_marginStart="13dp"
+                    android:fontFamily="sans-serif"
+                    android:text="5"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/detail_like_btn"
                     app:layout_constraintTop_toBottomOf="@+id/detail_like_btn" />

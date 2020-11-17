@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -22,6 +23,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -36,6 +38,7 @@ import java.util.Map;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.CommentsRecyclerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Comments;
+import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 
 public class DetailPageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -108,6 +111,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
         detail_back_btn.setOnClickListener(this);
         comment_btn.setOnClickListener(this);
+        like_btn.setOnClickListener(this);
 
         //댓글 리스트
         commentsList = new ArrayList<>();
@@ -124,7 +128,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
         //item 정보 가져오기
         detail_item_name.setText(item_name);
-        detail_item_price.setText(item_price+"원");
+        detail_item_price.setText(item_price + "원");
         detail_item_brand.setText(item_brand);
         detail_item_category.setText(item_category);
         detail_item_good.setText(item_good);
@@ -132,11 +136,11 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         detail_item_recommend.setText(item_recommend);
 
         //댓글 불러오기
-        firebaseFirestore.collection("Reviews/"+review_id+"/Comments")
+        firebaseFirestore.collection("Reviews/" + review_id + "/Comments")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error == null) {
+                        if (error == null) {
                             if (!value.isEmpty()) {
 
                                 if (error != null) {
@@ -158,7 +162,39 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
                     }
                 });
+        //Likes count
+        if(current_user_id != null) {
+            firebaseFirestore.collection("Reviews/"+review_id+"/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(!value.isEmpty()) {
+                        int count = value.size();
+                        updateLikesCount(count);
+                    } else {
+                        updateLikesCount(0);
+                    }
+                }
+            });
+        }
 
+        //Like image change
+        if(current_user_id != null) {
+            firebaseFirestore.collection("Reviews/"+review_id+"/Likes").document(current_user_id).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(value.exists()) {
+                        like_btn.setImageResource(R.drawable.like_btn_image_accent);
+                    } else {
+                        like_btn.setImageResource(R.drawable.like_btn_image);
+                    }
+                }
+            });
+        }
+
+    }
+
+    private void updateLikesCount(int count) {
+        like_count.setText(""+count);
     }
 
     private void findid() {
@@ -187,13 +223,72 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.detail_back_btn :
+            case R.id.detail_back_btn:
                 finish();
                 break;
-            case R.id.comment_btn :
+            case R.id.comment_btn:
                 send_comment();
                 break;
+            case R.id.detail_like_btn:
+                click_like_btn();
         }
+    }
+
+    private void click_like_btn() {
+        like_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
+                        .document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (!task.getResult().exists()) {
+
+                            firebaseFirestore.collection("Reviews")
+                                    .document(review_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.getResult().exists()) {
+
+                                        Review review = task.getResult().toObject(Review.class);
+
+                                        Map<String, Object> likesMap = new HashMap<>();
+                                        likesMap.put("timestamp", FieldValue.serverTimestamp());
+
+                                        Map<String, Object> itemMap = new HashMap<>();
+                                        itemMap.put("item_name", review.getItem_name());
+                                        Log.e("test", "review item name : " + review.getItem_name());
+                                        itemMap.put("item_price", review.getItem_price());
+                                        itemMap.put("item_brand", review.getItem_brand());
+                                        itemMap.put("item_category", review.getItem_category());
+                                        itemMap.put("item_image1", review.getItem_image1());
+                                        itemMap.put("user_id", review.getUser_id());
+                                        itemMap.put("item_good", review.getItem_good());
+                                        itemMap.put("item_bad", review.getItem_bad());
+                                        itemMap.put("item_recommend", review.getItem_recommend());
+                                        itemMap.put("item_etc", review.getItem_etc());
+                                        itemMap.put("timestamp", FieldValue.serverTimestamp());
+
+                                        firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
+                                                .document(current_user_id).set(likesMap);
+
+                                        firebaseFirestore.collection("Users/" + current_user_id + "/Likes")
+                                                .document(review_id).set(itemMap);
+                                    }
+                                }
+                            });
+                        } else {
+                            firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
+                                    .document(current_user_id).delete();
+                            firebaseFirestore.collection("Users/" + current_user_id + "/Likes")
+                                    .document(review_id).delete();
+                        }
+                    }
+                });
+
+            }
+        });
     }
 
     private void send_comment() {
@@ -203,10 +298,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
                 String comment_message = comment_field.getText().toString();
 
-                if(!TextUtils.isEmpty(comment_message)) {
-                    Map<String,Object> commentsMap = new HashMap<>();
-                    commentsMap.put("message",comment_message);
-                    commentsMap.put("user_id",current_user_id);
+                if (!TextUtils.isEmpty(comment_message)) {
+                    Map<String, Object> commentsMap = new HashMap<>();
+                    commentsMap.put("message", comment_message);
+                    commentsMap.put("user_id", current_user_id);
                     commentsMap.put("timestamp", FieldValue.serverTimestamp());
 
                     firebaseFirestore.collection("Reviews/" + review_id + "/Comments").add(commentsMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {

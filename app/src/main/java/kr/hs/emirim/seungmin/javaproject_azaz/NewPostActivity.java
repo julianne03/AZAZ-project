@@ -44,6 +44,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -52,22 +53,24 @@ import id.zelory.compressor.Compressor;
 
 public class NewPostActivity extends AppCompatActivity {
 
+    private static final int PICK_IMAGE = 1;
     private EditText item_name;
     private EditText item_price;
     private EditText item_brand;
     private ImageView item_image1;
-    private ImageView item_image2;
 
     private EditText item_good;
     private EditText item_bad;
     private EditText item_recommend;
+    private EditText item_etc;
 
     private ImageView back_btn;
     private ConstraintLayout new_post_next_btn;
 
     private Uri item_image1_Uri = null;
-    private Uri item_image2_Uri = null;
-
+    private ArrayList imageList = new ArrayList();
+    private int upload_count = 0;
+    private ArrayList urlStrings;
     private Spinner category;
     private String category_text;
 
@@ -116,11 +119,13 @@ public class NewPostActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 category_text = parent.getItemAtPosition(position).toString();
-                Log.e("test",category_text);
+                Log.e("test", category_text);
 
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
 
@@ -138,12 +143,10 @@ public class NewPostActivity extends AppCompatActivity {
         item_image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CropImage.activity()
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .setMinCropResultSize(700, 512)
-                        .setAspectRatio(1, 1)
-                        .start(NewPostActivity.this);
-
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                startActivityForResult(intent, PICK_IMAGE);
 
             }
         });
@@ -170,125 +173,129 @@ public class NewPostActivity extends AppCompatActivity {
                 final String good = item_good.getText().toString();
                 final String bad = item_bad.getText().toString();
                 final String recommend = item_recommend.getText().toString();
+                final String etc = item_etc.getText().toString();
 
-                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(price) || TextUtils.isEmpty(brand) || category == null
-                        || TextUtils.isEmpty(good) || TextUtils.isEmpty(bad) || TextUtils.isEmpty(recommend)
-//                        && item_image1_Uri!=null && item_image2_Uri!=null
+                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category_text != null
+                        && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend) && !TextUtils.isEmpty(etc)
+                        && item_image1_Uri != null
                 ) {
-                    Toast.makeText(NewPostActivity.this,"빈 칸을 채워주세요!",Toast.LENGTH_LONG).show();
-                }
-
-                if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category != null
-                        && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend)
-//                        && item_image1_Uri!=null && item_image2_Uri!=null
-                        ) {
 
                     findViewById(R.id.new_review_progress).setVisibility(View.VISIBLE);
-                    final String randomName = UUID.randomUUID().toString();
+                    //get images url
+                    urlStrings = new ArrayList();
+                    final StorageReference imageFolder = storageReference.child("item_images");
 
-                    final StorageReference filepath = storageReference.child("item_images").child(randomName + ".jpg");
-                    final UploadTask uploadTask1 = filepath.putFile(item_image1_Uri);
-                    final UploadTask uploadTask2 = filepath.putFile(item_image2_Uri);
+                    for (upload_count = 0; upload_count < imageList.size(); upload_count++) {
+                        Uri IndividualImage = (Uri) imageList.get(upload_count);
+                        final StorageReference imageName = imageFolder.child("Images" + IndividualImage.getLastPathSegment());
 
-                    Task<Uri> urlTask = uploadTask1.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                        @Override
-                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                            if (!task.isSuccessful()) {
-                                throw task.getException();
-                            }
-
-                            // Continue with the task to get the download URL
-                            return filepath.getDownloadUrl();
-                        }
-                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                        @Override
-                        public void onComplete(@NonNull final Task<Uri> task) {
-
-                            final String downloadUri1 = task.getResult().toString();
-
-                            if (task.isSuccessful()) {
-
-                                File newImageFile = new File(item_image1_Uri.getPath());
-
-                                try {
-                                    compressedImageFile = new Compressor(NewPostActivity.this)
-                                            .setMaxHeight(30)
-                                            .setMaxWidth(30)
-                                            .setQuality(2)
-                                            .compressToBitmap(newImageFile);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                uploadTask1.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                    @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
-                                        Map<String, Object> itemMap = new HashMap<>();
-                                        itemMap.put("item_name", name);
-                                        itemMap.put("item_price",price);
-                                        itemMap.put("item_brand",brand);
-                                        itemMap.put("item_category",category_text);
-                                        itemMap.put("item_image1",downloadUri1);
-                                        itemMap.put("user_id", current_user_id);
-                                        itemMap.put("timestamp", FieldValue.serverTimestamp());
-                                        itemMap.put("item_good", good);
-                                        itemMap.put("item_bad", bad);
-                                        itemMap.put("item_recommend", recommend);
-
-                                        firebaseFirestore.collection("Reviews").add(itemMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        imageName.putFile(IndividualImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                imageName.getDownloadUrl().addOnSuccessListener(
+                                        new OnSuccessListener<Uri>() {
                                             @Override
-                                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                            public void onSuccess(Uri uri) {
+                                                urlStrings.add(String.valueOf(uri));
 
-                                                if(task.isSuccessful()) {
-                                                    Toast.makeText(NewPostActivity.this,"리뷰가 추가되었습니다!",Toast.LENGTH_LONG).show();
-                                                    Intent mainIntent = new Intent(NewPostActivity.this, MainActivity.class);
-                                                    startActivity(mainIntent);
-
-
+                                                if (urlStrings.size() == imageList.size()) {
+                                                    storeLink(urlStrings, name,price,brand,good,bad,recommend,etc);
                                                 }
                                             }
                                         });
-
-                                        firebaseFirestore.collection("Users/"+current_user_id+"/reviews").add(itemMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentReference> task) {
-                                                if(task.isSuccessful()) {
-                                                    Log.e("NewPost -> User Post","User 데베에 추가됨.");
-                                                }
-                                            }
-                                        });
-
-                                    }
-                                });
                             }
-                        }
-                    });
-                } else {
-                    Toast.makeText(NewPostActivity.this,"빈 칸을 채워주세요!",Toast.LENGTH_LONG).show();
+                        });
+
+                    }
+
                 }
-
             }
         });
     }
+
+
+    private void storeLink(ArrayList<String> urlStrings,String name,String price,String brand,String good,String bad,String recommend,String etc) {
+
+
+        Map<String, Object> itemMap = new HashMap<>();
+
+        for (int i = 0; i < urlStrings.size(); i++) {
+            itemMap.put("item_image" + i, urlStrings.get(i));
+        }
+        itemMap.put("item_name", name);
+        itemMap.put("item_price", price);
+        itemMap.put("item_brand", brand);
+        itemMap.put("item_category", category_text);
+        itemMap.put("user_id", current_user_id);
+        itemMap.put("timestamp", FieldValue.serverTimestamp());
+        itemMap.put("item_good", good);
+        itemMap.put("item_bad", bad);
+        itemMap.put("item_recommend", recommend);
+        itemMap.put("item_etc", etc);
+
+        firebaseFirestore.collection("Reviews").
+
+                add(itemMap).
+
+                addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+
+                        if (task.isSuccessful()) {
+                            Toast.makeText(NewPostActivity.this, "리뷰가 추가되었습니다!", Toast.LENGTH_LONG).show();
+                            Intent mainIntent = new Intent(NewPostActivity.this, MainActivity.class);
+                            startActivity(mainIntent);
+
+
+                        }
+                    }
+                });
+
+        firebaseFirestore.collection("Users/" + current_user_id + "/reviews").
+
+                add(itemMap).
+
+                addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.e("NewPost -> User Post", "User 데베에 추가됨.");
+                        }
+                    }
+                });
+
+        imageList.clear();
+
+    }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+        if (requestCode == PICK_IMAGE) {
             if (resultCode == RESULT_OK) {
 
-                item_image1_Uri = result.getUri();
-                item_image2_Uri = result.getUri();
 
-                item_image1.setImageURI(item_image1_Uri);
-                item_image2.setImageURI(item_image2_Uri);
+                if (data.getClipData() != null) {
 
+                    int countClipData = data.getClipData().getItemCount();
+                    int currentImageSlect = 0;
 
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
+                    while (currentImageSlect < countClipData) {
+
+                        item_image1_Uri = data.getClipData().getItemAt(currentImageSlect).getUri();
+                        imageList.add(item_image1_Uri);
+                        item_image1.setImageURI(item_image1_Uri);
+                        currentImageSlect = currentImageSlect + 1;
+                    }
+
+                    Log.d("image url", String.valueOf(imageList));
+
+                } else {
+                    Toast.makeText(this, "Please Select Multiple Images", Toast.LENGTH_SHORT).show();
+                }
+
             }
         }
     }

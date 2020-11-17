@@ -242,6 +242,27 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
+                <EditText
+                    android:id="@+id/item_etc"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/item_edit_background_long"
+                    android:ems="10"
+                    android:hint="마지막으로 제품에 대해 하고싶은 말이 있다면\n말해주세요."
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:maxLines="3"
+                    android:paddingStart="10dp"
+                    android:scrollbars="vertical"
+                    android:singleLine="false"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_recommend" />
+
                 <View
                     android:id="@+id/divider4"
                     android:layout_width="match_parent"
@@ -266,6 +287,37 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_image1" />
+
+                <ImageView
+                    android:id="@+id/item_image2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/divider5"
+                    app:layout_constraintStart_toEndOf="@+id/item_image1"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4"
+                    app:srcCompat="@drawable/add_item_image" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="주의사항. 이미지는 3장 넣어주셔야 합니다."
+                    android:textColor="#A9FF0000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+                <ImageView
+                    android:id="@+id/item_image3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/divider5"
+                    app:layout_constraintStart_toEndOf="@+id/item_image2"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4"
+                    app:srcCompat="@drawable/add_item_image" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
