@@ -22,7 +22,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1200dp">
+                android:layout_height="1700dp">
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/detail_user_image"
@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 이름"
                     android:textColor="#000000"
@@ -105,6 +105,7 @@
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 가격"
                     android:textColor="#DDAA01"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
@@ -116,6 +117,7 @@
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 브랜드"
                     android:textColor="#DDAA01"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/detail_item_price"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
@@ -127,6 +129,7 @@
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 카테고리"
                     android:textColor="#DDAA01"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/detail_item_brand"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
@@ -135,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
                     android:background="#CCCCCC"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -160,23 +163,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="좋았어요"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView21"
-                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_image" />
 
                 <ImageView
                     android:id="@+id/imageView21"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="24dp"
                     android:src="@drawable/mood_good"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_image" />
 
                 <TextView
                     android:id="@+id/detail_item_good"
@@ -279,9 +282,9 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/notosans_bold"
+                    android:text="기타 정보"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:text="기타 정보"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_recommend" />
 
@@ -296,6 +299,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView17"
                     app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+                <ImageView
+                    android:id="@+id/detail_item_image"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    app:srcCompat="@drawable/default_image" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

@@ -68,12 +68,13 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
         final String itemCategory = review_list.get(position).getItem_category();
         final String user_id = review_list.get(position).getUser_id();
 
-        String itemImage1 = review_list.get(position).getItem_image1();
+        final String itemImage1 = review_list.get(position).getItem_image1();
         holder.setItemImage1(itemImage1);
 
         final String itemGood = review_list.get(position).getItem_good();
         final String itemBad = review_list.get(position).getItem_bad();
         final String itemRecommend = review_list.get(position).getItem_recommend();
+        final String itemEtc = review_list.get(position).getItem_etc();
 
         final String userName = user_list.get(position).getName();
         final String userImage = user_list.get(position).getImage();
@@ -118,10 +119,12 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
                 detail.putExtra("item_price",itemPrice);
                 detail.putExtra("item_brand",itemBrand);
                 detail.putExtra("item_category",itemCategory);
+                detail.putExtra("item_image",itemImage1);
                 detail.putExtra("item_user_id",user_id);
                 detail.putExtra("item_good",itemGood);
                 detail.putExtra("item_bad",itemBad);
                 detail.putExtra("item_recommend",itemRecommend);
+                detail.putExtra("item_etc",itemEtc);
                 context.startActivity(detail);
             }
         });
@@ -166,7 +169,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             itemCategory = mView.findViewById(R.id.review_category);
 
             itemName.setText(name);
-            itemPrice.setText(price);
+            itemPrice.setText(price+"원");
             itemBrand.setText(brand);
             itemCategory.setText(category);
 

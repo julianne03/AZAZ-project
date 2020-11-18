@@ -288,36 +288,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_image1" />
 
-                <ImageView
-                    android:id="@+id/item_image2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/divider5"
-                    app:layout_constraintStart_toEndOf="@+id/item_image1"
-                    app:layout_constraintTop_toBottomOf="@+id/divider4"
-                    app:srcCompat="@drawable/add_item_image" />
-
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
-                    android:text="주의사항. 이미지는 3장 넣어주셔야 합니다."
+                    android:text="주의사항. 이미지는 1장만 가능힙니다."
                     android:textColor="#A9FF0000"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider5" />
-
-                <ImageView
-                    android:id="@+id/item_image3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/divider5"
-                    app:layout_constraintStart_toEndOf="@+id/item_image2"
-                    app:layout_constraintTop_toBottomOf="@+id/divider4"
-                    app:srcCompat="@drawable/add_item_image" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

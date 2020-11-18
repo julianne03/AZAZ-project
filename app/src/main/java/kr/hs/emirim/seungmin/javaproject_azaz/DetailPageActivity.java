@@ -60,6 +60,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private TextView detail_item_brand;
     private TextView detail_item_category;
 
+    private ImageView detail_item_image;
+
     private TextView detail_item_good;
     private TextView detail_item_bad;
     private TextView detail_item_recommend;
@@ -77,6 +79,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private String item_price;
     private String item_brand;
     private String item_category;
+    private String item_image;
     private String item_good;
     private String item_bad;
     private String item_recommend;
@@ -103,6 +106,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         item_price = getIntent().getStringExtra("item_price");
         item_brand = getIntent().getStringExtra("item_brand");
         item_category = getIntent().getStringExtra("item_category");
+        item_image = getIntent().getStringExtra("item_image");
         item_good = getIntent().getStringExtra("item_good");
         item_bad = getIntent().getStringExtra("item_bad");
         item_recommend = getIntent().getStringExtra("item_recommend");
@@ -134,6 +138,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         detail_item_good.setText(item_good);
         detail_item_bad.setText(item_bad);
         detail_item_recommend.setText(item_recommend);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.default_image);
+
+        Glide.with(getApplicationContext()).applyDefaultRequestOptions(requestOptions).load(item_image).thumbnail().into(detail_item_image);
 
         //댓글 불러오기
         firebaseFirestore.collection("Reviews/" + review_id + "/Comments")
@@ -210,6 +218,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         detail_item_price = findViewById(R.id.detail_item_price);
         detail_item_brand = findViewById(R.id.detail_item_brand);
         detail_item_category = findViewById(R.id.detail_item_category);
+
+        detail_item_image = findViewById(R.id.detail_item_image);
 
         detail_item_good = findViewById(R.id.detail_item_good);
         detail_item_bad = findViewById(R.id.detail_item_bad);
