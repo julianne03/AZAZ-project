@@ -163,8 +163,18 @@ public class NewPostActivity extends AppCompatActivity {
 
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category_text != null
                         && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend) && !TextUtils.isEmpty(etc)
-                        && item_image1_Uri != null
                 ) {
+
+                    if(good.length() < 30) {
+                        Toast.makeText(NewPostActivity.this, "좋았던 점이 너무 짧습니다!", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    if(item_image1_Uri == null) {
+                        Toast.makeText(NewPostActivity.this, "등록된 사진이 없습니다!", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
 
                     findViewById(R.id.new_review_progress).setVisibility(View.VISIBLE);
                     final String randomName = UUID.randomUUID().toString();

@@ -9,7 +9,7 @@
     <ScrollView
         android:id="@+id/scrollView4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1200dp">
+                android:layout_height="1300dp">
 
                 <EditText
                     android:id="@+id/item_good"
@@ -33,7 +33,7 @@
                     android:layout_marginEnd="50dp"
                     android:background="@drawable/item_edit_background_long"
                     android:ems="10"
-                    android:hint="제품을 사용하면서 좋았던 점을 말해주세요"
+                    android:hint="제품을 사용하면서 좋았던 점을 말해주세요.\n(30자 이상)"
                     android:inputType="textMultiLine"
                     android:lines="3"
                     android:maxLines="3"
@@ -91,7 +91,7 @@
                     android:layout_marginEnd="50dp"
                     android:background="@drawable/item_edit_background_long"
                     android:ems="10"
-                    android:hint="제품을 사용하면서 아쉬웠던 점을 말해주세요"
+                    android:hint="제품을 사용하면서 아쉬웠던 점을 말해주세요."
                     android:inputType="textMultiLine"
                     android:lines="3"
                     android:maxLines="3"
@@ -247,7 +247,7 @@
                     android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="50dp"
                     android:background="@drawable/item_edit_background_long"
                     android:ems="10"
@@ -261,7 +261,7 @@
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/item_recommend" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                 <View
                     android:id="@+id/divider4"
@@ -293,11 +293,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="36dp"
                     android:text="주의사항. 이미지는 1장만 가능힙니다."
                     android:textColor="#A9FF0000"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_recommend"
+                    app:srcCompat="@drawable/ic_baseline_add_box_24" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

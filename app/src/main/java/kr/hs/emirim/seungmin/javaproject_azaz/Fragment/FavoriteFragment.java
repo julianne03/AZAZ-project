@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +39,7 @@ public class FavoriteFragment extends Fragment {
     private RecyclerView like_review_list_view;
     private List<Review> review_list;
     private List<User> user_list;
+    private ImageView empty_image;
 
     private FirebaseFirestore firebaseFirestore;
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
@@ -57,7 +59,7 @@ public class FavoriteFragment extends Fragment {
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
         like_review_list_view = view.findViewById(R.id.like_list_view);
-
+        empty_image = view.findViewById(R.id.empty_image);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -84,6 +86,9 @@ public class FavoriteFragment extends Fragment {
                 Log.e("test","firstQuery OK");
 
                 if(!value.isEmpty()) {
+
+                    like_review_list_view.setVisibility(View.VISIBLE);
+                    empty_image.setVisibility(View.GONE);
 
                     if(isFirstPageFirstLoad) {
                         review_list.clear();
