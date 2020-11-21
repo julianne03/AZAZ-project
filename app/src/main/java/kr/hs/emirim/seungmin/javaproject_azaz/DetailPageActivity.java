@@ -65,6 +65,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private TextView detail_item_good;
     private TextView detail_item_bad;
     private TextView detail_item_recommend;
+    private TextView detail_item_etc;
 
     private EditText comment_field;
     private ImageButton comment_btn;
@@ -83,6 +84,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private String item_good;
     private String item_bad;
     private String item_recommend;
+    private String item_etc;
     private String current_user_id;
 
     @Override
@@ -110,6 +112,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         item_good = getIntent().getStringExtra("item_good");
         item_bad = getIntent().getStringExtra("item_bad");
         item_recommend = getIntent().getStringExtra("item_recommend");
+        item_etc = getIntent().getStringExtra("item_etc");
 
         findid();
 
@@ -138,6 +141,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         detail_item_good.setText(item_good);
         detail_item_bad.setText(item_bad);
         detail_item_recommend.setText(item_recommend);
+        detail_item_etc.setText(item_etc);
+
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.default_image);
 
@@ -224,6 +229,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         detail_item_good = findViewById(R.id.detail_item_good);
         detail_item_bad = findViewById(R.id.detail_item_bad);
         detail_item_recommend = findViewById(R.id.detail_item_recommend);
+        detail_item_etc = findViewById(R.id.detail_item_etc);
 
         comment_field = findViewById(R.id.comment_field);
         comment_btn = findViewById(R.id.comment_btn);

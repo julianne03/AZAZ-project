@@ -22,7 +22,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1700dp">
+                android:layout_height="1500dp">
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/detail_user_image"
@@ -75,11 +75,10 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/comment_list"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView29" />
@@ -273,23 +272,23 @@
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_etc" />
 
                 <TextView
                     android:id="@+id/textView17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="기타 정보"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_recommend" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/detail_item_etc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -297,8 +296,8 @@
                     android:text="안녕하세요 반갑습니다. 앞으로도 저희 앱 많이 사랑해주세요.안녕하세요 반갑습니다. 앞으로도 저희 앱 많이 사랑해주세요.안녕하세요 반갑습니다. 앞으로도 저희 앱 많이 사랑해주세요"
                     android:textColor="#000000"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView17"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                    app:layout_constraintStart_toStartOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
                 <ImageView
                     android:id="@+id/detail_item_image"
@@ -309,6 +308,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider"
                     app:srcCompat="@drawable/default_image" />
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_item_recommend"
+                    app:srcCompat="@drawable/ic_baseline_add_box_24" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
