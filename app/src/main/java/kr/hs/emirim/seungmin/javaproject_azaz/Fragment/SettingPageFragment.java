@@ -65,9 +65,11 @@ public class SettingPageFragment extends Fragment {
                         if(!value.isEmpty()) {
                             int count = value.size();
                             review_count.setText("작성한 리뷰 ("+count+")");
+                            review_count.setClickable(true);
 
                         } else {
                             review_count.setText("작성한 리뷰 (0)");
+                            review_count.setClickable(false);
                         }
                     }
 

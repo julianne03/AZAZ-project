@@ -2,6 +2,6 @@
 <resources>
     <dimen name="pageMargin">20dp</dimen>
     <dimen name="offset">20dp</dimen>
-    <dimen name="pageMarginAndOffset">20dp</dimen>
-    <dimen name="frameSize">320dp</dimen>
+    <dimen name="pageMarginAndOffset">40dp</dimen>
+    <dimen name="frameSize">220dp</dimen>
 </resources>

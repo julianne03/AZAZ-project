@@ -2,6 +2,7 @@ package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -71,8 +72,8 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         mIndicator.createIndicators(num_page,0);
         //ViewPager Setting
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-        mPager.setCurrentItem(1500);
-        mPager.setOffscreenPageLimit(3);
+        mPager.setCurrentItem(0,true);
+        mPager.setOffscreenPageLimit(2);
 
         //category initial
         re_etc = v.findViewById(R.id.re_etc);

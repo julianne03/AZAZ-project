@@ -44,8 +44,6 @@ public class HeadFragment extends Fragment {
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
 
-    private FloatingActionButton add_review;
-
     private Boolean isFirstPageFirstLoad = true;
 
 
@@ -62,21 +60,12 @@ public class HeadFragment extends Fragment {
         user_list = new ArrayList<>();
         review_list_exercise = view.findViewById(R.id.review_list_head);
 
-        add_review = view.findViewById(R.id.add_review_head);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
         review_list_exercise.setLayoutManager(new LinearLayoutManager(getActivity()));
         review_list_exercise.setAdapter(reviewRecyclerAdapter);
-
-        add_review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent add_review_intent = new Intent(getContext(), NewPostActivity.class);
-                startActivity(add_review_intent);
-            }
-        });
 
 
         if (firebaseAuth.getCurrentUser() != null) {

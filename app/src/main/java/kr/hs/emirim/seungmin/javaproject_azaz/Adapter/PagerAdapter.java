@@ -34,6 +34,6 @@ public class PagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2000;
+        return 300;
     }
 }
