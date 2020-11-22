@@ -195,10 +195,12 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             firebaseFirestore.collection("Reviews/"+review_id+"/Likes").document(current_user_id).addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                    if(value.exists()) {
-                        like_btn.setImageResource(R.drawable.like_btn_image_accent);
-                    } else {
-                        like_btn.setImageResource(R.drawable.like_btn_image);
+                    if(error == null) {
+                        if(value.exists()) {
+                            like_btn.setImageResource(R.drawable.like_btn_image_accent);
+                        } else {
+                            like_btn.setImageResource(R.drawable.like_btn_image);
+                        }
                     }
                 }
             });

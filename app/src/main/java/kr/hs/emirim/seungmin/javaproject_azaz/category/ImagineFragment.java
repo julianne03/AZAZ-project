@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,7 +64,7 @@ public class ImagineFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_exercise.setLayoutManager(new LinearLayoutManager(getActivity()));
+        review_list_exercise.setLayoutManager(new GridLayoutManager(getActivity(),2));
         review_list_exercise.setAdapter(reviewRecyclerAdapter);
 
         if (firebaseAuth.getCurrentUser() != null) {

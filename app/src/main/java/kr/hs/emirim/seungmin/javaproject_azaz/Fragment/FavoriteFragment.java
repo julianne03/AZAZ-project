@@ -83,64 +83,63 @@ public class FavoriteFragment extends Fragment {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                Log.e("test","firstQuery OK");
+                if(error == null) {
 
-                if(error != null) {
                     if(!value.isEmpty()) {
-
-
                         like_review_list_view.setVisibility(View.VISIBLE);
                         empty_image.setVisibility(View.GONE);
+                    }
 
-                        if(isFirstPageFirstLoad) {
-                            review_list.clear();
-                            user_list.clear();
+                        Log.e("test","firstQuery OK");
+                        if(!value.isEmpty()) {
+
+                            if(isFirstPageFirstLoad) {
+                                review_list.clear();
+                                user_list.clear();
+                            }
+
+                        }
+                        if (error != null) {
+                            System.err.println(error);
                         }
 
-                    }
-                    if (error != null) {
-                        System.err.println(error);
-                    }
+                        for(DocumentChange doc : value.getDocumentChanges()) {
 
-                    for(DocumentChange doc : value.getDocumentChanges()) {
+                            if (doc.getType() == DocumentChange.Type.ADDED) {
 
-                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                                String reviewId = doc.getDocument().getId();
+                                final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
 
-                            String reviewId = doc.getDocument().getId();
-                            final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
+                                String reviewUserId = doc.getDocument().getString("user_id");
+                                firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                            String reviewUserId = doc.getDocument().getString("user_id");
-                            firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if(task.isSuccessful()) {
+                                            Log.e("test","inventory firebasfirestore 동작 good");
+                                            User user = task.getResult().toObject(User.class);
 
-                                    if(task.isSuccessful()) {
-                                        Log.e("test","inventory firebasfirestore 동작 good");
-                                        User user = task.getResult().toObject(User.class);
+                                            if(isFirstPageFirstLoad) {
+                                                user_list.add(user);
+                                                review_list.add(review);
+                                            } else {
+                                                user_list.add(0,user);
+                                                review_list.add(0,review);
+                                            }
 
-                                        if(isFirstPageFirstLoad) {
-                                            user_list.add(user);
-                                            review_list.add(review);
-                                        } else {
-                                            user_list.add(0,user);
-                                            review_list.add(0,review);
+                                            Log.e("test","firebase add good");
+
                                         }
-
-                                        Log.e("test","firebase add good");
-
+                                        reviewRecyclerAdapter.notifyDataSetChanged();
                                     }
-                                    reviewRecyclerAdapter.notifyDataSetChanged();
-                                }
 
-                            });
+                                });
 
 
+                            }
                         }
                     }
                 }
-
-
-            }
         });
         return view;
     }

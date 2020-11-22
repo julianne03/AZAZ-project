@@ -5,12 +5,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,6 +42,7 @@ public class MyReviewFragment extends Fragment {
     private List<Review> review_list;
     private List<User> user_list;
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
+    private ImageView empty_image;
 
     public MyReviewFragment() {
         // Required empty public constructor
@@ -55,12 +58,13 @@ public class MyReviewFragment extends Fragment {
         View mView = inflater.inflate(R.layout.fragment_my_review, container, false);
 
         my_reivew_list_view = mView.findViewById(R.id.my_review_list_view);
+        empty_image = mView.findViewById(R.id.empty_image_my);
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        my_reivew_list_view.setLayoutManager(new LinearLayoutManager(getContext()));
+        my_reivew_list_view.setLayoutManager(new GridLayoutManager(getActivity(),2));
         my_reivew_list_view.setAdapter(reviewRecyclerAdapter);
 
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
@@ -70,37 +74,47 @@ public class MyReviewFragment extends Fragment {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                if(!value.isEmpty()) {
-                    review_list.clear();
-                    user_list.clear();
-                }
-                if(error!=null) {
+                if(error == null) {
+                    if(!value.isEmpty()) {
+                        my_reivew_list_view.setVisibility(View.VISIBLE);
+                        empty_image.setVisibility(View.GONE);
+                    }
+
+                    if(!value.isEmpty()) {
+                        review_list.clear();
+                        user_list.clear();
+                    }
+                    if(error!=null) {
+                        System.err.println(error);
+                    }
+
+                    for(DocumentChange doc : value.getDocumentChanges()) {
+                        if(doc.getType() == DocumentChange.Type.ADDED) {
+
+                            String reviewId = doc.getDocument().getId();
+                            final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
+
+                            String reviewUserId = doc.getDocument().getString("user_id");
+                            firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                    if(task.isSuccessful()) {
+                                        User user = task.getResult().toObject(User.class);
+
+                                        user_list.add(user);
+                                        review_list.add(review);
+                                    }
+                                    reviewRecyclerAdapter.notifyDataSetChanged();
+                                }
+                            });
+
+                        }
+                    }
+                } else {
                     System.err.println(error);
                 }
 
-                for(DocumentChange doc : value.getDocumentChanges()) {
-                    if(doc.getType() == DocumentChange.Type.ADDED) {
-
-                        String reviewId = doc.getDocument().getId();
-                        final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
-
-                        String reviewUserId = doc.getDocument().getString("user_id");
-                        firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                                if(task.isSuccessful()) {
-                                    User user = task.getResult().toObject(User.class);
-
-                                    user_list.add(user);
-                                    review_list.add(review);
-                                }
-                                reviewRecyclerAdapter.notifyDataSetChanged();
-                            }
-                        });
-
-                    }
-                }
             }
         });
 
