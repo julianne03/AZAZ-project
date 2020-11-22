@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,6 +23,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
@@ -71,6 +76,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private EditText comment_field;
     private ImageButton comment_btn;
     private ImageView update_review_btn;
+    private ImageView delete_review_btn;
 
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
@@ -213,6 +219,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         //리뷰를 쓴 사람에게만 수정 버튼 보여주기
         if(current_user_id.equals(item_user_id)) {
             update_review_btn.setVisibility(View.VISIBLE);
+            delete_review_btn.setVisibility(View.VISIBLE);
         }
 
         update_review_btn.setOnClickListener(new View.OnClickListener() {
@@ -221,6 +228,66 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                 Intent update = new Intent(DetailPageActivity.this,UpdateReviewActivity.class);
                 update.putExtra("review_id",review_id);
                 startActivity(update);
+            }
+        });
+
+        delete_review_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetailPageActivity.this);
+                builder.setTitle("글 삭제").setMessage("정말 리뷰를 삭제하시겠습니까?");
+
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (current_user_id.equals(item_user_id)) {
+                            Log.e("test", "if문 들어가짐");
+                            firebaseFirestore.collection("Reviews").document(review_id)
+                                    .delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.e("test", "delete success");
+                                            Toast.makeText(DetailPageActivity.this, "리뷰를 성공적으로 삭제했습니다!", Toast.LENGTH_LONG).show();
+                                            Intent main = new Intent(DetailPageActivity.this, MainActivity.class);
+                                            startActivity(main);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(DetailPageActivity.this, "리뷰를 삭제하는 도중에 오류가 발생했습니다!", Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                            firebaseFirestore.collection("Users/" + current_user_id + "/reviews")
+                                    .document(review_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.e("post delete", "Users의 post 삭제 완료");
+                                }
+                            });
+                        }
+                    }
+                });
+
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                    }
+                });
+                alertDialog.show();
             }
         });
 
@@ -256,6 +323,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_list_view = findViewById(R.id.comment_list);
 
         update_review_btn = findViewById(R.id.update_review_btn);
+        delete_review_btn = findViewById(R.id.delete_review_btn);
     }
 
     @Override

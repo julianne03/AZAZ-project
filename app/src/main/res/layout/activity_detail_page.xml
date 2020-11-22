@@ -330,6 +330,17 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_baseline_create_24" />
 
+                <ImageView
+                    android:id="@+id/delete_review_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="76dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/update_review_btn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_delete_24" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
