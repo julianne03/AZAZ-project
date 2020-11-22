@@ -235,7 +235,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetailPageActivity.this);
-                builder.setTitle("글 삭제").setMessage("정말 리뷰를 삭제하시겠습니까?");
+                builder.setTitle("리뷰 삭제").setMessage("정말 리뷰를 삭제하시겠습니까?");
 
                 builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
                     @Override

@@ -1,6 +1,9 @@
 package kr.hs.emirim.seungmin.javaproject_azaz.Fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -28,6 +31,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.rpc.Help;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
+import kr.hs.emirim.seungmin.javaproject_azaz.DetailPageActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.LoginActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 import kr.hs.emirim.seungmin.javaproject_azaz.SetupActivity;
@@ -129,9 +133,35 @@ public class SettingPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                firebaseAuth.signOut();
-                Intent loginIntent = new Intent(getContext(), LoginActivity.class);
-                startActivity(loginIntent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("로그아웃").setMessage("정말 로그아웃 하시겠습니까?");
+
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        firebaseAuth.signOut();
+                        Intent loginIntent = new Intent(getContext(), LoginActivity.class);
+                        startActivity(loginIntent);
+                    }
+                });
+
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                    }
+                });
+                alertDialog.show();
             }
         });
 
