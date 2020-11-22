@@ -69,6 +69,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
     private EditText comment_field;
     private ImageButton comment_btn;
+    private ImageView update_review_btn;
 
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
@@ -86,6 +87,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private String item_recommend;
     private String item_etc;
     private String current_user_id;
+    private String item_user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +104,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
         //전의 인텐트로부터 값 받아오기
         review_id = getIntent().getStringExtra("review_id");
+        item_user_id = getIntent().getStringExtra("item_user_id");
         user_image = getIntent().getStringExtra("user_image");
         user_name = getIntent().getStringExtra("user_name");
         item_name = getIntent().getStringExtra("item_name");
@@ -137,7 +140,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         detail_item_name.setText(item_name);
         detail_item_price.setText(item_price + "원");
         detail_item_brand.setText(item_brand);
-        detail_item_category.setText(item_category);
+        detail_item_category.setText("# "+item_category);
         detail_item_good.setText(item_good);
         detail_item_bad.setText(item_bad);
         detail_item_recommend.setText(item_recommend);
@@ -206,6 +209,11 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             });
         }
 
+        //리뷰를 쓴 사람에게만 수정 버튼 보여주기
+        if(current_user_id.equals(item_user_id)) {
+            update_review_btn.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private void updateLikesCount(int count) {
@@ -236,6 +244,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_field = findViewById(R.id.comment_field);
         comment_btn = findViewById(R.id.comment_btn);
         comment_list_view = findViewById(R.id.comment_list);
+
+        update_review_btn = findViewById(R.id.update_review_btn);
     }
 
     @Override

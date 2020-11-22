@@ -103,8 +103,8 @@
                     android:layout_marginStart="24dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 가격"
-                    android:textColor="#DDAA01"
-                    android:textSize="18sp"
+                    android:textColor="#FFD22B"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
@@ -115,8 +115,8 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 브랜드"
-                    android:textColor="#DDAA01"
-                    android:textSize="18sp"
+                    android:textColor="#EFB800"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@+id/detail_item_price"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
@@ -127,8 +127,8 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/notosans_bold"
                     android:text="상품 카테고리"
-                    android:textColor="#DDAA01"
-                    android:textSize="18sp"
+                    android:textColor="#EFB800"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@+id/detail_item_brand"
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_name" />
 
@@ -319,6 +319,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/detail_item_recommend"
                     app:srcCompat="@drawable/ic_baseline_add_box_24" />
 
+                <ImageView
+                    android:id="@+id/update_review_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="76dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_like_btn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_create_24" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
@@ -359,6 +370,8 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="415dp"
         android:layout_height="87dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
