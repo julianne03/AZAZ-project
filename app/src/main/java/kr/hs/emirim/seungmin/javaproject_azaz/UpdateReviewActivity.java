@@ -7,9 +7,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -179,64 +182,92 @@ public class UpdateReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                final String name = item_name.getText().toString();
-                final String price = item_price.getText().toString();
-                final String brand = item_brand.getText().toString();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                builder.setTitle("리뷰 수정").setMessage("정말 리뷰를 수정하시겠습니까?");
 
-                final String good = item_good.getText().toString();
-                final String bad = item_bad.getText().toString();
-                final String recommend = item_recommend.getText().toString();
-                final String etc = item_etc.getText().toString();
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
 
-                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category_text != null
-                        && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend) && !TextUtils.isEmpty(etc)
-                ) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        final String name = item_name.getText().toString();
+                        final String price = item_price.getText().toString();
+                        final String brand = item_brand.getText().toString();
 
-                    findViewById(R.id.update_review_progress).setVisibility(View.VISIBLE);
+                        final String good = item_good.getText().toString();
+                        final String bad = item_bad.getText().toString();
+                        final String recommend = item_recommend.getText().toString();
+                        final String etc = item_etc.getText().toString();
 
-                    Map<String, Object> itemMap = new HashMap<>();
+                        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(price) && !TextUtils.isEmpty(brand) && category_text != null
+                                && !TextUtils.isEmpty(good) && !TextUtils.isEmpty(bad) && !TextUtils.isEmpty(recommend) && !TextUtils.isEmpty(etc)
+                        ) {
 
-                    itemMap.put("item_name", name);
-                    itemMap.put("item_price", price);
-                    itemMap.put("item_brand", brand);
-                    itemMap.put("item_category", category_text);
-                    itemMap.put("user_id", current_user_id);
-                    itemMap.put("item_image1", item_image1_Uri.toString());
-                    itemMap.put("timestamp", FieldValue.serverTimestamp());
-                    itemMap.put("item_good", good);
-                    itemMap.put("item_bad", bad);
-                    itemMap.put("item_recommend", recommend);
-                    itemMap.put("item_etc", etc);
+                            findViewById(R.id.update_review_progress).setVisibility(View.VISIBLE);
 
-                    firebaseFirestore.collection("Reviews")
-                            .document(review_id)
-                            .set(itemMap)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(UpdateReviewActivity.this, "리뷰가 성공적으로 수정되었습니다!", Toast.LENGTH_LONG).show();
-                                        Intent mainIntent = new Intent(UpdateReviewActivity.this, MainActivity.class);
-                                        startActivity(mainIntent);
+                            Map<String, Object> itemMap = new HashMap<>();
+
+                            itemMap.put("item_name", name);
+                            itemMap.put("item_price", price);
+                            itemMap.put("item_brand", brand);
+                            itemMap.put("item_category", category_text);
+                            itemMap.put("user_id", current_user_id);
+                            itemMap.put("item_image1", item_image1_Uri.toString());
+                            itemMap.put("timestamp", FieldValue.serverTimestamp());
+                            itemMap.put("item_good", good);
+                            itemMap.put("item_bad", bad);
+                            itemMap.put("item_recommend", recommend);
+                            itemMap.put("item_etc", etc);
+
+                            firebaseFirestore.collection("Reviews")
+                                    .document(review_id)
+                                    .set(itemMap)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(UpdateReviewActivity.this, "리뷰가 성공적으로 수정되었습니다!", Toast.LENGTH_LONG).show();
+                                                Intent mainIntent = new Intent(UpdateReviewActivity.this, MainActivity.class);
+                                                startActivity(mainIntent);
 
 
-                                    }
-                                }
-                            });
+                                            }
+                                        }
+                                    });
 
-                    firebaseFirestore.collection("Users/" + current_user_id + "/reviews")
-                            .document(review_id)
-                            .set(itemMap)
+                            firebaseFirestore.collection("Users/" + current_user_id + "/reviews")
+                                    .document(review_id)
+                                    .set(itemMap)
 
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.e("NewPost -> User Post", "User 데베에 추가됨.");
-                                    }
-                                }
-                            });
-                }
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.e("NewPost -> User Post", "User 데베에 추가됨.");
+                                            }
+                                        }
+                                    });
+
+
+                        }
+                    }
+                });
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                    }
+                });
+                alertDialog.show();
             }
         });
 
