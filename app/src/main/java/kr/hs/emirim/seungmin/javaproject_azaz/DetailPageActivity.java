@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -213,6 +214,15 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         if(current_user_id.equals(item_user_id)) {
             update_review_btn.setVisibility(View.VISIBLE);
         }
+
+        update_review_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent update = new Intent(DetailPageActivity.this,UpdateReviewActivity.class);
+                update.putExtra("review_id",review_id);
+                startActivity(update);
+            }
+        });
 
     }
 
