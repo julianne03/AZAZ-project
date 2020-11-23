@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#79FFD740</color>
     <color name="category_click_color">#FF9C9C</color>
+    <color name="edit_text_under">#FEC141</color>
 </resources>

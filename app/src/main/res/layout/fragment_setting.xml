@@ -72,7 +72,7 @@
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:indeterminate="true"
-        android:indeterminateTint="#FF5252"
+        android:indeterminateTint="@color/edit_text_under"
         android:max="100"
         android:progress="0"
         android:visibility="invisible"

@@ -362,7 +362,7 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="#FF5252"
+            android:indeterminateTint="@color/edit_text_under"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/textView19"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
