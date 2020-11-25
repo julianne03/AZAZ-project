@@ -21,6 +21,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -56,6 +57,9 @@ public class SettingFragment extends Fragment {
     private EditText user_intro;
     private Button complete_btn;
     private ProgressBar setup_progress;
+    private ImageView backbtn;
+
+    private Fragment SettingPageFragment;
 
     private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
@@ -81,12 +85,14 @@ public class SettingFragment extends Fragment {
         fr_user_id = firebaseAuth.getCurrentUser().getUid();
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+        SettingPageFragment = new SettingPageFragment();
 
         user_image = v.findViewById(R.id.set_user_image);
         user_nickname = v.findViewById(R.id.set_user_nickname);
         user_intro = v.findViewById(R.id.set_user_intro);
         complete_btn = v.findViewById(R.id.fr_complete_btn);
         setup_progress = v.findViewById(R.id.fr_setup_progress);
+        backbtn = v.findViewById(R.id.back_set);
 
         complete_btn.setEnabled(false);
 
@@ -180,6 +186,14 @@ public class SettingFragment extends Fragment {
                         storeFireStore(null, user_name, user_introduce);
                     }
                 }
+            }
+        });
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container,SettingPageFragment).commit();
             }
         });
 

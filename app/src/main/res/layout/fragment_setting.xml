@@ -11,7 +11,7 @@
         android:id="@+id/set_user_image"
         android:layout_width="186dp"
         android:layout_height="183dp"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/profile"
         app:civ_border_color="#00FFFFFF"
@@ -41,11 +41,12 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans_bold"
         android:padding="7dp"
         android:text="내 정보 수정"
-        android:textSize="28dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,5 +96,15 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/set_user_nickname" />
+
+    <ImageView
+        android:id="@+id/back_set"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/back_btn_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

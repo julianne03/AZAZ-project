@@ -193,7 +193,7 @@ public class SetupActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(SetupActivity.this, "변경 내용이 성공적으로 업데이트 되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SetupActivity.this, "회원가입이 완료되었습니다!", Toast.LENGTH_LONG).show();
                     Intent mainIntent = new Intent(SetupActivity.this, MainActivity.class);
                     startActivity(mainIntent);
                     finish();
