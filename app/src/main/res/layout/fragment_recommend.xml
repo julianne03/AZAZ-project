@@ -13,7 +13,7 @@
         android:layout_width="120dp"
         android:layout_height="85dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="300dp"
         android:src="@drawable/category_sight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,20 +23,18 @@
         android:layout_width="120dp"
         android:layout_height="85dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="340dp"
         android:src="@drawable/category_hear"
         app:layout_constraintStart_toEndOf="@+id/re_sight"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/re_sight" />
 
     <ImageView
         android:id="@+id/re_touch"
         android:layout_width="120dp"
         android:layout_height="85dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="340dp"
         android:src="@drawable/category_touch"
         app:layout_constraintStart_toEndOf="@+id/re_hear"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/re_hear" />
 
     <ImageView
         android:id="@+id/re_imagine"
@@ -96,7 +94,8 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toTopOf="@+id/re_hear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +127,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:fontFamily="@font/notosans_light"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/tmoneyroundwindextrabold"
         android:text="아장아장"
         android:textColor="#000000"
         android:textSize="30sp"

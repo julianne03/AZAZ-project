@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,6 +44,10 @@ public class MyReviewFragment extends Fragment {
     private List<User> user_list;
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private ImageView empty_image;
+    private TextView empty_txt;
+    private ImageView back_main;
+
+    private Fragment SettingPageFragment;
 
     public MyReviewFragment() {
         // Required empty public constructor
@@ -59,6 +64,10 @@ public class MyReviewFragment extends Fragment {
 
         my_reivew_list_view = mView.findViewById(R.id.my_review_list_view);
         empty_image = mView.findViewById(R.id.empty_image_my);
+        empty_txt = mView.findViewById(R.id.my_empty_txt);
+        back_main = mView.findViewById(R.id.back_main);
+
+        SettingPageFragment = new SettingPageFragment();
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
@@ -66,6 +75,13 @@ public class MyReviewFragment extends Fragment {
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
         my_reivew_list_view.setLayoutManager(new GridLayoutManager(getActivity(),2));
         my_reivew_list_view.setAdapter(reviewRecyclerAdapter);
+
+        back_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container, SettingPageFragment).commit();
+            }
+        });
 
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
@@ -78,6 +94,7 @@ public class MyReviewFragment extends Fragment {
                     if(!value.isEmpty()) {
                         my_reivew_list_view.setVisibility(View.VISIBLE);
                         empty_image.setVisibility(View.GONE);
+                        empty_txt.setVisibility(View.GONE);
                     }
 
                     if(!value.isEmpty()) {
