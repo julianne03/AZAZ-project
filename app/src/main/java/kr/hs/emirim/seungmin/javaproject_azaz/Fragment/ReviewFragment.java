@@ -45,6 +45,7 @@ import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
+import kr.hs.emirim.seungmin.javaproject_azaz.category.AllFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.category.ElsethingFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.category.ExerciseFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.category.FocusFragment;
@@ -162,6 +163,7 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
             category_focus.setOnClickListener(this);
             category_language.setOnClickListener(this);
             category_elsething.setOnClickListener(this);
+            view.findViewById(R.id.category_all).setOnClickListener(this);
 
             Query firstQuery = firebaseFirestore.collection("Reviews")
                     .orderBy("timestamp",Query.Direction.DESCENDING);
@@ -294,8 +296,10 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.category_all :
+                getFragmentManager().beginTransaction().replace(R.id.category_review_container,new AllFragment()).commit();
+                break;
             case R.id.category_exercise :
-                category_exercise.getResources().getColor(R.color.category_click_color);
                 getFragmentManager().beginTransaction().replace(R.id.category_review_container,exerciseFragment).commit();
                 break;
             case R.id.category_sight :

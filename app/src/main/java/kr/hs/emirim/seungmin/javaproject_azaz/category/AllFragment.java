@@ -2,11 +2,6 @@ package kr.hs.emirim.seungmin.javaproject_azaz.category;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +10,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.SearchView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,18 +32,21 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
-import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.RecommendFragment;
+import kr.hs.emirim.seungmin.javaproject_azaz.MainActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
-public class ElsethingFragment extends Fragment {
+public class AllFragment extends Fragment {
 
-    private RecyclerView review_list_etc;
+    private RecyclerView review_list_all;
     private List<Review> review_list;
     private List<User> user_list;
 
@@ -50,31 +57,30 @@ public class ElsethingFragment extends Fragment {
     private Boolean isFirstPageFirstLoad = true;
 
 
-    public ElsethingFragment() {
+    public AllFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_elsething, container, false);
+        View view = inflater.inflate(R.layout.fragment_all, container, false);
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_etc = view.findViewById(R.id.review_list_elseth);
+        review_list_all = view.findViewById(R.id.review_list_all);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_etc.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        review_list_etc.setAdapter(reviewRecyclerAdapter);
-
+        review_list_all.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        review_list_all.setAdapter(reviewRecyclerAdapter);
 
         if (firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
 
-            review_list_etc.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            review_list_all.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
@@ -89,8 +95,8 @@ public class ElsethingFragment extends Fragment {
                 }
             });
 
-            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","기타");
-//                    .orderBy("timestamp",Query.Direction.DESCENDING);
+            Query firstQuery = firebaseFirestore.collection("Reviews")
+                    .orderBy("timestamp",Query.Direction.DESCENDING);
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
@@ -150,58 +156,6 @@ public class ElsethingFragment extends Fragment {
         }
 
         return view;
-    }
-
-
-
-    private void loadMoreReview() {
-
-        if(firebaseAuth.getCurrentUser() != null) {
-
-            Query nextQuery = firebaseFirestore.collection("Reviews")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .limit(3);
-
-            nextQuery.addSnapshotListener(getActivity(), new EventListener<QuerySnapshot>() {
-                @Override
-                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                    if(!value.isEmpty()) {
-
-                        if (error != null) {
-                            System.err.println(error);
-                        }
-
-                        for (DocumentChange doc : value.getDocumentChanges()) {
-                            if (doc.getType() == DocumentChange.Type.ADDED) {
-
-                                String reviewId = doc.getDocument().getId();
-                                final Review review = doc.getDocument().toObject(Review.class).withId(reviewId);
-
-                                String reviewUserId = doc.getDocument().getString("user_id");
-                                firebaseFirestore.collection("Users").document(reviewUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                                        if (task.isSuccessful()) {
-                                            Log.e("test", "firebasfirestore 동작 good2");
-                                            User user = task.getResult().toObject(User.class);
-
-                                            user_list.add(user);
-                                            review_list.add(review);
-
-                                        }
-                                        reviewRecyclerAdapter.notifyDataSetChanged();
-                                    }
-
-                                });
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
 
     }
 }

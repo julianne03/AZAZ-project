@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.PagerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
@@ -74,6 +75,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         mPager.setCurrentItem(0,true);
         mPager.setOffscreenPageLimit(2);
+        mPager.setSaveEnabled(false);
 
         //category initial
         re_etc = v.findViewById(R.id.re_etc);
@@ -148,4 +150,5 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
 
         }
     }
+
 }
