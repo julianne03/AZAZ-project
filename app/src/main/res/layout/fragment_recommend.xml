@@ -90,6 +90,17 @@
         app:layout_constraintStart_toEndOf="@+id/re_language"
         app:layout_constraintTop_toBottomOf="@+id/re_head" />
 
+    <ImageView
+        android:id="@+id/home_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/action_home"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
@@ -110,7 +121,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+        </androidx.viewpager2.widget.ViewPager2>
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/indicator"
