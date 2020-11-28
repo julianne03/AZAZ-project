@@ -33,6 +33,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_btn_image"
             tools:ignore="MissingConstraints" />
@@ -43,119 +44,111 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/notosans_bold"
         android:text="Q1 제품의 발달능력이 겹치는 경우는 어떡하나요?"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="355dp"
         android:layout_height="72dp"
-        android:layout_marginTop="124dp"
         android:fontFamily="@font/notosans_light"
         android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고
                       장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요."
         android:textColor="#707070"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <View
         android:id="@+id/bar"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:background="#CFCFCF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/notosans_bold"
         android:text="Q2 제품의 발달능력이 겹치는 경우는 어떡하나요?"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="355dp"
         android:layout_height="72dp"
-        android:layout_marginTop="276dp"
         android:fontFamily="@font/notosans_light"
         android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고
                       장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요."
         android:textColor="#707070"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <View
         android:id="@+id/bar1"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:background="#CFCFCF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/notosans_bold"
         android:text="Q3 제품의 발달능력이 겹치는 경우는 어떡하나요?"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/bar1" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="355dp"
         android:layout_height="72dp"
-        android:layout_marginTop="432dp"
         android:fontFamily="@font/notosans_light"
         android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고
                       장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요."
         android:textColor="#707070"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView19"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <View
         android:id="@+id/bar2"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:background="#CFCFCF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716"
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
         tools:ignore="MissingConstraints" />
 
 
