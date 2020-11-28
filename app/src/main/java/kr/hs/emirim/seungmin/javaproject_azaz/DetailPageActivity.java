@@ -341,58 +341,52 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void click_like_btn() {
-        like_btn.setOnClickListener(new View.OnClickListener() {
+
+        firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
+                .document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onClick(View view) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (!task.getResult().exists()) {
 
-                firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
-                        .document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (!task.getResult().exists()) {
+                    firebaseFirestore.collection("Reviews")
+                            .document(review_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.getResult().exists()) {
 
-                            firebaseFirestore.collection("Reviews")
-                                    .document(review_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                    if (task.getResult().exists()) {
+                                Review review = task.getResult().toObject(Review.class);
 
-                                        Review review = task.getResult().toObject(Review.class);
+                                Map<String, Object> likesMap = new HashMap<>();
+                                likesMap.put("timestamp", FieldValue.serverTimestamp());
 
-                                        Map<String, Object> likesMap = new HashMap<>();
-                                        likesMap.put("timestamp", FieldValue.serverTimestamp());
+                                Map<String, Object> itemMap = new HashMap<>();
+                                itemMap.put("item_name", review.getItem_name());
+                                Log.e("test", "review item name : " + review.getItem_name());
+                                itemMap.put("item_price", review.getItem_price());
+                                itemMap.put("item_brand", review.getItem_brand());
+                                itemMap.put("item_category", review.getItem_category());
+                                itemMap.put("item_image1", review.getItem_image1());
+                                itemMap.put("user_id", review.getUser_id());
+                                itemMap.put("item_good", review.getItem_good());
+                                itemMap.put("item_bad", review.getItem_bad());
+                                itemMap.put("item_recommend", review.getItem_recommend());
+                                itemMap.put("item_etc", review.getItem_etc());
+                                itemMap.put("timestamp", FieldValue.serverTimestamp());
 
-                                        Map<String, Object> itemMap = new HashMap<>();
-                                        itemMap.put("item_name", review.getItem_name());
-                                        Log.e("test", "review item name : " + review.getItem_name());
-                                        itemMap.put("item_price", review.getItem_price());
-                                        itemMap.put("item_brand", review.getItem_brand());
-                                        itemMap.put("item_category", review.getItem_category());
-                                        itemMap.put("item_image1", review.getItem_image1());
-                                        itemMap.put("user_id", review.getUser_id());
-                                        itemMap.put("item_good", review.getItem_good());
-                                        itemMap.put("item_bad", review.getItem_bad());
-                                        itemMap.put("item_recommend", review.getItem_recommend());
-                                        itemMap.put("item_etc", review.getItem_etc());
-                                        itemMap.put("timestamp", FieldValue.serverTimestamp());
+                                firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
+                                        .document(current_user_id).set(likesMap);
 
-                                        firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
-                                                .document(current_user_id).set(likesMap);
-
-                                        firebaseFirestore.collection("Users/" + current_user_id + "/Likes")
-                                                .document(review_id).set(itemMap);
-                                    }
-                                }
-                            });
-                        } else {
-                            firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
-                                    .document(current_user_id).delete();
-                            firebaseFirestore.collection("Users/" + current_user_id + "/Likes")
-                                    .document(review_id).delete();
+                                firebaseFirestore.collection("Users/" + current_user_id + "/Likes")
+                                        .document(review_id).set(itemMap);
+                            }
                         }
-                    }
-                });
-
+                    });
+                } else {
+                    firebaseFirestore.collection("Reviews/" + review_id + "/Likes")
+                            .document(current_user_id).delete();
+                    firebaseFirestore.collection("Users/" + current_user_id + "/Likes")
+                            .document(review_id).delete();
+                }
             }
         });
     }

@@ -2,6 +2,7 @@ package kr.hs.emirim.seungmin.javaproject_azaz.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.DetailPageActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
@@ -106,6 +113,75 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
             });
 
         }
+
+        //Like image change
+        if(currentUserId != null) {
+            firebaseFirestore.collection("Reviews/"+ReviewId+"/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(error == null) {
+                        if(value.exists()) {
+                            holder.likeBtn.setImageResource(R.drawable.like_btn_image_accent);
+                        } else {
+                            holder.likeBtn.setImageResource(R.drawable.like_btn_image);
+                        }
+                    }
+                }
+            });
+        }
+
+        holder.likeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                        .document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (!task.getResult().exists()) {
+
+                            firebaseFirestore.collection("Reviews")
+                                    .document(ReviewId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.getResult().exists()) {
+
+                                        Review review = task.getResult().toObject(Review.class);
+
+                                        Map<String, Object> likesMap = new HashMap<>();
+                                        likesMap.put("timestamp", FieldValue.serverTimestamp());
+
+                                        Map<String, Object> itemMap = new HashMap<>();
+                                        itemMap.put("item_name", review.getItem_name());
+                                        Log.e("test", "review item name : " + review.getItem_name());
+                                        itemMap.put("item_price", review.getItem_price());
+                                        itemMap.put("item_brand", review.getItem_brand());
+                                        itemMap.put("item_category", review.getItem_category());
+                                        itemMap.put("item_image1", review.getItem_image1());
+                                        itemMap.put("user_id", review.getUser_id());
+                                        itemMap.put("item_good", review.getItem_good());
+                                        itemMap.put("item_bad", review.getItem_bad());
+                                        itemMap.put("item_recommend", review.getItem_recommend());
+                                        itemMap.put("item_etc", review.getItem_etc());
+                                        itemMap.put("timestamp", FieldValue.serverTimestamp());
+
+                                        firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                                                .document(currentUserId).set(likesMap);
+
+                                        firebaseFirestore.collection("Users/" + currentUserId + "/Likes")
+                                                .document(ReviewId).set(itemMap);
+                                    }
+                                }
+                            });
+                        } else {
+                            firebaseFirestore.collection("Reviews/" + ReviewId + "/Likes")
+                                    .document(currentUserId).delete();
+                            firebaseFirestore.collection("Users/" + currentUserId + "/Likes")
+                                    .document(ReviewId).delete();
+                        }
+                    }
+                });
+            }
+        });
 
 
         holder.item_view.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +276,7 @@ public class ReviewRecyclerAdapter extends RecyclerView.Adapter<ReviewRecyclerAd
 
         public void findId() {
             item_view = mView.findViewById(R.id.item_view);
+            likeBtn = mView.findViewById(R.id.like_btn);
         }
 
         public void updateLikesCount(int count) {
