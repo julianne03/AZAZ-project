@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,6 +46,8 @@ public class ElsethingFragment extends Fragment {
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
 
+    private ImageView back_main;
+
     private Boolean isFirstPageFirstLoad = true;
 
 
@@ -60,7 +63,7 @@ public class ElsethingFragment extends Fragment {
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
         review_list_view = view.findViewById(R.id.review_list_elseth);
-
+        back_main = view.findViewById(R.id.back_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -84,6 +87,13 @@ public class ElsethingFragment extends Fragment {
                         //loadMoreReview();
                     }
 
+
+                }
+            });
+
+            back_main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
                 }
             });
