@@ -24,6 +24,11 @@ public class Banner1Fragment extends Fragment {
         startActivity(intent);
     }
 
+    public void onButtonclicked2(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.greenkid.co.kr/"));
+        startActivity(intent);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
