@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.PagerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
@@ -41,6 +42,8 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
     private ImageView re_imagine;
     private ImageView re_etc;
     private ImageView re_exercise;
+
+    private ImageView home_btn;
 
     private Fragment sightFragment;
     private Fragment touchFragment;
@@ -74,6 +77,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         mPager.setCurrentItem(0,true);
         mPager.setOffscreenPageLimit(2);
+        mPager.setSaveEnabled(false);
 
         //category initial
         re_etc = v.findViewById(R.id.re_etc);
@@ -85,6 +89,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         re_language = v.findViewById(R.id.re_language);
         re_sight = v.findViewById(R.id.re_sight);
         re_touch = v.findViewById(R.id.re_touch);
+        home_btn = v.findViewById(R.id.home_btn);
         category_init();
 
         re_sight.setOnClickListener(this);
@@ -96,6 +101,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
         re_focus.setOnClickListener(this);
         re_etc.setOnClickListener(this);
         re_exercise.setOnClickListener(this);
+        home_btn.setOnClickListener(this);
 
 
         return v;
@@ -117,35 +123,52 @@ public class RecommendFragment extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.re_exercise :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container,exerciseFragment).commit();
                 break;
             case R.id.re_sight :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, sightFragment).commit();
                 break;
             case R.id.re_etc :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, elsethFragment).commit();
                 break;
             case R.id.re_focus :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, focusFragment).commit();
                 break;
             case R.id.re_head :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, headFragment).commit();
                 break;
             case R.id.re_hear :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, hearingFragment).commit();
                 break;
             case R.id.re_imagine :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, imagineFragment).commit();
                 break;
             case R.id.re_language :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, languageFragment).commit();
                 break;
             case R.id.re_touch :
+                home_btn.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.category_container, touchFragment).commit();
+                break;
+            case R.id.home_btn :
+                Fragment fragment = getFragmentManager().findFragmentById(R.id.category_container);
+                if(fragment!=null) {
+                    getFragmentManager().beginTransaction().remove(fragment).commit();
+                }
+                home_btn.setVisibility(View.INVISIBLE);
                 break;
             default:
                 return;
 
         }
     }
+
 }

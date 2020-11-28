@@ -1,6 +1,5 @@
 package kr.hs.emirim.seungmin.javaproject_azaz.category;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,12 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -32,12 +29,11 @@ import java.util.List;
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
-import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 public class LanguageFragment extends Fragment {
 
-    private RecyclerView review_list_exercise;
+    private RecyclerView review_list_language;
     private List<Review> review_list;
     private List<User> user_list;
 
@@ -59,20 +55,20 @@ public class LanguageFragment extends Fragment {
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_exercise = view.findViewById(R.id.review_list_language);
+        review_list_language = view.findViewById(R.id.review_list_language);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_exercise.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        review_list_exercise.setAdapter(reviewRecyclerAdapter);
+        review_list_language.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        review_list_language.setAdapter(reviewRecyclerAdapter);
 
 
         if (firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
 
-            review_list_exercise.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            review_list_language.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
