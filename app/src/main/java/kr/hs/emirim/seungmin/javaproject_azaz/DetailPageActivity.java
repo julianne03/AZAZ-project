@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -80,6 +81,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
+    private CollectionReference collectionReference;
 
     private String review_id;
     private String user_image;
@@ -124,6 +126,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         item_recommend = getIntent().getStringExtra("item_recommend");
         item_etc = getIntent().getStringExtra("item_etc");
 
+        collectionReference = FirebaseFirestore.getInstance().collection("Reviews/"+review_id+"/Comments");
+
         findid();
 
         detail_back_btn.setOnClickListener(this);
@@ -132,7 +136,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
         //댓글 리스트
         commentsList = new ArrayList<>();
-        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList);
+        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList,review_id);
         comment_list_view.setHasFixedSize(true);
         comment_list_view.setLayoutManager(new LinearLayoutManager(this));
         comment_list_view.setAdapter(commentsRecyclerAdapter);
@@ -392,35 +396,38 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void send_comment() {
-        comment_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
                 String comment_message = comment_field.getText().toString();
 
                 if (!TextUtils.isEmpty(comment_message)) {
+
+                    String newDocID = collectionReference.document().getId();
+
                     Map<String, Object> commentsMap = new HashMap<>();
                     commentsMap.put("message", comment_message);
                     commentsMap.put("user_id", current_user_id);
                     commentsMap.put("timestamp", FieldValue.serverTimestamp());
+                    commentsMap.put("comment_id",newDocID);
 
-                    firebaseFirestore.collection("Reviews/" + review_id + "/Comments").add(commentsMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
-                            } else {
-                                comment_field.setText("");
-                            }
-                        }
-                    });
+                    firebaseFirestore.collection("Reviews/" + review_id + "/Comments")
+                            .document(newDocID)
+                            .set(commentsMap)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                                    } else {
+                                        comment_field.setText("");
+                                    }
+                                }
+                            });
                 } else {
                     Toast.makeText(DetailPageActivity.this, "댓글을 입력해주세요!", Toast.LENGTH_SHORT).show();
                 }
 
 
             }
-        });
-    }
 }
