@@ -1,16 +1,590 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFF2DF"
     tools:context=".Fragment.HelpFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/banner_1"
+                    android:layout_width="366dp"
+                    android:layout_height="271dp"
+                    android:layout_marginTop="70dp"
+                    android:background="@drawable/item_edit_background_long"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="1 베이비노리터"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/banner_1"
+                    app:layout_constraintTop_toTopOf="@+id/banner_1"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/bar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="#CCCCCC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/baby_noriter"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/banner_1"
+                    app:layout_constraintTop_toBottomOf="@+id/bar1"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="수입유아용품 대여전문"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_1"
+                    app:layout_constraintTop_toBottomOf="@+id/bar1"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="191dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="새상품 위주, 철저한 소독관리"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_1"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_1"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="24시간 상담"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_2"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_2"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/btn_1"
+                    android:layout_width="79dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_background"
+                    android:fontFamily="@font/notosans_light"
+                    android:onClick="onButtonclicked"
+                    android:text="사이트"
+                    app:layout_constraintBottom_toBottomOf="@+id/banner_1"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_1"
+                    tools:ignore="MissingConstraints,OnClick" />
+
+                <ImageView
+                    android:id="@+id/baby_noriter"
+                    android:layout_width="174dp"
+                    android:layout_height="63dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_1"
+                    app:layout_constraintTop_toTopOf="@+id/banner_1"
+                    app:srcCompat="@drawable/baby_noriter"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/banner_2"
+                    android:layout_width="366dp"
+                    android:layout_height="271dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/item_edit_background_long"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_1"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="191dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="중고장난감 판매"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="2 그린키드"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/banner_2"
+                    app:layout_constraintTop_toTopOf="@+id/banner_2"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/bar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="#CCCCCC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/greenkid"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/banner_2"
+                    app:layout_constraintTop_toBottomOf="@+id/bar2"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="저렴한 가격"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_4"
+                    app:layout_constraintTop_toBottomOf="@+id/bar2"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="시설대여"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/btn_2"
+                    android:layout_width="79dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_background"
+                    android:fontFamily="@font/notosans_light"
+                    android:onClick="onButtonclicked2"
+                    android:text="사이트"
+                    app:layout_constraintBottom_toBottomOf="@+id/banner_2"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_2"
+                    tools:ignore="MissingConstraints,OnClick" />
+
+                <ImageView
+                    android:id="@+id/great_icon_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_5"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_5"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/greenkid"
+                    android:layout_width="174dp"
+                    android:layout_height="63dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_2"
+                    app:layout_constraintTop_toTopOf="@+id/banner_2"
+                    app:srcCompat="@drawable/greenkid"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_4"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_4"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/banner_3"
+                    android:layout_width="366dp"
+                    android:layout_height="271dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/item_edit_background_long"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_2"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="170가지 장난감"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_9"
+                    app:layout_constraintTop_toBottomOf="@+id/textVie12"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textVie12"
+                    android:layout_width="191dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="3가지씩 선택"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_7"
+                    app:layout_constraintTop_toBottomOf="@+id/bar3"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/bar3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="#CCCCCC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bebeboxtoys"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="3 베베박스토이즈"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/banner_3"
+                    app:layout_constraintTop_toTopOf="@+id/banner_3"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/banner_3"
+                    app:layout_constraintTop_toBottomOf="@+id/bar3"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/btn_3"
+                    android:layout_width="79dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_background"
+                    android:fontFamily="@font/notosans_light"
+                    android:onClick="onButtonclicked3"
+                    android:text="사이트"
+                    app:layout_constraintBottom_toBottomOf="@+id/banner_3"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_3"
+                    tools:ignore="MissingConstraints,OnClick" />
+
+                <ImageView
+                    android:id="@+id/great_icon_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_9"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_9"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/bebeboxtoys"
+                    android:layout_width="174dp"
+                    android:layout_height="63dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_3"
+                    app:layout_constraintTop_toTopOf="@+id/banner_3"
+                    app:srcCompat="@drawable/bebeboxtoys"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_7"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_7"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="교체사용 서비스"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/banner_4"
+                    android:layout_width="366dp"
+                    android:layout_height="271dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/item_edit_background_long"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_3"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textVie14"
+                    android:layout_width="191dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="각 지역마다 위치"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_12"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="223dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="양육에 필요한 다양한 서비스 제공"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_10"
+                    app:layout_constraintTop_toBottomOf="@+id/bar4"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="4 육아종합지원센터"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/banner_4"
+                    app:layout_constraintTop_toTopOf="@+id/banner_4"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/banner_4"
+                    app:layout_constraintTop_toBottomOf="@+id/bar4"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/btn_4"
+                    android:layout_width="79dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_background"
+                    android:fontFamily="@font/notosans_light"
+                    android:onClick="onButtonclicked4"
+                    android:text="사이트"
+                    app:layout_constraintBottom_toBottomOf="@+id/banner_4"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_4"
+                    tools:ignore="MissingConstraints,OnClick" />
+
+                <ImageView
+                    android:id="@+id/great_icon_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_12"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_12"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/center"
+                    android:layout_width="174dp"
+                    android:layout_height="63dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_4"
+                    app:layout_constraintTop_toTopOf="@+id/banner_4"
+                    app:srcCompat="@drawable/babycenter"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/notosans_light"
+                    android:text="검색 후 대여 가능"
+                    android:textColor="#707070"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/great_icon_11"
+                    app:layout_constraintTop_toBottomOf="@+id/textVie14"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/great_icon_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_favorite_yellow"
+                    app:layout_constraintStart_toStartOf="@+id/great_icon_10"
+                    app:layout_constraintTop_toBottomOf="@+id/great_icon_10"
+                    tools:ignore="MissingConstraints" />
+
+                <View
+                    android:id="@+id/bar4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="#CCCCCC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/center"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="52dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,266 +613,5 @@
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/banner_1"
-        android:layout_width="366dp"
-        android:layout_height="271dp"
-        android:background="@drawable/item_edit_background_long"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/notosans_bold"
-        android:text="1 베이비노리터"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="93dp" />
-
-    <View
-        android:id="@+id/bar1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="#CCCCCC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="153dp" />
-
-    <ImageView
-        android:id="@+id/great_icon_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_yellow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="174dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="154dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/notosans_light"
-        android:text="수입유아용품 대여전문"
-        android:textColor="#707070"
-        android:textSize="15sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="164dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="191dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/notosans_light"
-        android:text="새상품 위주, 철저한 소독관리"
-        android:textColor="#707070"
-        android:textSize="15sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="205dp" />
-
-    <ImageView
-        android:id="@+id/great_icon_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_yellow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="215dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="154dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/notosans_light"
-        android:text="24시간 상담"
-        android:textColor="#707070"
-        android:textSize="15sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="246dp" />
-
-    <ImageView
-        android:id="@+id/great_icon_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_yellow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="256dp" />
-
-    <Button
-        android:id="@+id/btn_1"
-        android:layout_width="79dp"
-        android:layout_height="40dp"
-        android:background="@drawable/btn_background"
-        android:fontFamily="@font/notosans_light"
-        android:text="사이트"
-        android:onClick="onButtonclicked"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.415"
-        tools:ignore="MissingConstraints,OnClick"
-        tools:layout_editor_absoluteX="293dp" />
-
-    <ImageView
-        android:id="@+id/baby_noriter"
-        android:layout_width="174dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"
-        app:srcCompat="@drawable/baby_noriter"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/banner_2"
-        android:layout_width="366dp"
-        android:layout_height="271dp"
-        android:background="@drawable/item_edit_background_long"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="191dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/notosans_light"
-        android:text="중고장난감 판매"
-        android:textColor="#707070"
-        android:textSize="15sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="489dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/notosans_bold"
-        android:text="2 그린키드"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="377dp" />
-
-    <View
-        android:id="@+id/bar2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="#CCCCCC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="437dp" />
-
-    <ImageView
-        android:id="@+id/great_icon_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_yellow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="458dp" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="154dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/notosans_light"
-        android:text="저렴한 가격"
-        android:textColor="#707070"
-        android:textSize="15sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="448dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="154dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/notosans_light"
-        android:text="시설대여 가능"
-        android:textColor="#707070"
-        android:textSize="15sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="530dp" />
-
-    <Button
-        android:id="@+id/btn_2"
-        android:layout_width="79dp"
-        android:layout_height="40dp"
-        android:background="@drawable/btn_background"
-        android:fontFamily="@font/notosans_light"
-        android:onClick="onButtonclicked2"
-        android:text="사이트"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826"
-        tools:ignore="MissingConstraints,OnClick"
-        tools:layout_editor_absoluteX="293dp" />
-
-    <ImageView
-        android:id="@+id/great_icon_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_yellow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="540dp" />
-
-    <ImageView
-        android:id="@+id/greenkid"
-        android:layout_width="174dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546"
-        app:srcCompat="@drawable/greenkid"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/great_icon_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_favorite_yellow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="499dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
