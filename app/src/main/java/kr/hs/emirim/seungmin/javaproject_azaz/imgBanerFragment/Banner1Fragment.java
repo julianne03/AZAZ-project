@@ -1,5 +1,7 @@
 package kr.hs.emirim.seungmin.javaproject_azaz.imgBanerFragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +19,15 @@ public class Banner1Fragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void onButtonclicked(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://babynoriter.com/"));
+        startActivity(intent);
+    }
+
+    public void onButtonclicked2(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.greenkid.co.kr/"));
+        startActivity(intent);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

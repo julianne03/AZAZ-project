@@ -382,8 +382,8 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="415dp"
         android:layout_height="87dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:background="#FFF2DF"
+        android:backgroundTint="#FFF2DF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
