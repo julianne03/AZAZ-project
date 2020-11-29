@@ -40,5 +40,143 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/banner_1"
+        android:layout_width="366dp"
+        android:layout_height="271dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/item_edit_background_long"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans_bold"
+        android:text="키니스장난감병원"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/banner_1"
+        app:layout_constraintTop_toTopOf="@+id/banner_1"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/toy_hospital"
+        android:layout_width="174dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/banner_1"
+        app:srcCompat="@drawable/toyhospital"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/bar1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:background="#CCCCCC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toy_hospital"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/great_icon_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_favorite_yellow"
+        app:layout_constraintStart_toStartOf="@+id/banner_1"
+        app:layout_constraintTop_toBottomOf="@+id/bar1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/notosans_light"
+        android:text="네이버카페"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/great_icon_1"
+        app:layout_constraintTop_toBottomOf="@+id/bar1"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/great_icon_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_favorite_yellow"
+        app:layout_constraintStart_toStartOf="@+id/great_icon_1"
+        app:layout_constraintTop_toBottomOf="@+id/great_icon_1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/notosans_light"
+        android:text="비영리 민간단체"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/great_icon_2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/great_icon_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_favorite_yellow"
+        app:layout_constraintStart_toStartOf="@+id/great_icon_2"
+        app:layout_constraintTop_toBottomOf="@+id/great_icon_2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/notosans_light"
+        android:text="무료로 장난감을 수리, 기부"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/great_icon_3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="79dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_background"
+        android:fontFamily="@font/notosans_light"
+        android:onClick="onButtonclicked"
+        android:text="사이트"
+        app:layout_constraintBottom_toBottomOf="@+id/banner_1"
+        app:layout_constraintEnd_toEndOf="@+id/banner_1"
+        tools:ignore="MissingConstraints,OnClick" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
