@@ -72,6 +72,37 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/category_all"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/all_text"
+                    android:layout_width="57dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="start|center_horizontal|center_vertical"
+                    android:text="전체"
+                    android:textAlignment="center"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/all"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/eye" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/category_sight"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"

@@ -128,7 +128,7 @@ public class ExerciseFragment extends Fragment {
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                                         if(task.isSuccessful()) {
-                                            Log.e("test","firebasfirestore 동작 good");
+                                            Log.e("test","firebasfirestore 동작 ex good");
                                             User user = task.getResult().toObject(User.class);
 
                                             if(isFirstPageFirstLoad) {
@@ -139,7 +139,7 @@ public class ExerciseFragment extends Fragment {
                                                 review_list.add(0,review);
                                             }
 
-                                            Log.e("test","firebase add good");
+                                            Log.e("test","firebase add ex good");
 
                                         }
                                         reviewRecyclerAdapter.notifyDataSetChanged();

@@ -131,7 +131,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bar1" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/my_empty_txt"
         android:layout_width="355dp"
         android:layout_height="72dp"
         android:fontFamily="@font/notosans_light"
@@ -152,7 +152,7 @@
         android:background="#CFCFCF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/my_empty_txt"
         tools:ignore="MissingConstraints" />
 
 

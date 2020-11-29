@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.Adapter.ReviewRecyclerAdapter;
+import kr.hs.emirim.seungmin.javaproject_azaz.Fragment.RecommendFragment;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.Review;
 import kr.hs.emirim.seungmin.javaproject_azaz.Model.User;
 import kr.hs.emirim.seungmin.javaproject_azaz.NewPostActivity;
@@ -38,15 +39,13 @@ import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
 public class ElsethingFragment extends Fragment {
 
-    private RecyclerView review_list_view;
+    private RecyclerView review_list_etc;
     private List<Review> review_list;
     private List<User> user_list;
 
     private FirebaseFirestore firebaseFirestore;
     private ReviewRecyclerAdapter reviewRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
-
-    private ImageView back_main;
 
     private Boolean isFirstPageFirstLoad = true;
 
@@ -62,21 +61,20 @@ public class ElsethingFragment extends Fragment {
 
         review_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        review_list_view = view.findViewById(R.id.review_list_elseth);
-        back_main = view.findViewById(R.id.back_main);
+        review_list_etc = view.findViewById(R.id.review_list_elseth);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         reviewRecyclerAdapter = new ReviewRecyclerAdapter(review_list, user_list);
-        review_list_view.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        review_list_view.setAdapter(reviewRecyclerAdapter);
+        review_list_etc.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        review_list_etc.setAdapter(reviewRecyclerAdapter);
 
 
         if (firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
 
-            review_list_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            review_list_etc.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
@@ -87,13 +85,6 @@ public class ElsethingFragment extends Fragment {
                         //loadMoreReview();
                     }
 
-
-                }
-            });
-
-            back_main.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
                 }
             });

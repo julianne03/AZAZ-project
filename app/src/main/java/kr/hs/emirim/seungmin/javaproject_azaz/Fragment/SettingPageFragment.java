@@ -9,7 +9,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,6 +52,8 @@ public class SettingPageFragment extends Fragment {
 
     private Fragment SettingFragment;
     private Fragment HelpFragment;
+
+    private ConstraintLayout set_page_fragment;
 
     public SettingPageFragment() {
         // Required empty public constructor
@@ -128,6 +132,7 @@ public class SettingPageFragment extends Fragment {
         user_name = mView.findViewById(R.id.user_profile_name);
         update_user = mView.findViewById(R.id.update_user);
         help_btn = mView.findViewById(R.id.help_btn);
+        set_page_fragment = mView.findViewById(R.id.set_page_fragment_container);
 
         action_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,28 +170,44 @@ public class SettingPageFragment extends Fragment {
             }
         });
 
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
         update_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                set_page_fragment.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,SettingFragment).commit();
+                button_click_false();
             }
         });
 
         help_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                set_page_fragment.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,HelpFragment).commit();
+                button_click_false();
             }
         });
 
         review_count.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                set_page_fragment.setVisibility(View.VISIBLE);
                 getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,new MyReviewFragment()).commit();
+                button_click_false();
             }
         });
 
         return mView;
+    }
+
+    private void button_click_false() {
+        review_count.setClickable(false);
+        update_user.setClickable(false);
+        help_btn.setClickable(false);
+        action_logout.setClickable(false);
+
     }
 
     private void initial() {
