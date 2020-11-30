@@ -98,7 +98,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="자신에 대한 간단한 소개를 써주세요!"
+            android:hint="가입 이유를 알려주세요!"
             android:inputType="textShortMessage|textLongMessage|textPersonName|textImeMultiLine"
             android:maxLength="50"
             android:textColorHint="#FF4081"
