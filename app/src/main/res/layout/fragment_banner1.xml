@@ -23,7 +23,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="1250dp">
 
                 <TextView
                     android:id="@+id/banner_1"
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_bold"
+                    android:fontFamily="@font/tmoneyroundwindextrabold"
                     android:text="1 베이비노리터"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -81,26 +81,26 @@
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="13dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="수입유아용품 대여전문"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_1"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_1"
-                    app:layout_constraintTop_toBottomOf="@+id/bar1"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_1"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="191dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="새상품 위주, 철저한 소독관리"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_2"
                     app:layout_constraintStart_toStartOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_2"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView
@@ -117,13 +117,13 @@
                     android:id="@+id/textView4"
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="24시간 상담"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_3"
                     app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_3"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView
@@ -143,7 +143,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/btn_background"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="@font/tmoneyroundwindregular"
                     android:onClick="onButtonclicked"
                     android:text="사이트"
                     app:layout_constraintBottom_toBottomOf="@+id/banner_1"
@@ -177,13 +177,13 @@
                     android:layout_width="191dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="18dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="중고장난감 판매"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_5"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_5"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_bold"
+                    android:fontFamily="@font/tmoneyroundwindextrabold"
                     android:text="2 그린키드"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -230,13 +230,13 @@
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="13dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="저렴한 가격"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_4"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_4"
-                    app:layout_constraintTop_toBottomOf="@+id/bar2"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_4"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -244,13 +244,13 @@
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="시설대여"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_6"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_6"
-                    app:layout_constraintTop_toBottomOf="@+id/textView7"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_6"
                     tools:ignore="MissingConstraints" />
 
                 <Button
@@ -260,7 +260,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/btn_background"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="@font/tmoneyroundwindregular"
                     android:onClick="onButtonclicked2"
                     android:text="사이트"
                     app:layout_constraintBottom_toBottomOf="@+id/banner_2"
@@ -315,13 +315,13 @@
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="170가지 장난감"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_9"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_9"
-                    app:layout_constraintTop_toBottomOf="@+id/textVie12"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_9"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -329,13 +329,13 @@
                     android:layout_width="191dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="3가지씩 선택"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_7"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_7"
-                    app:layout_constraintTop_toBottomOf="@+id/bar3"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_7"
                     tools:ignore="MissingConstraints" />
 
                 <View
@@ -358,7 +358,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_bold"
+                    android:fontFamily="@font/tmoneyroundwindextrabold"
                     android:text="3 베베박스토이즈"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -384,7 +384,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/btn_background"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="@font/tmoneyroundwindregular"
                     android:onClick="onButtonclicked3"
                     android:text="사이트"
                     app:layout_constraintBottom_toBottomOf="@+id/banner_3"
@@ -426,13 +426,13 @@
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="18dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="교체사용 서비스"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_8"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_8"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -440,9 +440,7 @@
                     android:layout_width="366dp"
                     android:layout_height="271dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
                     android:background="@drawable/item_edit_background_long"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.488"
                     app:layout_constraintStart_toStartOf="parent"
@@ -454,13 +452,13 @@
                     android:layout_width="191dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="18dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="각 지역마다 위치"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_12"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_12"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_12"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -468,13 +466,13 @@
                     android:layout_width="223dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="13dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="양육에 필요한 다양한 서비스 제공"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_10"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_10"
-                    app:layout_constraintTop_toBottomOf="@+id/bar4"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_10"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -483,7 +481,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/notosans_bold"
+                    android:fontFamily="@font/tmoneyroundwindextrabold"
                     android:text="4 육아종합지원센터"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -509,7 +507,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/btn_background"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="@font/tmoneyroundwindregular"
                     android:onClick="onButtonclicked4"
                     android:text="사이트"
                     app:layout_constraintBottom_toBottomOf="@+id/banner_4"
@@ -542,13 +540,13 @@
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/notosans_light"
+                    android:fontFamily="sans-serif"
                     android:text="검색 후 대여 가능"
                     android:textColor="#707070"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/great_icon_11"
                     app:layout_constraintStart_toEndOf="@+id/great_icon_11"
-                    app:layout_constraintTop_toBottomOf="@+id/textVie14"
+                    app:layout_constraintTop_toTopOf="@+id/great_icon_11"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView

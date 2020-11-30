@@ -205,8 +205,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         }
 
         //Like image change
+        //좋아요가 눌러져 있을 경우에는 색이 칠해져 있는 하트가 뜨고, 반대는 칠해져 있지 않은 하트 나타내기
         if(current_user_id != null) {
-            firebaseFirestore.collection("Reviews/"+review_id+"/Likes").document(current_user_id).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            firebaseFirestore.collection("Reviews/"+review_id+"/Likes").document(current_user_id).addSnapshotListener(
+                    new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                     if(error == null) {

@@ -11,12 +11,12 @@ import android.widget.ImageView;
 
 import kr.hs.emirim.seungmin.javaproject_azaz.R;
 
-public class HelpFragment extends Fragment {
+public class AppSettingFragment extends Fragment {
 
     private ImageView back_main;
     private Fragment SettingPageFragment;
 
-    public HelpFragment() {
+    public AppSettingFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class HelpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_help, container, false);
+        View v = inflater.inflate(R.layout.fragment_app_setting, container, false);
 
         back_main = v.findViewById(R.id.back_main);
         SettingPageFragment = new SettingPageFragment();
@@ -35,6 +35,9 @@ public class HelpFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container, SettingPageFragment).commit();
             }
         });
+
+
+
 
         return v;
     }

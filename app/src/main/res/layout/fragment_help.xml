@@ -56,10 +56,9 @@
     <TextView
         android:id="@+id/textView16"
         android:layout_width="355dp"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/notosans_light"
-        android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고
-                      장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요."
+        android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고                       장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요.\n\n추가적으로 장난감 대여에 관심이 있으신 분들은 추천페이지를 통해서 사이트에 방문해 주시길 바랍니다."
         android:textColor="#707070"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/textView15"
@@ -84,21 +83,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/notosans_bold"
-        android:text="Q2 제품의 발달능력이 겹치는 경우는 어떡하나요?"
+        android:text="Q2 실제로 제품을 구입하려면 어떻게 하나요?"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="355dp"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/notosans_light"
-        android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고
-                      장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요."
+        android:text="아장아장은 리뷰만을 다룬 앱이기 때문에 따로 구매절차는 도와드리지 않고 있습니다 ! 죄송하지만 각종 구매사이트에서 구매 후 사용해주시면 감사하겠습니다 ㅠㅠ"
         android:textColor="#707070"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/textView17"
@@ -123,20 +120,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/notosans_bold"
-        android:text="Q3 제품의 발달능력이 겹치는 경우는 어떡하나요?"
+        android:text="Q3 찜한 상품을 없애려면 어떻게 하나요?"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/bar1" />
 
     <TextView
         android:id="@+id/my_empty_txt"
         android:layout_width="355dp"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/notosans_light"
-        android:text="가장 주기능인 발달능력으로 카테고리를 설정해주시고
-                      장점에 다른 발달능력도 있다고 써주시면 좋을 것 같아요."
+        android:text="찜 페이지 또는 리뷰 페이지에서 해당 리뷰에 찜버튼을 눌러 해제해주시면 됩니다 !"
         android:textColor="#707070"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/textView19"

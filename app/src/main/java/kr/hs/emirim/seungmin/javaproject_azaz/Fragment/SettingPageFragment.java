@@ -49,6 +49,7 @@ public class SettingPageFragment extends Fragment {
     private TextView help_btn;
     private TextView action_logout;
     private TextView review_count;
+    private TextView app_setting;
 
     private Fragment SettingFragment;
     private Fragment HelpFragment;
@@ -133,6 +134,7 @@ public class SettingPageFragment extends Fragment {
         update_user = mView.findViewById(R.id.update_user);
         help_btn = mView.findViewById(R.id.help_btn);
         set_page_fragment = mView.findViewById(R.id.set_page_fragment_container);
+        app_setting = mView.findViewById(R.id.app_setting);
 
         action_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +174,15 @@ public class SettingPageFragment extends Fragment {
 
         final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+        app_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                set_page_fragment.setVisibility(View.VISIBLE);
+                getFragmentManager().beginTransaction().replace(R.id.set_page_fragment_container,new AppSettingFragment()).commit();
+                button_click_false();
+            }
+        });
+
         update_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,6 +214,8 @@ public class SettingPageFragment extends Fragment {
     }
 
     private void button_click_false() {
+
+        app_setting.setClickable(false);
         review_count.setClickable(false);
         update_user.setClickable(false);
         help_btn.setClickable(false);
