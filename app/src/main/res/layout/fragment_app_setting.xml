@@ -42,5 +42,142 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosans_bold"
+        android:text=" 아장아장에 처음오신 사용자님 환영합니다 ! \n\n
+저희 아장아장은 아기 장난감의 리뷰만을 다루는 앱으로\n
+여러 발달단계에 분류하여 리뷰를 보실 수 있습니다\n
+원활한 앱 이용이 되시길 바랍니다 !"
+        android:textColor="#000000"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/bar_1"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="#CFCFCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <TextView
+        android:id="@+id/text_2"
+        android:layout_width="391dp"
+        android:layout_height="83dp"
+        android:fontFamily="@font/notosans_light"
+        android:text=" 01 메인 페이지에서는 장난감 대여, 도서관, 병원을\n 추천해 드리고
+ 한눈에 볼 수 있는 카테고리로 리뷰를\n 보실 수 있습니다"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.362"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/bar_2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="#CFCFCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="334dp" />
+
+    <TextView
+        android:id="@+id/text_3"
+        android:layout_width="391dp"
+        android:layout_height="83dp"
+        android:fontFamily="@font/notosans_light"
+        android:text=" 02 리뷰 페이지에서는 장난감을 직접 사용한 경험자들의\n
+생생한 리뷰와 장단점, 추천 개월 수까지 상세한 리뷰 정보\n 를
+보실 수 있습니다"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/bar_3"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="#CFCFCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="448dp" />
+
+    <TextView
+        android:id="@+id/text_4"
+        android:layout_width="391dp"
+        android:layout_height="83dp"
+        android:fontFamily="@font/notosans_light"
+        android:text=" 03 사용자가 마음에 들었던 리뷰에 좋아요(찜)을 누르고\n
+찜 페이지에서 찜을 한 리뷰를 따로 보실 수 있습니다"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/bar_4"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="#CFCFCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="544dp" />
+
+    <TextView
+        android:id="@+id/text_5"
+        android:layout_width="391dp"
+        android:layout_height="83dp"
+        android:fontFamily="@font/notosans_light"
+        android:text=" 04 설정 페이지에서는 내가 쓴 리뷰, 회원 정보를 업데이트\n
+할 수 있습니다"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.858"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/bar_5"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="#CFCFCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="639dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
