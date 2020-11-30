@@ -202,8 +202,8 @@ public class NewPostActivity extends AppCompatActivity {
                                 uploadTask1.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                        // Firestore에 넣을 데이터를 HashMap 데이터 구조를 사용
                                         Map<String, Object> itemMap = new HashMap<>();
-
                                         itemMap.put("item_name", name);
                                         itemMap.put("item_price", price);
                                         itemMap.put("item_brand", brand);
@@ -215,11 +215,9 @@ public class NewPostActivity extends AppCompatActivity {
                                         itemMap.put("item_bad", bad);
                                         itemMap.put("item_recommend", recommend);
                                         itemMap.put("item_etc", etc);
-
+                                        // Firestore에 Reviews collection 안에 데이터 넣기
                                         firebaseFirestore.collection("Reviews").
-
                                                 add(itemMap).
-
                                                 addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -233,11 +231,9 @@ public class NewPostActivity extends AppCompatActivity {
                                                         }
                                                     }
                                                 });
-
+                                        // 자신의 리뷰를 보기 위해 Users안에 현재 자신의 id 안에 reviews에 데이터 넣기
                                         firebaseFirestore.collection("Users/" + current_user_id + "/reviews").
-
                                                 add(itemMap).
-
                                                 addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<DocumentReference> task) {

@@ -165,7 +165,7 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
             category_elsething.setOnClickListener(this);
             view.findViewById(R.id.category_all).setOnClickListener(this);
 
-            // Firestore에서 'Reviews' 라는 데이터베이스 테이블의 데이터 가져오기
+            // Firestore에서 'Reviews' 라는 데이터베이스 테이블의 데이터 가져오는 쿼리문
             // - 리뷰를 작성한 시간이 담겨있는 timestamp를 이용해 최신순으로 정렬하기
             Query firstQuery = firebaseFirestore.collection("Reviews")
                     .orderBy("timestamp",Query.Direction.DESCENDING);

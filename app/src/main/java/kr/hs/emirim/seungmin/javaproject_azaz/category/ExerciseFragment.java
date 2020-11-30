@@ -94,9 +94,9 @@ public class ExerciseFragment extends Fragment {
 
                 }
             });
-
-            Query firstQuery = firebaseFirestore.collection("Reviews").whereEqualTo("item_category","운동기관");
-//                    .orderBy("timestamp",Query.Direction.DESCENDING);
+            // - 위의 코드에서 where 절을 삽입하여 카테고리 별로 필터링
+            Query firstQuery = firebaseFirestore.collection("Reviews")
+                    .whereEqualTo("item_category","운동기관");
 
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
