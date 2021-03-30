@@ -194,11 +194,13 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             firebaseFirestore.collection("Reviews/"+review_id+"/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                    if(!value.isEmpty()) {
-                        int count = value.size();
-                        updateLikesCount(count);
-                    } else {
-                        updateLikesCount(0);
+                    if(error==null) {
+                        if(!value.isEmpty()) {
+                            int count = value.size();
+                            updateLikesCount(count);
+                        } else {
+                            updateLikesCount(0);
+                        }
                     }
                 }
             });

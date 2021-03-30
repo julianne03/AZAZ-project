@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF2DF"
-    tools:context=".category.AllFragment" >
+    android:background="#FFFFFF"
+    tools:context=".category.AllFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/review_list_all"

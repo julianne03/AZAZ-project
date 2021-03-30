@@ -182,7 +182,7 @@ public class UpdateReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateReviewActivity.this);
                 builder.setTitle("리뷰 수정").setMessage("정말 리뷰를 수정하시겠습니까?");
 
                 builder.setPositiveButton("네", new DialogInterface.OnClickListener() {

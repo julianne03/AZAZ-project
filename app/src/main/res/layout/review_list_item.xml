@@ -3,139 +3,127 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="330dp"
-    android:background="#FFF2DF">
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#000000"
-        android:backgroundTint="#F6F6F6"
-        app:cardBackgroundColor="#000000"
-        app:cardCornerRadius="7dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/item_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/review_user_image"
+            android:layout_width="37dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/profile"
+            app:civ_border_color="#FFC400"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_like_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_item_price"
+            tools:ignore="MissingClass,MissingConstraints" />
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/review_user_image"
-                android:layout_width="37dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/profile"
-                app:civ_border_color="#FFC400"
-                app:civ_border_width="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/detail_like_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_price"
-                tools:ignore="MissingClass,MissingConstraints" />
+        <TextView
+            android:id="@+id/review_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="13dp"
+            android:text="UserName"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/review_user_image"
+            app:layout_constraintTop_toBottomOf="@+id/review_item_price" />
 
-            <TextView
-                android:id="@+id/review_user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="13dp"
-                android:text="UserName"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/review_user_image"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_price" />
+        <TextView
+            android:id="@+id/review_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:text="category"
+            android:textColor="#939393"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/review_item_brand"
+            app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
-            <TextView
-                android:id="@+id/review_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:text="category"
-                android:textColor="#939393"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/review_item_brand"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
+        <ImageView
+            android:id="@+id/review_image1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/default_image" />
 
-            <ImageView
-                android:id="@+id/review_image1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/review_user_image"
-                app:srcCompat="@drawable/default_image" />
+        <TextView
+            android:id="@+id/review_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/notosans_bold"
+            android:text="item_name"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_image1" />
 
-            <TextView
-                android:id="@+id/review_item_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/notosans_bold"
-                android:text="item_name"
-                android:textColor="#000000"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/review_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="item_price"
+            android:textColor="#939393"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
-            <TextView
-                android:id="@+id/review_item_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="item_price"
-                android:textColor="#939393"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
+        <TextView
+            android:id="@+id/review_item_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="item_brand"
+            android:textColor="#939393"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/review_item_price"
+            app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
 
-            <TextView
-                android:id="@+id/review_item_brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="item_brand"
-                android:textColor="#939393"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/review_item_price"
-                app:layout_constraintTop_toBottomOf="@+id/review_item_name" />
+        <ImageView
+            android:id="@+id/like_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_user_image"
+            app:srcCompat="@drawable/like_btn_image" />
 
-            <ImageView
-                android:id="@+id/like_btn"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="54dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toEndOf="@+id/review_user_name"
-                app:layout_constraintTop_toBottomOf="@+id/review_category"
-                app:srcCompat="@drawable/like_btn_image" />
+        <TextView
+            android:id="@+id/item_like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="45"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/like_btn"
+            app:layout_constraintTop_toTopOf="@+id/like_btn" />
 
-            <TextView
-                android:id="@+id/item_like_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="11dp"
-                android:text="45"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/like_btn"
-                app:layout_constraintTop_toBottomOf="@+id/review_category" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

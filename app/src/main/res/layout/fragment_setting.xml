@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF2DF"
-    android:backgroundTint="#FFF2DF"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".Fragment.SettingFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +42,7 @@
             android:hint="닉네임을 입력하세요"
             android:inputType="textEmailAddress"
             android:padding="15dp"
-            android:textCursorDrawable="@drawable/cursor_color"
+            android:textCursorDrawable="@drawable/cursor_setting_color"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/set_user_image" />
@@ -63,9 +64,12 @@
             android:id="@+id/fr_complete_btn"
             android:layout_width="0dp"
             android:layout_height="59dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
-            android:backgroundTint="#FFD740"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#FFB854"
             android:text="완료"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -79,8 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="100dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
+            android:background="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:indeterminate="true"
             android:indeterminateTint="@color/edit_text_under"
             android:max="100"
@@ -102,7 +106,7 @@
             android:hint="가입 이유를 알려주세요!"
             android:inputType="textShortMessage|textLongMessage|textPersonName|textImeMultiLine"
             android:maxLength="50"
-            android:textCursorDrawable="@drawable/cursor_color"
+            android:textCursorDrawable="@drawable/cursor_setting_color"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/set_user_nickname" />
@@ -118,7 +122,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

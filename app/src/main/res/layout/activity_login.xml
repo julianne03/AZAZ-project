@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_image_2"
+    android:background="#FFB854"
+    android:backgroundTint="#FFB854"
     tools:context=".MainActivity">
 
     <EditText
@@ -12,21 +13,21 @@
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:backgroundTint="@color/edit_text_under"
         android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
         android:drawablePadding="10dp"
         android:fontFamily="sans-serif-medium"
         android:hint="이메일"
         android:inputType="textWebEmailAddress"
-        android:textColor="#000000"
-        android:textColorHint="#6A6262"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
         android:textCursorDrawable="@drawable/cursor_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -40,7 +41,9 @@
         android:fontFamily="sans-serif-medium"
         android:hint="비밀번호"
         android:inputType="textWebPassword"
-        android:textColorHint="#6A6262"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
         android:textCursorDrawable="@drawable/cursor_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,23 +61,12 @@
         android:fontFamily="@font/notosans_bold"
         android:gravity="center"
         android:text="로그인"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFB854"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_user_password"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="139dp"
-        android:layout_height="151dp"
-        android:layout_marginTop="108dp"
-        android:src="@drawable/azangazang_logo_round_new"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ProgressBar
@@ -103,6 +95,7 @@
         android:layout_marginStart="105dp"
         android:fontFamily="@font/notosans_bold"
         android:text="계정이 없으십니까?"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
@@ -121,5 +114,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="148dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

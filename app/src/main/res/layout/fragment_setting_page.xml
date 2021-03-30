@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF2DF"
-    android:backgroundTint="#FFF2DF"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".Fragment.SettingPageFragment">
 
-            <View
+    <View
         android:id="@+id/bar2"
         android:layout_width="409dp"
         android:layout_height="1dp"
@@ -56,7 +56,7 @@
         android:clickable="true"
         android:gravity="center"
         android:text="작성한 리뷰"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -182,7 +182,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

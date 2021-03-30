@@ -4,9 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF2DF"
-    android:backgroundTint="#FFF2DF"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".Fragment.ReviewFragment">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFB854"
+        android:backgroundTint="#FFB854"
+        app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/category_review_container"
@@ -24,16 +36,18 @@
             android:layout_height="624dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#E2FFD740"
+            android:backgroundTint="#FFB854"
             android:clickable="true"
             android:src="@drawable/add_review_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/review_list_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +101,7 @@
                     android:layout_gravity="right|center_vertical"
                     android:layout_marginRight="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/eye" />
+                    android:src="@drawable/all" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -378,10 +392,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/tmoneyroundwindextrabold"
+        android:fontFamily="sans-serif-black"
         android:text="Review"
-        android:textColor="#FF9100"
-        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

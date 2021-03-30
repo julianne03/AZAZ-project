@@ -4,20 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_image_2"
+    android:background="#FFB854"
+    android:backgroundTint="#FFB854"
     tools:context=".RegisterActivity">
 
-
-    <ImageView
-        android:id="@+id/img_logo2"
-        android:layout_width="141dp"
-        android:layout_height="151dp"
-        android:layout_marginTop="70dp"
-        android:src="@drawable/azangazang_logo_round_new"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <ProgressBar
         android:id="@+id/reg_progress"
@@ -49,8 +39,8 @@
         android:fontFamily="sans-serif-medium"
         android:hint="이메일"
         android:singleLine="true"
-        android:textColor="#000000"
-        android:textColorHint="#6A6262"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textCursorDrawable="@drawable/cursor_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,8 +61,8 @@
         android:hint="비밀번호(6자 이상)"
         android:inputType="textPassword"
         android:singleLine="true"
-        android:textColor="#000000"
-        android:textColorHint="#6A6262"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textCursorDrawable="@drawable/cursor_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +83,8 @@
         android:hint="비밀번호 확인"
         android:inputType="textPassword"
         android:singleLine="true"
-        android:textColor="#000000"
-        android:textColorHint="#6A6262"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textCursorDrawable="@drawable/cursor_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,12 +98,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/notosans_bold"
-        android:text="이메일 회원가입"
-        android:textColor="#000000"
-        android:textSize="30sp"
+        android:text="Sign up"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <Button
         android:id="@+id/next_btn"
@@ -122,7 +112,7 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/btn_background"
         android:text="다음"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFB854"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,9 +140,20 @@
         android:layout_marginStart="100dp"
         android:fontFamily="@font/notosans_bold"
         android:text="이미 계정이 있으십니까?"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/next_btn" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="142dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
